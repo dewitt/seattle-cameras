@@ -60,6 +60,12 @@
   .card.offline { opacity: 0.45; }
   .thumb-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
   .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb-wrap img.thumb-broken { display: none; }
+  .thumb-wrap .no-preview {
+    display: none; position: absolute; inset: 0; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 12px; text-align: center; padding: 8px;
+  }
+  .thumb-wrap img.thumb-broken + .no-preview { display: flex; }
   .badge {
     position: absolute; top: 6px; right: 6px; font-size: 10px; padding: 2px 6px;
     border-radius: 4px; background: rgba(0,0,0,0.6); color: var(--muted);
@@ -176,17 +182,39 @@ function render() {
     card.innerHTML = `
       <div class="thumb-wrap">
         <img loading="lazy" src="${thumbUrl(cam)}" alt="">
+        <span class="no-preview">No preview</span>
         <span class="badge ${offlineIds.has(cam.Id) ? 'offline' : ''}">${offlineIds.has(cam.Id) ? 'OFFLINE' : 'LIVE'}</span>
       </div>
       <div class="label">
         <div class="desc">${cam.Description}</div>
         <div class="hood">${cam.Id}</div>
       </div>`;
-    card.querySelector("img").addEventListener("error", () => {
-      offlineIds.add(cam.Id);
-      card.classList.add("offline");
-      card.querySelector(".badge").textContent = "OFFLINE";
-      card.querySelector(".badge").classList.add("offline");
+    const img = card.querySelector("img");
+    img.addEventListener("load", () => {
+      // SDOT sometimes serves a valid 200 OK image that's actually a static
+      // "Camera Under Maintenance" placeholder graphic (always 352x240) —
+      // that never fires an error event, but it's not a real preview frame.
+      // Real thumbnails are always full camera resolution. This says nothing
+      // about the live stream itself, which may work fine — see below.
+      if (img.naturalWidth === 352 && img.naturalHeight === 240) {
+        img.classList.add("thumb-broken");
+      }
+    });
+    img.addEventListener("error", () => {
+      const retries = Number(img.dataset.retries || 0);
+      // A single failed thumbnail fetch is often a transient blip — retry
+      // with backoff before giving up on the preview image.
+      if (retries < 2) {
+        img.dataset.retries = retries + 1;
+        setTimeout(() => { img.src = thumbUrl(cam); }, 2000 * (retries + 1));
+        return;
+      }
+      // The thumbnail service (seattle.gov) and the video stream (Wowza)
+      // are separate hosts — a dead thumbnail does NOT mean the camera's
+      // live feed is down, so only hide the broken preview image. Offline
+      // status is determined solely by actually trying to play the stream
+      // (see the HLS error handling in openModal).
+      img.classList.add("thumb-broken");
     });
     card.addEventListener("click", () => openModal(cam));
     grid.appendChild(card);
@@ -236,12 +264,25 @@ function openModal(cam) {
       }
       video.play().catch(() => {});
     });
+    let hlsRetries = 0;
     hls.on(Hls.Events.ERROR, (event, data) => {
-      if (data.fatal) {
-        offlineIds.add(cam.Id);
-        errEl.textContent = "This feed isn't responding right now (camera may be offline).";
-        errEl.style.display = "block";
+      if (!data.fatal) return;
+      // hls.js's own recommended recovery: a fatal network/media error is
+      // often recoverable (brief blip, keyframe glitch) rather than proof
+      // the camera is actually offline — try recovering before giving up.
+      if (hlsRetries < 2 && data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+        hlsRetries++;
+        hls.startLoad();
+        return;
       }
+      if (hlsRetries < 2 && data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+        hlsRetries++;
+        hls.recoverMediaError();
+        return;
+      }
+      offlineIds.add(cam.Id);
+      errEl.textContent = "This feed isn't responding right now (camera may be offline).";
+      errEl.style.display = "block";
     });
   } else {
     errEl.textContent = "This browser can't play HLS video.";
