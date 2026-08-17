@@ -42,6 +42,7 @@ html = """<!DOCTYPE html>
     --muted: #8b93a1;
     --accent: #4da3ff;
     --offline: #ff5d5d;
+    --thumb-bg: #000000;
   }
   * { box-sizing: border-box; }
   body {
@@ -85,7 +86,7 @@ html = """<!DOCTYPE html>
   }
   .card:hover { border-color: var(--accent); transform: translateY(-1px); }
   .card.offline { opacity: 0.45; }
-  .thumb-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+  .thumb-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--thumb-bg); }
   .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .thumb-wrap img.thumb-broken { display: none; }
   .thumb-wrap .no-preview {
@@ -95,7 +96,7 @@ html = """<!DOCTYPE html>
   .thumb-wrap img.thumb-broken + .no-preview { display: flex; }
   .badge {
     position: absolute; top: 6px; right: 6px; font-size: 10px; padding: 2px 6px;
-    border-radius: 4px; background: rgba(0,0,0,0.6); color: var(--muted);
+    border-radius: 4px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85);
   }
   .badge.offline { color: var(--offline); }
   .card .label { padding: 8px 10px; font-size: 13px; line-height: 1.3; }
@@ -126,7 +127,7 @@ html = """<!DOCTYPE html>
   @media (prefers-color-scheme: light) {
     :root {
       --bg: #f5f6f8; --panel: #ffffff; --panel2: #eef0f3; --border: #dde1e6;
-      --text: #1b1f24; --muted: #6b7280;
+      --text: #1b1f24; --muted: #6b7280; --thumb-bg: #d8dce2;
     }
   }
 </style>
