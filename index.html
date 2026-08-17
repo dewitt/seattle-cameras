@@ -43,6 +43,13 @@
     padding: 8px 10px; border-radius: 6px; font-size: 14px;
   }
   #hide-offline { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+  .filter-indicator { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-chip {
+    display: flex; align-items: center; gap: 6px; white-space: nowrap;
+    background: var(--accent); color: #fff; border: none; border-radius: 999px;
+    padding: 5px 10px; font-size: 12px; cursor: pointer;
+  }
+  .filter-chip:hover { opacity: 0.85; }
   main { padding: 16px; }
   .neighborhood-heading {
     font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
@@ -123,6 +130,7 @@
   <input id="search" type="text" placeholder="Search street or neighborhood…">
   <select id="neighborhood-filter"><option value="">All neighborhoods</option></select>
   <label id="hide-offline"><input type="checkbox" id="hide-offline-check"> Hide offline</label>
+  <div id="filter-indicator" class="filter-indicator"></div>
 </header>
 
 <main id="main"></main>
@@ -311,6 +319,35 @@ function render() {
   document.getElementById("visible-count").textContent = visible.length + " / " + CAMERAS.length + " cameras";
 }
 
+function renderFilterIndicator() {
+  const el = document.getElementById("filter-indicator");
+  el.innerHTML = "";
+  const hood = document.getElementById("neighborhood-filter").value;
+  const q = document.getElementById("search").value.trim();
+  if (hood) {
+    const chip = document.createElement("button");
+    chip.className = "filter-chip";
+    chip.title = "Clear neighborhood filter";
+    chip.textContent = hood + " ✕";
+    chip.addEventListener("click", () => {
+      document.getElementById("neighborhood-filter").value = "";
+      applyFilters();
+    });
+    el.appendChild(chip);
+  }
+  if (q) {
+    const chip = document.createElement("button");
+    chip.className = "filter-chip";
+    chip.title = "Clear search";
+    chip.textContent = "“" + q + "” ✕";
+    chip.addEventListener("click", () => {
+      document.getElementById("search").value = "";
+      applyFilters();
+    });
+    el.appendChild(chip);
+  }
+}
+
 function applyFilters() {
   const q = document.getElementById("search").value.trim().toLowerCase();
   const hood = document.getElementById("neighborhood-filter").value;
@@ -320,6 +357,7 @@ function applyFilters() {
     return true;
   });
   saveFilterState();
+  renderFilterIndicator();
   render();
 }
 
