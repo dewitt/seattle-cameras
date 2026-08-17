@@ -55,9 +55,9 @@
   }
   .card {
     background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
-    overflow: hidden; cursor: pointer; transition: border-color .15s, transform .15s;
+    overflow: hidden; cursor: pointer; transition: border-color .15s;
   }
-  .card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .card:hover { border-color: var(--accent); }
   .card.offline { opacity: 0.45; }
   .thumb-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--thumb-bg); }
   .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -88,6 +88,10 @@
   }
   #modal.open { display: flex; }
   #modal video { max-width: 96vw; max-height: 82vh; background: #000; }
+  /* Suppress Chrome's big centered "paused" play button + full-frame dark
+     scrim on hover; the normal bottom control bar is untouched. No-op in
+     browsers that don't recognize this Blink-specific pseudo-element. */
+  #modal video::-webkit-media-controls-overlay-enclosure { display: none !important; }
   #modal-title { color: var(--text); font-size: 15px; margin: 12px 0 4px; text-align: center; }
   #modal-sub { color: var(--muted); font-size: 12px; margin-bottom: 10px; text-align: center; }
   #modal-controls { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; justify-content: center; }
@@ -125,13 +129,14 @@
 
 <div id="modal">
   <button id="modal-close" title="Close (Esc)">✕</button>
-  <video id="modal-video" controls autoplay playsinline></video>
+  <video id="modal-video" controls autoplay playsinline muted></video>
   <div id="modal-title"></div>
   <div id="modal-sub"></div>
   <div id="modal-error"></div>
   <div id="modal-controls">
     <button id="btn-prev">← Prev</button>
     <button id="btn-fullscreen">Fullscreen</button>
+    <button id="btn-pip">Picture-in-Picture</button>
     <button id="btn-copy-link">Copy link</button>
     <button id="btn-next">Next →</button>
     <a id="btn-open-direct" href="#" target="_blank">Open direct .m3u8</a>
@@ -149,8 +154,26 @@ const SCROLL_KEY = "sc-scroll";
 let filtered = CAMERAS.slice();
 let currentIndex = -1;
 let hls = null;
+let subInterval = null;
 const offlineIds = new Set();
+const lastConfirmedAt = new Map();
 const camById = new Map(CAMERAS.map(c => [c.Id, c]));
+
+function formatAgo(ms) {
+  const secs = Math.round(ms / 1000);
+  if (secs < 5) return "just now";
+  if (secs < 60) return secs + "s ago";
+  const mins = Math.round(secs / 60);
+  if (mins < 60) return mins + "m ago";
+  const hrs = Math.round(mins / 60);
+  return hrs + "h ago";
+}
+function updateModalSub(cam) {
+  let sub = cam.Neighborhood + "  ·  " + cam.Id;
+  const t = lastConfirmedAt.get(cam.Id);
+  if (t) sub += "  ·  confirmed live " + formatAgo(Date.now() - t);
+  document.getElementById("modal-sub").textContent = sub;
+}
 
 function loadFavorites() {
   try { return new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]")); }
@@ -307,7 +330,7 @@ function openModal(cam) {
   const errEl = document.getElementById("modal-error");
   errEl.style.display = "none";
   document.getElementById("modal-title").textContent = cam.Description;
-  document.getElementById("modal-sub").textContent = cam.Neighborhood + "  ·  " + cam.Id;
+  updateModalSub(cam);
   document.getElementById("btn-open-direct").href = streamUrl(cam);
 
   const deepLink = new URL(location.href);
@@ -315,6 +338,15 @@ function openModal(cam) {
   history.replaceState(null, "", deepLink);
 
   if (hls) { hls.destroy(); hls = null; }
+  if (subInterval) clearInterval(subInterval);
+  subInterval = setInterval(() => updateModalSub(cam), 15000);
+  // "playing" fires whenever playback genuinely resumes (initial start, or
+  // after a stall/recovery) — a real signal the feed is live right now,
+  // independent of whatever HLS error/retry path got it there.
+  video.onplaying = () => {
+    lastConfirmedAt.set(cam.Id, Date.now());
+    updateModalSub(cam);
+  };
 
   const url = streamUrl(cam);
   if (video.canPlayType("application/vnd.apple.mpegurl")) {
@@ -327,6 +359,11 @@ function openModal(cam) {
     hls = new Hls({ capLevelToPlayerSize: false, startLevel: -1 });
     hls.loadSource(url);
     hls.attachMedia(video);
+    // Also try play() here, immediately, rather than waiting for the async
+    // MANIFEST_PARSED callback below — that callback can fire late enough
+    // to lose the original click's user-gesture context, which is enough
+    // for Chrome to silently block autoplay and leave the video paused.
+    video.play().catch(() => {});
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       // force the highest-bitrate variant available
       if (hls.levels && hls.levels.length > 1) {
@@ -368,7 +405,9 @@ function closeModal() {
   video.pause();
   video.removeAttribute("src");
   video.load();
+  video.onplaying = null;
   if (hls) { hls.destroy(); hls = null; }
+  if (subInterval) { clearInterval(subInterval); subInterval = null; }
 
   const deepLink = new URL(location.href);
   deepLink.searchParams.delete("cam");
@@ -390,6 +429,21 @@ document.getElementById("btn-next").addEventListener("click", () => step(1));
 document.getElementById("btn-fullscreen").addEventListener("click", () => {
   const video = document.getElementById("modal-video");
   if (video.requestFullscreen) video.requestFullscreen();
+});
+if (!document.pictureInPictureEnabled) {
+  document.getElementById("btn-pip").style.display = "none";
+}
+document.getElementById("btn-pip").addEventListener("click", async () => {
+  try {
+    if (document.pictureInPictureElement) {
+      await document.exitPictureInPicture();
+    } else {
+      await document.getElementById("modal-video").requestPictureInPicture();
+    }
+  } catch {
+    // PiP can be refused if the video isn't ready yet or the browser blocks
+    // it outright — nothing more we can do, and it's not worth surfacing.
+  }
 });
 document.getElementById("btn-copy-link").addEventListener("click", async () => {
   const cam = filtered[currentIndex];
