@@ -99,6 +99,12 @@ html = """<!DOCTYPE html>
     border-radius: 4px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85);
   }
   .badge.offline { color: var(--offline); }
+  .fav-btn {
+    position: absolute; top: 6px; left: 6px; font-size: 14px; line-height: 1;
+    padding: 3px 6px; border-radius: 4px; background: rgba(0,0,0,0.6);
+    color: rgba(255,255,255,0.85); border: none; cursor: pointer;
+  }
+  .fav-btn.active, .fav-btn:hover { color: #ffd54a; }
   .card .label { padding: 8px 10px; font-size: 13px; line-height: 1.3; }
   .card .label .desc { font-weight: 500; }
   .card .label .hood { color: var(--muted); font-size: 11px; margin-top: 2px; }
@@ -153,6 +159,7 @@ html = """<!DOCTYPE html>
   <div id="modal-controls">
     <button id="btn-prev">← Prev</button>
     <button id="btn-fullscreen">Fullscreen</button>
+    <button id="btn-copy-link">Copy link</button>
     <button id="btn-next">Next →</button>
     <a id="btn-open-direct" href="#" target="_blank">Open direct .m3u8</a>
   </div>
@@ -162,11 +169,47 @@ html = """<!DOCTYPE html>
 const CAMERAS = __DATA_JSON__;
 const WOWZA_TEMPLATE = "https://61e0c5d388c2e.streamlock.net:443/live/{stream}/playlist.m3u8";
 const THUMB_BASE = "https://www.seattle.gov/trafficcams/images/";
+const FAVORITES_KEY = "sc-favorites";
+const FILTERS_KEY = "sc-filters";
+const SCROLL_KEY = "sc-scroll";
 
 let filtered = CAMERAS.slice();
 let currentIndex = -1;
 let hls = null;
 const offlineIds = new Set();
+const camById = new Map(CAMERAS.map(c => [c.Id, c]));
+
+function loadFavorites() {
+  try { return new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]")); }
+  catch { return new Set(); }
+}
+const favorites = loadFavorites();
+function saveFavorites() {
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+}
+function toggleFavorite(id) {
+  if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
+  saveFavorites();
+  render();
+}
+
+function saveFilterState() {
+  const state = {
+    q: document.getElementById("search").value,
+    hood: document.getElementById("neighborhood-filter").value,
+    hideOffline: document.getElementById("hide-offline-check").checked,
+  };
+  localStorage.setItem(FILTERS_KEY, JSON.stringify(state));
+}
+function restoreFilterState() {
+  let state;
+  try { state = JSON.parse(localStorage.getItem(FILTERS_KEY) || "null"); }
+  catch { state = null; }
+  if (!state) return;
+  if (state.q) document.getElementById("search").value = state.q;
+  if (state.hood) document.getElementById("neighborhood-filter").value = state.hood;
+  document.getElementById("hide-offline-check").checked = !!state.hideOffline;
+}
 
 function streamUrl(cam) {
   return WOWZA_TEMPLATE.replace("{stream}", cam.StreamName);
@@ -185,70 +228,91 @@ function buildNeighborhoodOptions() {
   }
 }
 
+function buildCard(cam) {
+  const card = document.createElement("div");
+  card.className = "card" + (offlineIds.has(cam.Id) ? " offline" : "");
+  card.dataset.id = cam.Id;
+  const isFav = favorites.has(cam.Id);
+  card.innerHTML = `
+    <div class="thumb-wrap">
+      <img loading="lazy" src="${thumbUrl(cam)}" alt="">
+      <span class="no-preview">No preview</span>
+      <button class="fav-btn${isFav ? ' active' : ''}" title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">${isFav ? '★' : '☆'}</button>
+      <span class="badge ${offlineIds.has(cam.Id) ? 'offline' : ''}">${offlineIds.has(cam.Id) ? 'OFFLINE' : 'LIVE'}</span>
+    </div>
+    <div class="label">
+      <div class="desc">${cam.Description}</div>
+      <div class="hood">${cam.Id}</div>
+    </div>`;
+  const img = card.querySelector("img");
+  img.addEventListener("load", () => {
+    // SDOT sometimes serves a valid 200 OK image that's actually a static
+    // "Camera Under Maintenance" placeholder graphic (always 352x240) —
+    // that never fires an error event, but it's not a real preview frame.
+    // Real thumbnails are always full camera resolution. This says nothing
+    // about the live stream itself, which may work fine — see below.
+    if (img.naturalWidth === 352 && img.naturalHeight === 240) {
+      img.classList.add("thumb-broken");
+    }
+  });
+  img.addEventListener("error", () => {
+    const retries = Number(img.dataset.retries || 0);
+    // A single failed thumbnail fetch is often a transient blip — retry
+    // with backoff before giving up on the preview image.
+    if (retries < 2) {
+      img.dataset.retries = retries + 1;
+      setTimeout(() => { img.src = thumbUrl(cam); }, 2000 * (retries + 1));
+      return;
+    }
+    // The thumbnail service (seattle.gov) and the video stream (Wowza)
+    // are separate hosts — a dead thumbnail does NOT mean the camera's
+    // live feed is down, so only hide the broken preview image. Offline
+    // status is determined solely by actually trying to play the stream
+    // (see the HLS error handling in openModal).
+    img.classList.add("thumb-broken");
+  });
+  card.querySelector(".fav-btn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleFavorite(cam.Id);
+  });
+  card.addEventListener("click", () => openModal(cam));
+  return card;
+}
+
+function appendSection(main, heading, cams) {
+  if (cams.length === 0) return;
+  const h = document.createElement("div");
+  h.className = "neighborhood-heading";
+  h.textContent = heading;
+  main.appendChild(h);
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  for (const cam of cams) grid.appendChild(buildCard(cam));
+  main.appendChild(grid);
+}
+
 function render() {
   const main = document.getElementById("main");
   main.innerHTML = "";
   const hideOffline = document.getElementById("hide-offline-check").checked;
-  let shown = 0;
+  const visible = filtered.filter(c => !(hideOffline && offlineIds.has(c.Id)));
+
+  appendSection(main, "★ Favorites", visible.filter(c => favorites.has(c.Id)));
+
+  const rest = visible.filter(c => !favorites.has(c.Id));
   let lastHood = null;
-  let grid = null;
-  for (const cam of filtered) {
-    if (hideOffline && offlineIds.has(cam.Id)) continue;
+  let bucket = [];
+  for (const cam of rest) {
     if (cam.Neighborhood !== lastHood) {
+      appendSection(main, lastHood, bucket);
       lastHood = cam.Neighborhood;
-      const h = document.createElement("div");
-      h.className = "neighborhood-heading";
-      h.textContent = lastHood;
-      main.appendChild(h);
-      grid = document.createElement("div");
-      grid.className = "grid";
-      main.appendChild(grid);
+      bucket = [];
     }
-    const card = document.createElement("div");
-    card.className = "card" + (offlineIds.has(cam.Id) ? " offline" : "");
-    card.dataset.id = cam.Id;
-    card.innerHTML = `
-      <div class="thumb-wrap">
-        <img loading="lazy" src="${thumbUrl(cam)}" alt="">
-        <span class="no-preview">No preview</span>
-        <span class="badge ${offlineIds.has(cam.Id) ? 'offline' : ''}">${offlineIds.has(cam.Id) ? 'OFFLINE' : 'LIVE'}</span>
-      </div>
-      <div class="label">
-        <div class="desc">${cam.Description}</div>
-        <div class="hood">${cam.Id}</div>
-      </div>`;
-    const img = card.querySelector("img");
-    img.addEventListener("load", () => {
-      // SDOT sometimes serves a valid 200 OK image that's actually a static
-      // "Camera Under Maintenance" placeholder graphic (always 352x240) —
-      // that never fires an error event, but it's not a real preview frame.
-      // Real thumbnails are always full camera resolution. This says nothing
-      // about the live stream itself, which may work fine — see below.
-      if (img.naturalWidth === 352 && img.naturalHeight === 240) {
-        img.classList.add("thumb-broken");
-      }
-    });
-    img.addEventListener("error", () => {
-      const retries = Number(img.dataset.retries || 0);
-      // A single failed thumbnail fetch is often a transient blip — retry
-      // with backoff before giving up on the preview image.
-      if (retries < 2) {
-        img.dataset.retries = retries + 1;
-        setTimeout(() => { img.src = thumbUrl(cam); }, 2000 * (retries + 1));
-        return;
-      }
-      // The thumbnail service (seattle.gov) and the video stream (Wowza)
-      // are separate hosts — a dead thumbnail does NOT mean the camera's
-      // live feed is down, so only hide the broken preview image. Offline
-      // status is determined solely by actually trying to play the stream
-      // (see the HLS error handling in openModal).
-      img.classList.add("thumb-broken");
-    });
-    card.addEventListener("click", () => openModal(cam));
-    grid.appendChild(card);
-    shown++;
+    bucket.push(cam);
   }
-  document.getElementById("visible-count").textContent = shown + " / " + CAMERAS.length + " cameras";
+  appendSection(main, lastHood, bucket);
+
+  document.getElementById("visible-count").textContent = visible.length + " / " + CAMERAS.length + " cameras";
 }
 
 function applyFilters() {
@@ -259,6 +323,7 @@ function applyFilters() {
     if (q && !(c.Description.toLowerCase().includes(q) || c.Neighborhood.toLowerCase().includes(q))) return false;
     return true;
   });
+  saveFilterState();
   render();
 }
 
@@ -271,6 +336,10 @@ function openModal(cam) {
   document.getElementById("modal-title").textContent = cam.Description;
   document.getElementById("modal-sub").textContent = cam.Neighborhood + "  ·  " + cam.Id;
   document.getElementById("btn-open-direct").href = streamUrl(cam);
+
+  const deepLink = new URL(location.href);
+  deepLink.searchParams.set("cam", cam.Id);
+  history.replaceState(null, "", deepLink);
 
   if (hls) { hls.destroy(); hls = null; }
 
@@ -327,6 +396,10 @@ function closeModal() {
   video.removeAttribute("src");
   video.load();
   if (hls) { hls.destroy(); hls = null; }
+
+  const deepLink = new URL(location.href);
+  deepLink.searchParams.delete("cam");
+  history.replaceState(null, "", deepLink);
 }
 
 function step(delta) {
@@ -337,13 +410,48 @@ function step(delta) {
 
 document.getElementById("search").addEventListener("input", applyFilters);
 document.getElementById("neighborhood-filter").addEventListener("change", applyFilters);
-document.getElementById("hide-offline-check").addEventListener("change", render);
+document.getElementById("hide-offline-check").addEventListener("change", () => { saveFilterState(); render(); });
 document.getElementById("modal-close").addEventListener("click", closeModal);
 document.getElementById("btn-prev").addEventListener("click", () => step(-1));
 document.getElementById("btn-next").addEventListener("click", () => step(1));
 document.getElementById("btn-fullscreen").addEventListener("click", () => {
   const video = document.getElementById("modal-video");
   if (video.requestFullscreen) video.requestFullscreen();
+});
+document.getElementById("btn-copy-link").addEventListener("click", async () => {
+  const cam = filtered[currentIndex];
+  if (!cam) return;
+  const deepLink = new URL(location.href);
+  deepLink.searchParams.set("cam", cam.Id);
+  const link = deepLink.toString();
+  const btn = document.getElementById("btn-copy-link");
+
+  let copied = false;
+  try {
+    // The async Clipboard API can hang indefinitely waiting on a permission
+    // prompt in some embedded/automated contexts instead of rejecting, so
+    // race it against a timeout rather than trusting it to always settle.
+    await Promise.race([
+      navigator.clipboard.writeText(link),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("timeout")), 2000)),
+    ]);
+    copied = true;
+  } catch {
+    // Fall back to the old execCommand trick for browsers/contexts where
+    // the async Clipboard API is unavailable, denied, or stalls.
+    const ta = document.createElement("textarea");
+    ta.value = link;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { copied = document.execCommand("copy"); } catch {}
+    document.body.removeChild(ta);
+  }
+
+  const original = btn.textContent;
+  btn.textContent = copied ? "Copied!" : "Copy failed";
+  setTimeout(() => { btn.textContent = original; }, 1500);
 });
 document.getElementById("modal").addEventListener("click", (e) => {
   if (e.target.id === "modal") closeModal();
@@ -354,9 +462,35 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") step(1);
   if (e.key === "ArrowLeft") step(-1);
 });
+document.addEventListener("keydown", (e) => {
+  // "/" focuses search, like GitHub — but not while typing elsewhere or
+  // while the modal (which has its own arrow/Escape handling) is open.
+  if (e.key !== "/") return;
+  if (document.getElementById("modal").classList.contains("open")) return;
+  const tag = document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
+  e.preventDefault();
+  document.getElementById("search").focus();
+});
+window.addEventListener("scroll", () => {
+  clearTimeout(window._scrollSaveTimer);
+  window._scrollSaveTimer = setTimeout(() => {
+    localStorage.setItem(SCROLL_KEY, String(window.scrollY));
+  }, 200);
+}, { passive: true });
 
 buildNeighborhoodOptions();
-render();
+restoreFilterState();
+applyFilters();
+
+const deepLinkId = new URL(location.href).searchParams.get("cam");
+const deepLinkCam = deepLinkId && camById.get(deepLinkId);
+if (deepLinkCam) {
+  openModal(deepLinkCam);
+} else {
+  const savedScroll = Number(localStorage.getItem(SCROLL_KEY) || 0);
+  if (savedScroll > 0) window.scrollTo(0, savedScroll);
+}
 </script>
 </body>
 </html>
