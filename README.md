@@ -69,6 +69,10 @@ python3 scripts/generate_html.py    # rebuild index.html from data/cameras.json
 Run both whenever you want to pick up new/removed/renamed cameras. There is
 no CI or scheduled job for this — it is a manual, occasional refresh.
 
+A Nix flake provides a dev shell with `python3` and `curl`: run
+`nix develop`, or `direnv allow` once to load it automatically on `cd`.
+Nothing requires it — any stock `python3` + `curl` works too.
+
 ## Known limitations / notes
 
 - **Stalled stream watchdog**: A 12-second watchdog timer detects hung Wowza

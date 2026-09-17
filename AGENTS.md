@@ -116,6 +116,10 @@ clicks.
 - Keep it a single `index.html` — no bundlers, no npm, no separate CSS/JS
   files. The one external dependency (`hls.js`, loaded from jsdelivr CDN)
   is deliberate and fine; anything beyond that should have a clear reason.
+- `flake.nix` + `.envrc` (`use flake`) provide the dev shell (`python3`,
+  `curl`). Add any new tooling there rather than assuming it's installed
+  globally. Nix flakes only see git-tracked files, so `git add` a new file
+  before `nix develop` will notice it.
 - No CI. This is a personal tool in a private repo; don't add GitHub
   Actions, linting, etc. unless explicitly asked.
 - Commit `data/cameras.json` and `index.html` as real build outputs, not
