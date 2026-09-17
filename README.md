@@ -1,86 +1,128 @@
 # Seattle Traffic Cameras
 
-A single self-contained `index.html` that shows every live Seattle SDOT
-traffic camera feed, grouped by neighborhood, with a fullscreen live-video
-viewer — no server, no build step, no dependencies beyond a browser with
-internet access. Built because the [official SDOT Travelers
-site](https://web.seattle.gov/travelers/) makes this needlessly clunky (map
-pins, one camera at a time, no search).
+`index.html` is a self-contained page that shows every live SDOT traffic
+camera in Seattle as a searchable grid grouped by neighborhood, with a
+player for each camera's live HLS stream. The camera list is embedded in the
+page, so it runs from a `file://` URL without a server. Two Python scripts
+fetch the camera list from SDOT and regenerate the page.
 
-## Using it
+SDOT's own [Travelers site](https://web.seattle.gov/travelers/) shows the
+same cameras as map pins that open one at a time, with no search.
 
-Open `index.html` directly in a browser (double-click it, or `open
-index.html`). That's it — everything is embedded, including the camera list.
+## Using the page
 
-- Search by street, neighborhood, or camera ID (press `/` to focus search)
-- Filter by neighborhood dropdown or toggle favorites only and live only
-- Shareable URL parameters (`?q=...`, `?hood=...`, `?cam=...`, `?fav=1`)
-- Click any thumbnail to open the fullscreen live player at highest bitrate
-- Navigate between cameras via Prev/Next buttons or `←` / `→` arrow keys
-- Full keyboard control (`Space` play/pause, `F` fullscreen, `P` PiP,
-  `C` copy link, `Esc` close)
-- Display density switch (standard grid or compact grid)
-- Automatic dark/light theme support with manual toggle override
-- Thumbnails that fail to load or show maintenance graphics display a clean
-  fallback placeholder and can be filtered via Hide offline
-- Direct stream link gives you the raw `.m3u8` URL for VLC, `ffplay`, etc.
+Open `index.html` in a browser, for example with `open index.html`. The page
+needs network access for thumbnails, video, and `hls.js`, which loads from
+the jsDelivr CDN.
 
-Thumbnails load once on page open, not on a polling interval — hitting SDOT's
-servers with continuous refresh requests for 380 images felt like bad
-citizenship for a personal tool. Reload the page for fresher snapshots.
+### Grid
 
-## How it works
+- Search matches a camera's street description, neighborhood, and id.
+- The neighborhood dropdown, the Favorites button, and the Hide offline
+  button narrow the grid. Each active filter shows as a chip in the header,
+  and clicking a chip clears that filter.
+- The star on a thumbnail adds the camera to favorites.
+- The density switch toggles between the standard and compact grid.
+- The theme button overrides the operating system's light or dark setting.
+  The page follows the operating system until the button is first used.
 
-SDOT's Travelers site (an ASP.NET app) is a thin wrapper around two data
-sources:
+Thumbnails load once when the page opens and are not refreshed on a timer,
+because 380 images polled continuously is a lot of traffic to send to a
+city server for a personal tool. Reload the page to get newer snapshots.
 
-1. **Camera list & metadata** —
-   `web.seattle.gov/Travelers/api/Map/GetCamerasByNeighborhood?neighborhood=<name>`
-   returns cameras for one of 13 fixed neighborhoods (there's no list
-   everything endpoint). Each entry has an `Id`, `Description`, `ImageUrl`,
-   and `Type` (`sdot` or `wsdot`).
-2. **Live video** — all `sdot`-type cameras are served off a single shared
-   Wowza streaming server. The stream URL template comes from
-   `web.seattle.gov/Travelers/api/Map/WowsaUrl`:
-   `https://61e0c5d388c2e.streamlock.net:443/live/{stream}/playlist.m3u8`,
-   where `{stream}` is the camera's `ImageUrl` with `.jpg` swapped for
-   `.stream` (e.g. `QAnne_N_Roy_NS.jpg` → `QAnne_N_Roy_NS.stream`). No
-   per-camera lookup needed — this pattern is entirely mechanical and was
-   reverse-engineered from SDOT's own `camera.video.js`.
-3. **Thumbnails** — static JPEGs at
-   `www.seattle.gov/trafficcams/images/<ImageUrl>`.
+A thumbnail that fails to load, or that SDOT replaces with its 352x240
+maintenance graphic, is shown as a placeholder. This affects only the
+thumbnail. A camera is marked offline when its video stream fails to start.
 
-`wsdot`-type cameras (state highway cams, e.g. SR-99) are static-refresh
-JPEGs only — SDOT's own site only wires up video for `sdot` cameras — so
-they are fetched into `data/cameras.json` but excluded from the generated
-page. Extending this to show wsdot cameras as auto-refreshing stills (not
-video) would be a reasonable future addition.
+### Player
 
-The Wowza CORS headers (`Access-Control-Allow-Origin: *`) mean all of this
-works from a `file://` page with no proxy needed.
+Clicking a thumbnail opens the player at the stream's highest bitrate. The
+player has buttons for previous and next camera, fullscreen,
+picture-in-picture, copying a link, and opening the raw `.m3u8` URL, which
+plays in VLC or `ffplay`. The subtitle shows how long ago the stream was
+last seen playing.
 
-## Regenerating
+If a stream has not started after 12 seconds, the player shows an error
+with a retry button and the direct stream link.
 
-```sh
-python3 scripts/fetch_cameras.py    # refresh data/cameras.json from SDOT's API
-python3 scripts/generate_html.py    # rebuild index.html from data/cameras.json
+Video starts muted, because browsers allow muted video to autoplay without
+a click. Nothing is lost, since the stream playlists declare only an H.264
+video codec (`avc1`) and no audio track.
+
+### Keyboard
+
+| Key       | Action                                   |
+|-----------|------------------------------------------|
+| `/`       | Focus the search box                     |
+| `←` `→`   | Previous or next camera in the player    |
+| `Space`   | Play or pause                            |
+| `F`       | Fullscreen                               |
+| `P`       | Picture-in-picture                       |
+| `C`       | Copy a link to the current camera        |
+| `Esc`     | Close the player                         |
+
+### URL parameters and saved state
+
+| Parameter    | Effect                                    |
+|--------------|-------------------------------------------|
+| `cam=<id>`   | Opens the player for that camera          |
+| `q=<text>`   | Sets the search text                      |
+| `hood=<name>`| Filters to one neighborhood               |
+| `fav=1`      | Shows favorites only                      |
+| `liveonly=1` | Hides offline cameras                     |
+
+The page keeps these parameters in sync with the current view, so the
+address bar can be copied to share it. Search text, filters, favorites,
+grid density, theme, and scroll position are also saved in `localStorage`
+and restored on the next visit. A parameter in the URL takes precedence over
+the saved value.
+
+## Data sources
+
+SDOT's Travelers site is an ASP.NET application backed by three sources.
+
+The camera list comes from
+`web.seattle.gov/Travelers/api/Map/GetCamerasByNeighborhood?neighborhood=<name>`.
+The API has no endpoint that returns every camera, only one per
+neighborhood, for 13 fixed neighborhood names. Each entry has an `Id`,
+`Description`, `ImageUrl`, and `Type`, which is either `sdot` or `wsdot`.
+
+Live video for every `sdot` camera is served by one Wowza streaming server.
+`web.seattle.gov/Travelers/api/Map/WowsaUrl` returns the URL template
+
+```
+https://61e0c5d388c2e.streamlock.net:443/live/{stream}/playlist.m3u8
 ```
 
-Run both whenever you want to pick up new/removed/renamed cameras. There is
-no CI or scheduled job for this — it is a manual, occasional refresh.
+where `{stream}` is the camera's `ImageUrl` with `.jpg` replaced by
+`.stream`, so `QAnne_N_Roy_NS.jpg` becomes `QAnne_N_Roy_NS.stream`. The
+mapping was worked out from SDOT's `camera.video.js`, and no per-camera
+lookup is involved. The server sends `Access-Control-Allow-Origin: *`, which
+is what lets a `file://` page play the streams without a proxy.
 
-A Nix flake provides a dev shell with `python3` and `curl`: run
-`nix develop`, or `direnv allow` once to load it automatically on `cd`.
-Nothing requires it — any stock `python3` + `curl` works too.
+Thumbnails are static JPEGs at
+`www.seattle.gov/trafficcams/images/<ImageUrl>`.
 
-## Known limitations / notes
+Cameras of type `wsdot` are state highway cameras such as SR-99. SDOT's site
+serves them only as still images and wires its video button only to `sdot`
+cameras, so `fetch_cameras.py` stores them in `data/cameras.json` and
+`generate_html.py` leaves them out of the page. Showing them as refreshing
+stills would be a reasonable addition.
 
-- **Stalled stream watchdog**: A 12-second watchdog timer detects hung Wowza
-  TLS connections or offline feeds and surfaces retry and direct stream links.
-- **Maintenance placeholders**: Standard 352x240 maintenance placeholders
-  served by SDOT are automatically caught and flagged with fallback badges.
-- **wsdot cameras are not shown**: Only live SDOT HLS video feeds are
-  currently embedded.
+## Regenerating the page
 
-See `AGENTS.md` for the debugging history behind these and other gotchas
-worth knowing before touching this code.
+```sh
+python3 scripts/fetch_cameras.py    # refresh data/cameras.json from SDOT
+python3 scripts/generate_html.py    # rebuild index.html from the JSON
+```
+
+Run both to pick up cameras SDOT has added, removed, or renamed. Nothing
+runs them on a schedule. `index.html` and `data/cameras.json` are committed
+so that a fresh clone works without running either script.
+
+`flake.nix` defines a dev shell with `python3` and `curl`, which you can
+enter with `nix develop`. Running `direnv allow` once loads it automatically
+when you `cd` into the directory. Any other `python3` and `curl` work too.
+
+`AGENTS.md` records the debugging history behind the code and the
+behaviors that are easy to break.
