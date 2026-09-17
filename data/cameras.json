@@ -520,7 +520,7 @@
   {
     "Id": "CMR-0180",
     "Description": "4th Ave & Madison St",
-    "ImageUrl": "4_Madison_NS.jpg",
+    "ImageUrl": "4_Madison.jpg",
     "Type": "sdot",
     "Neighborhood": "Downtown"
   },
@@ -982,14 +982,14 @@
   {
     "Id": "CMR-0410",
     "Description": "12th Ave & E Madison St EW",
-    "ImageUrl": "12_E_Madison_EW.jpg",
+    "ImageUrl": "12_E_Madison_1.jpg",
     "Type": "sdot",
     "Neighborhood": "East"
   },
   {
     "Id": "CMR-0418",
     "Description": "12th Ave & E Madison St NS",
-    "ImageUrl": "12_E_Madison_NS.jpg",
+    "ImageUrl": "12_E_Madison_2.jpg",
     "Type": "sdot",
     "Neighborhood": "East"
   },
@@ -1946,6 +1946,13 @@
     "Neighborhood": "Lake Union"
   },
   {
+    "Id": "CMR-0476",
+    "Description": "7th Ave N & Thomas St",
+    "ImageUrl": "7_N_Thomas_NS.jpg",
+    "Type": "sdot",
+    "Neighborhood": "Lake Union"
+  },
+  {
     "Id": "CMR-0154",
     "Description": "9th Ave N & Mercer St",
     "ImageUrl": "9_N_Mercer.jpg",
@@ -2474,6 +2481,20 @@
     "Id": "CMR-0146",
     "Description": "Westlake Ave & Valley St",
     "ImageUrl": "Westlake_Valley.jpg",
+    "Type": "sdot",
+    "Neighborhood": "Magnolia/Queen Anne"
+  },
+  {
+    "Id": "CMR-0475",
+    "Description": "Westlake Ave N & Galer St",
+    "ImageUrl": "Westlake_N_Galer.jpg",
+    "Type": "sdot",
+    "Neighborhood": "Magnolia/Queen Anne"
+  },
+  {
+    "Id": "CMR-0413",
+    "Description": "Westlake Ave N & Highland Dr",
+    "ImageUrl": "Westlake_N_Highland.jpg",
     "Type": "sdot",
     "Neighborhood": "Magnolia/Queen Anne"
   },
