@@ -14,7 +14,7 @@ highway snapshots.
 
 ## Using the page
 
-Open <https://dewitt.github.io/seattle-cameras/> or open `index.html`
+Open <https://seattle.unto.net/> or open `index.html`
 locally in a browser, for example with `open index.html`. The page needs
 network access for camera snapshots, live HLS video, Esri map tiles, and two
 libraries loaded from jsDelivr (`hls.js` and Leaflet).
@@ -179,7 +179,7 @@ build time and cached via CloudFront on initial load).
 immediately without running either script.
 
 [The GitHub Pages workflow](.github/workflows/deploy-pages.yml) rebuilds and
-deploys `index.html` to <https://dewitt.github.io/seattle-cameras/> on pushes
+deploys `index.html` to <https://seattle.unto.net/> on pushes
 to `main`, manual dispatch, and once daily at `13:17` UTC (`17 13 * * *`). It
 runs `scripts/fetch_cameras.py` first and falls back to the checked-in
 `data/cameras.json` if SDOT's API is unreachable.
