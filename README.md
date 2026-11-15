@@ -1,113 +1,159 @@
 # Seattle Traffic Cameras
 
-`index.html` is a self-contained page that shows every live SDOT traffic
-camera in Seattle as a searchable grid grouped by neighborhood, with a
-player for each camera's live HLS stream. The camera list is embedded in the
-page, so it runs from a `file://` URL without a server. Two Python scripts
-fetch the camera list from SDOT and regenerate the page.
+`index.html` is a single-file viewer for Seattle traffic cameras and Puget
+Sound highway cameras. It reads camera metadata embedded at build time and
+runs directly from a `file://` URL with no local server. Two Python scripts,
+`scripts/fetch_cameras.py` and `scripts/generate_html.py`, fetch the camera
+index from SDOT into `data/cameras.json` and regenerate `index.html`.
 
-SDOT's own [Travelers site](https://web.seattle.gov/travelers/) shows the
-same cameras as map pins that open one at a time, with no search.
+SDOT's own [Travelers site](https://web.seattle.gov/travelers/) displays the
+same cameras as unsearchable map pins that open one at a time. This page adds
+instant search, geographic corridor sorting, an interactive overview map, a
+multi-camera live wall, and both live SDOT HLS streams and refreshing WSDOT
+highway snapshots.
 
 ## Using the page
 
 Open `index.html` in a browser, for example with `open index.html`. The page
-needs network access for thumbnails, video, and `hls.js`, which loads from
-the jsDelivr CDN.
+needs network access for camera snapshots, live HLS video, Esri map tiles,
+and two libraries loaded from jsDelivr (`hls.js` and Leaflet).
+
+All views share the header controls:
+
+- Search matches a camera's street description, neighborhood, and ID.
+- The location menu selects all cameras, 8 highway and bridge corridors
+  sorted geographically (`I-5`, `I-90`, `SR-520`, `SR-99`, `I-405`, Ship Canal
+  Bridges, West Seattle & Duwamish Bridges, and Mercer St & Denny Way), the
+  13 Seattle neighborhoods, or Regional Highways.
+- `Favorites`, `Video only`, and `Hide offline` narrow the active view. Each
+  active filter appears as a removable chip below the header.
+- The `Refresh snapshots` button reloads still thumbnails across the page
+  on demand with a fresh timestamp query parameter.
+- The theme button cycles through Auto, Light, and Dark modes, following the
+  operating system setting in Auto mode.
 
 ### Grid
 
-- Search matches a camera's street description, neighborhood, and id.
-- The neighborhood dropdown, the Favorites button, and the Hide offline
-  button narrow the grid. Each active filter shows as a chip in the header,
-  and clicking a chip clears that filter.
-- The star on a thumbnail adds the camera to favorites.
-- The density switch toggles between the standard and compact grid.
-- The theme button overrides the operating system's light or dark setting.
-  The page follows the operating system until the button is first used.
+- Cameras are grouped by neighborhood, or listed in a single corridor
+  section sorted North-to-South or West-to-East when a corridor is selected.
+  Saved favorites appear in a dedicated top section unless a corridor filter
+  is active.
+- The star button on a thumbnail pins or unpins a favorite.
+- The density switch toggles between compact and standard card sizes.
+- A thumbnail that fails to load, or an SDOT thumbnail matching SDOT's
+  `352x240` maintenance graphic, renders as a placeholder until the image
+  recovers. A camera is marked offline when its stream or still fails in the
+  viewer.
 
-Thumbnails load once when the page opens and are not refreshed on a timer,
-because 380 images polled continuously is a lot of traffic to send to a
-city server for a personal tool. Reload the page to get newer snapshots.
+### Map
 
-A thumbnail that fails to load, or that SDOT replaces with its 352x240
-maintenance graphic, is shown as a placeholder. This affects only the
-thumbnail. A camera is marked offline when its video stream fails to start.
+- Switch to Map view (`M`) to inspect geocoded cameras on a Leaflet map over
+  Esri `World_Street_Map` tiles, with an inverted dark filter in dark mode.
+- Co-located cameras at the same coordinates merge into a numbered
+  intersection pin colored by status (green for live video, blue for WSDOT
+  highway still, gold for favorite, red when all cameras at that spot are
+  offline).
+- Hovering a pin shows the primary camera's thumbnail, description, area, and
+  status; clicking opens the player modal, where adjacent co-located cameras
+  appear in the nearby strip.
+- Clicking `Fit to results` zooms the map to match the currently filtered
+  cameras.
+
+### Wall
+
+- Switch to Wall view (`W`) to monitor 4 (`2x2`) or 6 (`3x2`) cameras
+  simultaneously, paged through the active filter or one of the bridge and
+  highway presets.
+- SDOT cameras play live HLS video in each tile while WSDOT highway cameras
+  refresh their snapshots every 15 seconds.
+- Opening the full player modal pauses the Wall streams until the modal closes
+  so the modal player has full connection headroom to the Wowza host.
 
 ### Player
 
-Clicking a thumbnail opens the player at the stream's highest bitrate. The
-player has buttons for previous and next camera, fullscreen,
-picture-in-picture, copying a link, and opening the raw `.m3u8` URL, which
-plays in VLC or `ffplay`. The subtitle shows how long ago the stream was
-last seen playing.
+Clicking any camera opens the player modal. SDOT (`sdot`) cameras play live
+H.264 video over HLS at the highest bitrate stream, starting muted so browsers
+allow autoplay. WSDOT (`wsdot`) cameras display a still snapshot that
+refreshes automatically every 15 seconds.
 
-If a stream has not started after 12 seconds, the player shows an error
-with a retry button and the direct stream link.
-
-Video starts muted, because browsers allow muted video to autoplay without
-a click. Nothing is lost, since the stream playlists declare only an H.264
-video codec (`avc1`) and no audio track.
+Below the video frame, cameras within 3 km appear as clickable pills labeled
+`Same spot` (within 35 m) or with distance and compass direction. Footer
+controls provide previous and next stepping, `Favorite`, `Map` (jumps to that
+camera's coordinates), `Fullscreen`, `PiP` (remains open if you close the
+modal and cleans up when exited), `Copy link`, and the raw `.m3u8` or image
+URL.
 
 ### Keyboard
 
-| Key       | Action                                   |
-|-----------|------------------------------------------|
-| `/`       | Focus the search box                     |
-| `←` `→`   | Previous or next camera in the player    |
-| `Space`   | Play or pause                            |
-| `F`       | Fullscreen                               |
-| `P`       | Picture-in-picture                       |
-| `C`       | Copy a link to the current camera        |
-| `Esc`     | Close the player                         |
+| Key | Scope | Action |
+|---|---|---|
+| `/` | Page | Focus the search box |
+| `G` | Page | Switch to Grid view |
+| `M` | Page | Switch to Map view |
+| `W` | Page | Switch to Wall view |
+| `R` | Page | Refresh all visible snapshots |
+| `←` `→` | Player | Previous or next camera in current list |
+| `Space` | Player | Play or pause live video |
+| `F` | Player | Toggle fullscreen |
+| `P` | Player | Toggle Picture-in-Picture |
+| `M` | Player | Jump to camera location on the map |
+| `C` | Player | Copy direct link to current camera |
+| `Esc` | Player | Close player modal |
 
 ### URL parameters and saved state
 
-| Parameter    | Effect                                    |
-|--------------|-------------------------------------------|
-| `cam=<id>`   | Opens the player for that camera          |
-| `q=<text>`   | Sets the search text                      |
-| `hood=<name>`| Filters to one neighborhood               |
-| `fav=1`      | Shows favorites only                      |
-| `liveonly=1` | Hides offline cameras                     |
+| Parameter | Effect |
+|---|---|
+| `cam=<id>` | Opens the player for that camera |
+| `q=<text>` | Sets the search query |
+| `hood=<name>` | Filters to a neighborhood or corridor (`corridor:sr520`) |
+| `fav=1` | Shows favorites only |
+| `video=1` | Shows live HLS SDOT cameras only |
+| `liveonly=1` | Hides cameras marked offline |
+| `view=<mode>` | Selects `grid`, `map`, or `wall` |
 
-The page keeps these parameters in sync with the current view, so the
-address bar can be copied to share it. Search text, filters, favorites,
-grid density, theme, and scroll position are also saved in `localStorage`
-and restored on the next visit. A parameter in the URL takes precedence over
-the saved value.
+The page synchronizes filter parameters into the browser address bar and saves
+search text, filters, favorites, grid density, theme, active view, wall tile
+count, and grid scroll position in `localStorage`. URL parameters take
+precedence over saved state on load.
 
 ## Data sources
 
-SDOT's Travelers site is an ASP.NET application backed by three sources.
+SDOT's Travelers application exposes four ASP.NET JSON endpoints queried at
+build time by `scripts/fetch_cameras.py`:
 
-The camera list comes from
-`web.seattle.gov/Travelers/api/Map/GetCamerasByNeighborhood?neighborhood=<name>`.
-The API has no endpoint that returns every camera, only one per
-neighborhood, for 13 fixed neighborhood names. Each entry has an `Id`,
-`Description`, `ImageUrl`, and `Type`, which is either `sdot` or `wsdot`.
-
-Live video for every `sdot` camera is served by one Wowza streaming server.
-`web.seattle.gov/Travelers/api/Map/WowsaUrl` returns the URL template
+- `https://web.seattle.gov/Travelers/api/Map/Data?zoomId=16&type=2`
+  returns all map clusters with `[Lat, Lng]` coordinates, 5 SDOT cameras
+  omitted from the neighborhood lists, and regional WSDOT highway cameras.
+- `https://web.seattle.gov/Travelers/api/Map/GetAllNeighborhoods`
+  returns the 13 Seattle neighborhood names.
+- `https://web.seattle.gov/Travelers/api/Map/GetCamerasByNeighborhood?neighborhood=<name>`
+  supplies canonical neighborhood labels for city cameras. Unlisted SDOT
+  cameras take the nearest neighborhood by coordinate, and highway cameras
+  fall under `Regional Highways`.
+- `https://web.seattle.gov/Travelers/api/Map/WowsaUrl` returns the Wowza HLS
+  template:
 
 ```
 https://61e0c5d388c2e.streamlock.net:443/live/{stream}/playlist.m3u8
 ```
 
-where `{stream}` is the camera's `ImageUrl` with `.jpg` replaced by
-`.stream`, so `QAnne_N_Roy_NS.jpg` becomes `QAnne_N_Roy_NS.stream`. The
-mapping was worked out from SDOT's `camera.video.js`, and no per-camera
-lookup is involved. The server sends `Access-Control-Allow-Origin: *`, which
-is what lets a `file://` page play the streams without a proxy.
+For each `sdot` camera, `{stream}` is `ImageUrl` with `.jpg` replaced by
+`.stream`. Live HLS playlists and `.ts` segments include
+`Access-Control-Allow-Origin: *`, allowing direct playback from `file://`.
 
-Thumbnails are static JPEGs at
-`www.seattle.gov/trafficcams/images/<ImageUrl>`.
+Still images resolve from two roots:
 
-Cameras of type `wsdot` are state highway cameras such as SR-99. SDOT's site
-serves them only as still images and wires its video button only to `sdot`
-cameras, so `fetch_cameras.py` stores them in `data/cameras.json` and
-`generate_html.py` leaves them out of the page. Showing them as refreshing
-stills would be a reasonable addition.
+- SDOT snapshots load from
+  `https://www.seattle.gov/trafficcams/images/<ImageUrl>`.
+- WSDOT snapshots load from `https://images.wsdot.wa.gov/nw/<ImageUrl>`,
+  with `.jpg` appended for entries that omit a file extension.
+
+Map view loads raster tiles from Esri `World_Street_Map`:
+
+```
+https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}
+```
 
 ## Regenerating the page
 
@@ -116,13 +162,12 @@ python3 scripts/fetch_cameras.py    # refresh data/cameras.json from SDOT
 python3 scripts/generate_html.py    # rebuild index.html from the JSON
 ```
 
-Run both to pick up cameras SDOT has added, removed, or renamed. Nothing
-runs them on a schedule. `index.html` and `data/cameras.json` are committed
-so that a fresh clone works without running either script.
+The current dataset embeds 656 unique cameras (395 `sdot` and 261 `wsdot`).
+`data/cameras.json` and `index.html` are committed so a fresh clone works
+immediately without running either script.
 
-`flake.nix` defines a dev shell with `python3` and `curl`, which you can
-enter with `nix develop`. Running `direnv allow` once loads it automatically
-when you `cd` into the directory. Any other `python3` and `curl` work too.
+`flake.nix` provides a dev shell with `python3` and `curl`, entered with
+`nix develop`. Running `direnv allow` loads it automatically on `cd`. Any
+system `python3` and `curl` also work.
 
-`AGENTS.md` records the debugging history behind the code and the
-behaviors that are easy to break.
+`AGENTS.md` records the debugging history and invariants behind the code.

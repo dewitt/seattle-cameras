@@ -1,14 +1,15 @@
 # Working in this repo
 
 seattle-cameras is a personal tool that builds one self-contained
-`index.html` showing every live SDOT traffic camera in Seattle as a
-searchable grid, with a player for each camera's live HLS stream. There is no
-server and no framework. Two Python scripts fetch the camera list and embed
-it in the page. `CLAUDE.md` is a symlink to this file.
+`index.html` showing Seattle SDOT live HLS traffic cameras and Puget Sound
+WSDOT highway cameras across Grid, interactive Map, and Multi-Cam Wall
+views. There is no server and no framework. Two Python scripts fetch the
+camera list and embed it in the page. Both `CLAUDE.md` and `GEMINI.md` are
+symlinks to this file.
 
-`README.md` describes the page's features, the SDOT APIs, and the Wowza
-stream URLs, and is the reference for those. This file covers how to change
-the code without breaking it.
+`README.md` describes the page features, the SDOT APIs, and the stream URLs,
+and is the reference for those. This file covers how to change the code
+without breaking it.
 
 The project is for one person's use. When simplicity and edge-case handling
 pull in different directions, keep it simple.
@@ -31,142 +32,177 @@ see it.
 
 `index.html` is generated. The source is the HTML template string inside
 `scripts/generate_html.py`, which reads `data/cameras.json` and embeds the
-camera data as JSON. Edit the template and rebuild with
+config and camera list as JSON. Edit the template and rebuild with
 `python3 scripts/generate_html.py`. Editing `index.html` directly is only
 useful for a throwaway experiment, since the next rebuild overwrites it.
 
 `data/cameras.json` and `index.html` are both committed so that a fresh
 clone works without running anything.
 
-`scripts/fetch_cameras.py` makes 13 requests to a city government API.
-Run it when you want SDOT's current camera list, and not as part of
-routine testing or in a loop.
+`scripts/fetch_cameras.py` queries 16 SDOT endpoints (`WowsaUrl`,
+`GetAllNeighborhoods`, `Data?zoomId=16&type=2`, and 13 neighborhood queries)
+using a bounded thread pool (`max_workers=4`). Run it when you want SDOT's
+current camera list, and avoid running it in a loop or during routine UI
+tests.
 
 ## Conventions
 
 Keep the page a single `index.html` with no bundler, npm, or separate CSS
-and JS files. The one external dependency is `hls.js` from jsDelivr, which
-Chrome and Firefox need because they lack native HLS playback. Anything
-added beyond that needs a reason written down in the commit.
+and JS files. External dependencies load from jsDelivr with Subresource
+Integrity hashes and `defer` initialization wired on `DOMContentLoaded`:
 
-There is no CI, and GitHub Actions or linting should only be added if asked
-for.
+- `hls.js@1.7.4` (`hls.min.js`), which Chrome and Firefox need because they
+  lack native HLS playback.
+- `leaflet@1.9.4` (`leaflet.css` and `leaflet.js`) for the interactive map.
+
+Anything added beyond those needs a reason written down in the commit. There
+is no CI, and GitHub Actions or linting should only be added if asked for.
 
 ## Testing a change
 
-There is no test suite. Rebuild the page, open it with `open index.html`,
-and go through search and filtering, open a camera, check the video is
-actually moving, then try previous and next, fullscreen, Escape to close,
-and the direct `.m3u8` link.
+There is no automated test suite committed in the repo. Rebuild the page,
+open it with `open index.html`, and test search and filtering (including
+corridor presets), Grid thumbnails, Map pins and hover previews, Wall live
+tiles, and the modal player (`Prev`, `Next`, `Map`, `Fullscreen`, `PiP`,
+`Esc`, and the direct stream or image link).
 
-Check that the video moves rather than trusting that the player opened.
-The Safari failure described below leaves a native controls widget sitting
-at 0:00, which looks like a player that is still loading.
+Check that live HLS video moves (`currentTime > 0`) rather than trusting
+that the player opened. The Safari failure described below leaves native
+controls sitting at 0:00, which looks like a player that is still loading.
 
 `screencapture` followed by reading the PNG works for visual checks. Clicks
-sent through AppleScript or System Events do not: synthetic clicks,
-including raw `CGEventCreateMouseEvent` calls through JXA, registered at
-the accessibility focus level without firing the page's DOM `click`
-listeners in Safari. To test click-driven behavior without asking DeWitt,
-use a browser automation extension that works inside the page.
+sent through AppleScript or System Events do not: synthetic clicks, including
+raw `CGEventCreateMouseEvent` calls through JXA, register at the
+accessibility focus level without firing the page's DOM click listeners in
+Safari. To test click-driven behavior automatically, use Chrome CDP or a
+browser automation extension inside the page.
 
-The Chrome automation extension has two limitations of its own, both seen
-in August 2026:
+When testing Grid thumbnails from headless Chrome against `file://`,
+`www.seattle.gov` CloudFront rules block requests whose `User-Agent`
+contains `HeadlessChrome` (`403` / `net::ERR_BLOCKED_BY_ORB`), so pass a
+standard Chrome `--user-agent` flag in CDP launches. Also remember that a
+couple of inactive cameras (such as `CMR-0006` and `CMR-0008`) currently
+`302`-redirect to `http://www.seattle.gov/x9045.xml` (`text/html`), causing
+their thumbnail `<img>` to fail with `ERR_BLOCKED_BY_ORB` and show the
+placeholder even when the page is healthy.
+
+The Chrome automation extension has two limitations of its own, both seen in
+August 2026:
 
 - Clicks at pixel coordinates taken from an earlier screenshot sometimes
-  land in the wrong place, because the screenshot resolution changed
-  between captures (1402x840, then 1120x672, in the same tab). Click by
-  element reference from the find tool instead.
+  land in the wrong place, because the screenshot resolution changed between
+  captures (1402x840, then 1120x672, in the same tab). Click by element
+  reference from the find tool instead.
 - Its Chrome returned a truthy `canPlayType` for
   `application/vnd.apple.mpegurl`, so the page took the native HLS branch,
-  and playback then failed with `DEMUXER_ERROR_COULD_NOT_PARSE`. Video
-  playback results from that browser say nothing about a normal Chrome or
-  Safari, so confirm playback in a regular browser.
+  and playback then failed with `DEMUXER_ERROR_COULD_NOT_PARSE`. Confirm
+  playback in a regular browser or standard Chrome CDP.
 
 When you report that something works, say whether you saw it happen or are
 inferring it, and give the command or check that showed it.
 
 ## Things that will break if you change them
 
-Each of these came from a bug that took a while to track down.
+Each of these came from a bug or empirical constraint discovered here.
 
 Check `video.canPlayType("application/vnd.apple.mpegurl")` before
-`Hls.isSupported()` in `openModal()`. Safari supports Media Source
-Extensions, so `Hls.isSupported()` is true there as well, and routing Safari
-through hls.js leaves the video stuck at 0:00 with no frame. When
-`canPlayType` is truthy the page sets `video.src` directly, and hls.js is
-used only in browsers without native HLS.
+`Hls.isSupported()` in both `openModal()` and `attachWallHls()`. Safari
+supports Media Source Extensions, so `Hls.isSupported()` is true there as
+well, and routing Safari through `hls.js` leaves the video stuck at 0:00
+with no frame. When `canPlayType` is truthy the page sets `video.src`
+directly, and `hls.js` is used only in browsers without native HLS.
 
-Keep `muted` on the `<video>` element and keep the `video.play()` call that
-runs immediately after `hls.attachMedia()`. The hls.js branch used to call
-`play()` only from the `MANIFEST_PARSED` callback, which can run after the
-click's user activation has lapsed, and Chrome then blocks unmuted autoplay
-without an error. The paused video showed Chrome's large play button and a
-dark overlay whenever the pointer moved over it.
+Keep `muted` on both modal and Wall `<video>` elements and keep the
+`video.play()` call immediately after `hls.attachMedia()`. Calling `play()`
+only inside `MANIFEST_PARSED` can execute after user activation lapses,
+causing browsers to block playback silently.
 
 Keep `fetch_cameras.py` making HTTPS requests through `curl`. The
 python.org installer's Python in `/Library/Frameworks/Python.framework`
 ships without a populated CA bundle, so `urllib` and `requests` fail with
 `CERTIFICATE_VERIFY_FAILED` against valid certificates, while `curl` uses
-the system trust store. Use `curl` for any new network code too, or run
-`Install Certificates.command` before switching to `urllib`.
+the system trust store.
 
-The camera list API has no endpoint that returns everything. Cameras are
-listed per neighborhood, for the 13 names returned by
-`api/Map/GetAllNeighborhoods`, so `fetch_cameras.py` queries all 13 and
-dedupes by `Id` because cameras on a boundary appear in more than one.
+SDOT's `web.seattle.gov/Travelers/api/*` endpoints omit
+`Access-Control-Allow-Origin` headers, so browser `fetch()` from `file://`
+fails with CORS errors. Data collection must happen at build time in
+`fetch_cameras.py`.
 
-Every `sdot` camera streams from the same Wowza host. `api/Map/WowsaUrl`
-returns a single template, and only `{stream}` changes, being `ImageUrl`
-with `.jpg` replaced by `.stream`. There is no per-camera host to look up.
+Query both `GetCamerasByNeighborhood` (all 13 names from
+`GetAllNeighborhoods`) and `api/Map/Data?zoomId=16&type=2`. The neighborhood
+endpoints omit `Lat`/`Lng`, omit 5 `sdot` cameras (`CMR-0139`, `CMR-0143`,
+`CMR-0275`, `CMR-0363`, `CMR-0421`), and omit regional `wsdot` highway
+cameras, while `Map/Data` omits canonical neighborhood names. Several
+`wsdot` entries omit `.jpg` in `ImageUrl`, so both `fetch_cameras.py` and
+`generate_html.py` normalize extensionless filenames with `.jpg`.
 
-Cameras of type `wsdot` have no live video. SDOT's `camera.video.js` wires
-its video button only when `Type === "sdot"`, and `wsdot` cameras are served
-as still images. They are stored in `data/cameras.json` and filtered out in
-`generate_html.py`. Adding them would be new work, and the README lists it
-as a known gap.
+Scope SDOT's `352x240` maintenance-graphic thumbnail check strictly to
+`cam.Type === "sdot"`. Genuine WSDOT highway images often measure around
+`335x209` to `352x240` and would falsely hide if checked unconditionally.
 
-Keep thumbnail failures out of the offline status. Thumbnails come from
-`www.seattle.gov` and video from the Wowza host, and one can fail while the
-other works. A camera is marked offline only when its stream fails to start
-within the 12 second watchdog.
+Keep thumbnail failures independent of stream offline status. Thumbnails
+come from `www.seattle.gov` and video from the Wowza host, and one can
+work while the other fails (for example, when SDOT redirects a missing JPEG
+to `x9045.xml`). An `sdot` camera is marked offline only when its stream
+fails to start within 12 seconds or hits fatal HLS errors.
+
+Keep Wall view capped at 4 or 6 live tiles and tear down Wall streams while
+`#modal` is open (also delay Wall resumption until Picture-in-Picture exits).
+The shared Wowza host (`streamlock.net`) speaks HTTP/1.1, where browsers
+enforce a 6-connection-per-origin limit; opening extra streams saturates the
+socket pool and stalls modal playback. Note that Wowza's Sectigo TLS
+certificate rotates periodically (current cert expires January 2027), and
+`WowsaUrl` returns the active streaming hostname at fetch time.
+
+Map view uses Esri `World_Street_Map` raster tiles in `{z}/{y}/{x}`
+order (row `y` before column `x`) with a CSS inversion filter for dark mode.
+Two common alternatives fail from `file://`: `basemaps.cartocdn.com` returns
+`API KEY REQUIRED` placeholder PNGs, and `tile.openstreetmap.org` rejects
+requests missing an HTTP `Referer` header. Do not swap `{y}/{x}` to
+`{x}/{y}` on the ArcGIS MapServer URL.
+
+Escape dynamic values with `escHtml()` (or set `.textContent`) anywhere
+HTML strings are built, including filter chips (`q=` URL parameter) and
+Leaflet marker tooltips. Also keep `?cam=` deep linking independent of active
+filters so shared camera URLs always open even when `localStorage` filters
+exclude that camera, and detach PiP shutdown from closing the modal.
+
+Never trigger `applyFilters()` or re-assign existing `<img>` `src` URLs
+needlessly on every keystroke (`renderGrid()` preserves existing card DOM
+nodes via `cardElById` unless `thumbEpoch` increments).
 
 A camera whose stream returns an error and one whose server has hung look
 the same in the page. From the shell they differ: an error from Wowza comes
 back quickly from `curl -s -o /dev/null -w '%{http_code}'`, while a hang
-times out. During initial development the whole Wowza server stopped
-answering at the TLS layer for a while, and cameras that timed out worked a
-few minutes later. Retry before concluding a camera is offline.
+times out. Retry before concluding a camera is offline.
 
 ## Decisions already made
 
 Please ask before revisiting these.
 
-The native `<video controls>` bar stays. Moving the pointer over a playing
-video still draws the browser's translucent overlay behind the controls
-until they hide. Both Safari and Chrome draw it so their controls stay
-readable over any video, and neither lets a page restyle it. Removing it
-would mean replacing the native controls with custom play, pause, and mute
-buttons, and in August 2026 DeWitt decided that the overlay was not
-bothersome enough to justify that.
+The native `<video controls>` bar stays in `#modal-video`. Moving the pointer
+over a playing video still draws the browser's translucent overlay behind
+the controls until they hide. Both Safari and Chrome draw it so their controls
+stay readable over any video, and neither lets a page restyle it. Removing
+it would mean replacing native controls with custom play, pause, and mute
+buttons, and in August 2026 DeWitt decided the overlay was acceptable.
 
 ## Writing style
 
-Documentation and commit messages should read like a person wrote them. A
-few habits to avoid:
+Documentation and commit messages should read like a person wrote them.
+Avoid these habits:
 
-- Defining things by contrast, such as saying something is a gap, not a
-  bug.
+- Defining things by contrast, such as saying something is a gap or feature
+  rather than a bug.
 - Sentence fragments standing in for emphasis.
 - Short portentous declarations used as topic sentences or headings.
 - Em-dashes used for dramatic effect rather than to join clauses.
 - Starting a paragraph or list item with a bolded slogan.
 
-Explain the thing instead. Saying that thumbnails come from
+Explain the thing directly. Saying that thumbnails come from
 `www.seattle.gov` and video from the Wowza host, so one can fail while the
-other works, is better than a slogan like a broken thumbnail is not a dead
-camera. Direct imperatives are fine in this file where they are genuinely
-instructions, but follow them with a plain reason.
+other works, is clearer than a slogan. Direct imperatives are fine in this
+file where they are instructions, followed by a plain reason.
 
 ### Technical documentation
 
