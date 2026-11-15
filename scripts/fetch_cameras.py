@@ -19,6 +19,7 @@ import datetime as dt
 import json
 import math
 import os
+import re
 import subprocess
 import sys
 import urllib.parse
@@ -130,6 +131,39 @@ def nearest_neighborhood(
     return nearest["Neighborhood"]
 
 
+def probe_sdot_stream(wowza_template: str, image_url: str) -> bool:
+    """Return False only when Wowza explicitly returns 404 for an SDOT stream."""
+    if not image_url:
+        return True
+    stream_name = re.sub(r"\.jpe?g$", ".stream", image_url, flags=re.I)
+    url = wowza_template.replace("{stream}", urllib.parse.quote(stream_name))
+    try:
+        res = subprocess.run(
+            ["curl", "-sS", "-o", "/dev/null", "-w", "%{http_code}", "--max-time", "6", url],
+            capture_output=True,
+            text=True,
+        )
+        return res.stdout.strip() != "404"
+    except subprocess.SubprocessError:
+        return True
+
+
+def probe_wsdot_image(wsdot_base: str, image_url: str) -> bool:
+    """Return False only when WSDOT explicitly returns 404 for a snapshot."""
+    if not image_url:
+        return True
+    url = wsdot_base + urllib.parse.quote(image_url, safe="/")
+    try:
+        res = subprocess.run(
+            ["curl", "-sSI", "-o", "/dev/null", "-w", "%{http_code}", "--max-time", "6", url],
+            capture_output=True,
+            text=True,
+        )
+        return res.stdout.strip() != "404"
+    except subprocess.SubprocessError:
+        return True
+
+
 def main() -> None:
     repo_root = Path(__file__).resolve().parent.parent
     out_path = repo_root / "data" / "cameras.json"
@@ -226,6 +260,49 @@ def main() -> None:
     for c in cams:
         by_type[c["Type"]] = by_type.get(c["Type"], 0) + 1
     print(f"{len(cams)} unique cameras — {by_type}", file=sys.stderr)
+
+    print("probing SDOT HLS playlists and WSDOT snapshots...", file=sys.stderr)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+        sdot_futs = {
+            c["Id"]: pool.submit(probe_sdot_stream, wowza_template, c["ImageUrl"])
+            for c in cams
+            if c["Type"] == "sdot"
+        }
+        wsdot_futs = {
+            c["Id"]: pool.submit(probe_wsdot_image, WSDOT_IMAGE_BASE, c["ImageUrl"])
+            for c in cams
+            if c["Type"] == "wsdot"
+        }
+
+    sdot_active = 0
+    sdot_404 = 0
+    wsdot_active = 0
+    wsdot_404 = 0
+    for c in cams:
+        if c["Type"] == "sdot":
+            ok = sdot_futs[c["Id"]].result()
+            c["StreamActive"] = ok
+            c["ImageActive"] = True
+            if ok:
+                sdot_active += 1
+            else:
+                sdot_404 += 1
+        elif c["Type"] == "wsdot":
+            ok = wsdot_futs[c["Id"]].result()
+            c["StreamActive"] = False
+            c["ImageActive"] = ok
+            if ok:
+                wsdot_active += 1
+            else:
+                wsdot_404 += 1
+        else:
+            c["StreamActive"] = False
+            c["ImageActive"] = True
+    print(
+        f"health: sdot streams {sdot_active} active / {sdot_404} 404; "
+        f"wsdot images {wsdot_active} active / {wsdot_404} 404",
+        file=sys.stderr,
+    )
 
     payload = {
         "generatedAt": dt.datetime.now(dt.timezone.utc)

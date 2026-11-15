@@ -2294,7 +2294,7 @@ const CORRIDORS = [
 ];
 const corridorById = new Map(CORRIDORS.map(co => [co.id, co]));
 
-let thumbEpoch = Date.now();
+let thumbEpoch = 0;
 let visibleList = CAMERAS.slice();
 let currentCam = null;
 let modalSessionId = 0;
@@ -2324,11 +2324,33 @@ let mapMarkersLayer = null;
 let mapHasFitOnce = false;
 let skipNextAutoFit = false;
 
-const offlineIds = new Set();
+const stillFallbackIds = new Set(
+  CAMERAS.filter(c => c.Type === "sdot" && c.StreamActive === false).map(c => c.Id)
+);
+const offlineIds = new Set(
+  CAMERAS.filter(c => c.ImageActive === false).map(c => c.Id)
+);
 const lastConfirmedAt = new Map();
 const camById = new Map(CAMERAS.map(c => [c.Id, c]));
 const cardElById = new Map();
 const markerByGroupKey = new Map();
+
+function isStillModeCam(cam) {
+  return !cam || cam.Type !== "sdot" || stillFallbackIds.has(cam.Id);
+}
+
+function freshStillEpoch(cam) {
+  if (cam && cam.Type === "wsdot") return Date.now();
+  return Math.floor(Date.now() / 60000);
+}
+
+function placeholderText(cam) {
+  if (offlineIds.has(cam.Id)) return "Camera offline";
+  if (cam.Type === "sdot" && !stillFallbackIds.has(cam.Id)) {
+    return "No preview · click for live video";
+  }
+  return "Preview unavailable";
+}
 
 function loadFavorites() {
   try { return new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]")); }
@@ -2382,6 +2404,14 @@ function streamUrl(cam) {
   return CONFIG.wowzaTemplate.replace("{stream}", cam.StreamName || "");
 }
 
+function shouldUseNativeHls(video) {
+  if (!video.canPlayType("application/vnd.apple.mpegurl")) return false;
+  const hlsJsAvailable = typeof Hls !== "undefined" && Hls.isSupported();
+  if (!hlsJsAvailable) return true;
+  const ua = navigator.userAgent || "";
+  return /AppleWebKit/i.test(ua) && !/(?:Chrome|Chromium|Edg|OPR)\//i.test(ua);
+}
+
 function thumbUrl(cam, epoch = thumbEpoch) {
   if (!cam || !cam.ImageUrl) return "";
   const encoded = encodeURI(cam.ImageUrl);
@@ -2424,9 +2454,13 @@ function updateModalSub(cam) {
   let meta = cam.Neighborhood + " · Camera " + cam.Id;
   const t = lastConfirmedAt.get(cam.Id);
   if (t) {
-    meta += cam.Type === "sdot"
-      ? " · Confirmed live " + formatAgo(Date.now() - t)
-      : " · Refreshed " + formatAgo(Date.now() - t);
+    if (cam.Type === "sdot" && !stillFallbackIds.has(cam.Id)) {
+      meta += " · Confirmed live " + formatAgo(Date.now() - t);
+    } else if (cam.Type === "sdot") {
+      meta += " · Snapshot fallback (video unavailable) · " + formatAgo(Date.now() - t);
+    } else {
+      meta += " · Refreshed " + formatAgo(Date.now() - t);
+    }
   }
   document.getElementById("modal-sub").textContent = meta;
 
@@ -2453,13 +2487,19 @@ function updateCardState(id) {
   if (!card || !cam) return;
 
   const isOffline = offlineIds.has(id);
+  const isStill = isStillModeCam(cam);
   const isFav = favorites.has(id);
   card.classList.toggle("offline", isOffline);
 
   const badge = card.querySelector(".badge-status");
   if (badge) {
-    badge.className = "badge-status" + (isOffline ? " offline" : cam.Type !== "sdot" ? " still" : "");
-    badge.innerHTML = '<span class="badge-dot"></span>' + (isOffline ? "OFFLINE" : cam.Type === "sdot" ? "LIVE" : "STILL");
+    badge.className = "badge-status" + (isOffline ? " offline" : isStill ? " still" : "");
+    badge.innerHTML = '<span class="badge-dot"></span>' + (isOffline ? "OFFLINE" : isStill ? "STILL" : "LIVE");
+  }
+
+  const phSpan = card.querySelector(".thumb-placeholder span");
+  if (phSpan) {
+    phSpan.textContent = placeholderText(cam);
   }
 
   const favBtn = card.querySelector(".fav-btn");
@@ -2468,6 +2508,23 @@ function updateCardState(id) {
     favBtn.title = isFav ? "Remove from favorites" : "Add to favorites";
     const poly = favBtn.querySelector("polygon");
     if (poly) poly.setAttribute("fill", isFav ? "currentColor" : "none");
+  }
+}
+
+function setCameraStillFallback(id, isFallback) {
+  const changed = isFallback ? !stillFallbackIds.has(id) : stillFallbackIds.has(id);
+  if (isFallback) stillFallbackIds.add(id);
+  else stillFallbackIds.delete(id);
+
+  if (changed) {
+    updateCardState(id);
+    const cam = camById.get(id);
+    if (cam && hasCoords(cam) && mapInstance) {
+      updateMapMarkerGroup(cam);
+    }
+    if (videoOnly) {
+      applyFilters();
+    }
   }
 }
 
@@ -2482,7 +2539,7 @@ function markCameraOffline(id, isOffline) {
     if (cam && hasCoords(cam) && mapInstance) {
       updateMapMarkerGroup(cam);
     }
-    if (hideOffline && changed) {
+    if (hideOffline) {
       applyFilters();
     }
   }
@@ -2627,9 +2684,10 @@ function getOrCreateCard(cam) {
 
   card = document.createElement("div");
   const isOffline = offlineIds.has(cam.Id);
+  const isStill = isStillModeCam(cam);
   const isFav = favorites.has(cam.Id);
-  const badgeClass = isOffline ? " offline" : cam.Type !== "sdot" ? " still" : "";
-  const badgeLabel = isOffline ? "OFFLINE" : cam.Type === "sdot" ? "LIVE" : "STILL";
+  const badgeClass = isOffline ? " offline" : isStill ? " still" : "";
+  const badgeLabel = isOffline ? "OFFLINE" : isStill ? "STILL" : "LIVE";
 
   card.className = "card" + (isOffline ? " offline" : "");
   card.dataset.id = cam.Id;
@@ -2644,7 +2702,7 @@ function getOrCreateCard(cam) {
           <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
           <line x1="1" y1="1" x2="23" y2="23"/>
         </svg>
-        <span>Preview unavailable</span>
+        <span>${escHtml(placeholderText(cam))}</span>
       </div>
       <div class="thumb-hover-overlay">
         <div class="play-indicator-circle">
@@ -2684,7 +2742,7 @@ function getOrCreateCard(cam) {
   }
 
   function scheduleThumbRetry(attempt, gen) {
-    if (attempt > 2 || gen !== (card._retryGen || 0)) return;
+    if (attempt > 1 || gen !== (card._retryGen || 0)) return;
     clearTimeout(card._retryTimer);
     card._retryTimer = setTimeout(() => {
       if (gen !== (card._retryGen || 0)) return;
@@ -2693,24 +2751,38 @@ function getOrCreateCard(cam) {
         if (gen !== (card._retryGen || 0)) return;
         if (cam.Type === "sdot" && retryImg.naturalWidth === 352 && retryImg.naturalHeight === 240) {
           hideThumb();
+          if (stillFallbackIds.has(cam.Id)) {
+            markCameraOffline(cam.Id, true);
+          }
         } else {
           img.src = retryImg.src;
           showThumb();
+          if (isStillModeCam(cam) && offlineIds.has(cam.Id)) {
+            markCameraOffline(cam.Id, false);
+          }
         }
       };
       retryImg.onerror = () => {
         if (gen !== (card._retryGen || 0)) return;
-        scheduleThumbRetry(attempt + 1, gen);
+        if (stillFallbackIds.has(cam.Id) || cam.Type !== "sdot") {
+          markCameraOffline(cam.Id, true);
+        }
       };
-      retryImg.src = thumbUrl(cam, Date.now());
-    }, 2500 * attempt);
+      retryImg.src = thumbUrl(cam, thumbEpoch);
+    }, 3500);
   }
 
   img.addEventListener("load", () => {
     if (cam.Type === "sdot" && img.naturalWidth === 352 && img.naturalHeight === 240) {
       hideThumb();
+      if (stillFallbackIds.has(cam.Id)) {
+        markCameraOffline(cam.Id, true);
+      }
     } else {
       showThumb();
+      if (isStillModeCam(cam) && offlineIds.has(cam.Id)) {
+        markCameraOffline(cam.Id, false);
+      }
     }
   });
 
@@ -2738,7 +2810,8 @@ function getOrCreateCard(cam) {
 }
 
 function refreshThumbnails() {
-  thumbEpoch = Date.now();
+  const nextEpoch = Math.floor(Date.now() / 60000);
+  thumbEpoch = nextEpoch === thumbEpoch ? thumbEpoch + 1 : nextEpoch;
   const btn = document.getElementById("refresh-thumbs-btn");
   btn.classList.remove("spinning");
   void btn.offsetWidth;
@@ -2956,7 +3029,7 @@ function applyFilters({ render = true } = {}) {
         c.Id.toLowerCase().includes(q);
       if (!hit) return false;
     }
-    if (videoOnly && c.Type !== "sdot") return false;
+    if (videoOnly && isStillModeCam(c)) return false;
     if (hideOffline && offlineIds.has(c.Id)) return false;
     if (onlyFavorites && !favorites.has(c.Id)) return false;
     return true;
@@ -3014,7 +3087,7 @@ function updateMapTiles() {
 function getGroupPinInfo(group) {
   const anyFav = group.some(c => favorites.has(c.Id));
   const allOffline = group.every(c => offlineIds.has(c.Id));
-  const anyLive = group.some(c => c.Type === "sdot" && !offlineIds.has(c.Id));
+  const anyLive = group.some(c => c.Type === "sdot" && !stillFallbackIds.has(c.Id) && !offlineIds.has(c.Id));
   let cls = "still";
   if (allOffline) cls = "offline";
   else if (anyFav) cls = "fav";
@@ -3038,8 +3111,9 @@ function buildMarkerIcon(group) {
 function buildMapTooltipHtml(group) {
   const primary = group[0];
   const isOffline = offlineIds.has(primary.Id);
-  const pillCls = isOffline ? "offline" : primary.Type === "sdot" ? "live" : "still";
-  const pillText = isOffline ? "OFFLINE" : primary.Type === "sdot" ? "LIVE" : "STILL";
+  const isStill = isStillModeCam(primary);
+  const pillCls = isOffline ? "offline" : isStill ? "still" : "live";
+  const pillText = isOffline ? "OFFLINE" : isStill ? "STILL" : "LIVE";
   const extra = group.length > 1 ? `<span>+${group.length - 1} more at spot</span>` : `<span>${escHtml(primary.Neighborhood)}</span>`;
   return `
     <div class="map-tip-body">
@@ -3162,7 +3236,9 @@ function getWallCandidates() {
         cams: CAMERAS.filter(c => favorites.has(c.Id)),
       };
     }
-    const defaultSeattle = CAMERAS.filter(c => c.Type === "sdot" && !offlineIds.has(c.Id));
+    const defaultSeattle = CAMERAS.filter(
+      c => c.Type === "sdot" && !offlineIds.has(c.Id) && !stillFallbackIds.has(c.Id)
+    );
     return {
       label: "Live Wall — star cameras or pick a corridor",
       showPresets: true,
@@ -3176,105 +3252,49 @@ function getWallCandidates() {
   };
 }
 
-function attachWallHls(video, statusEl, badgeEl, cam) {
-  let tileHls = null;
-  let timerId = null;
-  let hasPlayed = false;
-  let destroyed = false;
-  const url = streamUrl(cam);
-
-  const setTileOffline = () => {
-    if (destroyed) return;
-    statusEl.textContent = "Stream unavailable";
-    statusEl.style.display = "flex";
-    badgeEl.className = "wall-tile-badge offline";
-    badgeEl.textContent = "OFFLINE";
-    markCameraOffline(cam.Id, true);
-  };
-
-  timerId = setTimeout(() => {
-    if (!hasPlayed) setTileOffline();
-  }, 12000);
-
-  video.onplaying = () => {
-    if (destroyed) return;
-    hasPlayed = true;
-    clearTimeout(timerId);
-    statusEl.style.display = "none";
-    badgeEl.className = "wall-tile-badge live";
-    badgeEl.textContent = "LIVE";
-    lastConfirmedAt.set(cam.Id, Date.now());
-    markCameraOffline(cam.Id, false);
-  };
-
-  if (video.canPlayType("application/vnd.apple.mpegurl")) {
-    video.src = url;
-    video.onerror = setTileOffline;
-    video.play().catch(() => {});
-  } else if (typeof Hls !== "undefined" && Hls.isSupported()) {
-    tileHls = new Hls({ capLevelToPlayerSize: true, startLevel: -1 });
-    tileHls.loadSource(url);
-    tileHls.attachMedia(video);
-    video.play().catch(() => {});
-
-    let retries = 0;
-    tileHls.on(Hls.Events.ERROR, (event, data) => {
-      if (destroyed || !data.fatal) return;
-      if (retries < 2 && data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-        retries++;
-        tileHls.startLoad();
-        return;
-      }
-      if (retries < 2 && data.type === Hls.ErrorTypes.MEDIA_ERROR) {
-        retries++;
-        tileHls.recoverMediaError();
-        return;
-      }
-      setTileOffline();
-    });
-  } else {
-    statusEl.textContent = "HLS unsupported in this browser";
-  }
-
-  return () => {
-    destroyed = true;
-    clearTimeout(timerId);
-    video.onplaying = null;
-    video.onerror = null;
-    video.pause();
-    video.removeAttribute("src");
-    video.load();
-    if (tileHls) {
-      tileHls.destroy();
-      tileHls = null;
-    }
-  };
-}
-
 function attachWallStill(imgEl, statusEl, badgeEl, cam) {
   let destroyed = false;
   let timerId = null;
+  let retryTimer = null;
+  let initialAttempt = true;
+  let retriedInitial = false;
 
   const refresh = () => {
     if (destroyed) return;
     const loader = new Image();
+    const markDead = () => {
+      if (destroyed) return;
+      statusEl.textContent = "Image unavailable";
+      statusEl.style.display = "flex";
+      badgeEl.className = "wall-tile-badge offline";
+      badgeEl.textContent = "OFFLINE";
+      if (initialAttempt) markCameraOffline(cam.Id, true);
+      initialAttempt = false;
+    };
     loader.onload = () => {
       if (destroyed) return;
+      if (cam.Type === "sdot" && loader.naturalWidth === 352 && loader.naturalHeight === 240) {
+        markDead();
+        return;
+      }
       imgEl.src = loader.src;
       statusEl.style.display = "none";
       badgeEl.className = "wall-tile-badge still";
       badgeEl.textContent = "STILL";
       lastConfirmedAt.set(cam.Id, Date.now());
       markCameraOffline(cam.Id, false);
+      initialAttempt = false;
     };
     loader.onerror = () => {
       if (destroyed) return;
-      statusEl.textContent = "Image unavailable";
-      statusEl.style.display = "flex";
-      badgeEl.className = "wall-tile-badge offline";
-      badgeEl.textContent = "OFFLINE";
+      if (initialAttempt && !retriedInitial) {
+        retriedInitial = true;
+        retryTimer = setTimeout(refresh, 2000);
+        return;
+      }
+      markDead();
     };
-    loader.src = thumbUrl(cam, Date.now());
+    loader.src = thumbUrl(cam, initialAttempt ? thumbEpoch : freshStillEpoch(cam));
   };
 
   refresh();
@@ -3282,7 +3302,113 @@ function attachWallStill(imgEl, statusEl, badgeEl, cam) {
 
   return () => {
     destroyed = true;
+    clearTimeout(retryTimer);
     clearInterval(timerId);
+  };
+}
+
+function attachWallHls(video, imgEl, statusEl, badgeEl, cam) {
+  let tileHls = null;
+  let timerId = null;
+  let retryTimer = null;
+  let hasPlayed = false;
+  let tileUnmounted = false;
+  let hlsStopped = false;
+  let stillCleanup = null;
+  const url = streamUrl(cam);
+
+  const stopHls = () => {
+    if (hlsStopped) return;
+    hlsStopped = true;
+    clearTimeout(timerId);
+    clearTimeout(retryTimer);
+    if (tileHls) {
+      tileHls.destroy();
+      tileHls = null;
+    }
+    video.onplaying = null;
+    video.onerror = null;
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+  };
+
+  const switchToStill = () => {
+    if (tileUnmounted || hasPlayed) return;
+    stopHls();
+    video.style.display = "none";
+    imgEl.style.display = "block";
+    setCameraStillFallback(cam.Id, true);
+    statusEl.textContent = "Loading snapshot…";
+    statusEl.style.display = "flex";
+    stillCleanup = attachWallStill(imgEl, statusEl, badgeEl, cam);
+  };
+
+  timerId = setTimeout(() => {
+    if (!hasPlayed) switchToStill();
+  }, 12000);
+
+  video.onplaying = () => {
+    if (tileUnmounted || hlsStopped) return;
+    hasPlayed = true;
+    clearTimeout(timerId);
+    statusEl.style.display = "none";
+    badgeEl.className = "wall-tile-badge live";
+    badgeEl.textContent = "LIVE";
+    lastConfirmedAt.set(cam.Id, Date.now());
+    setCameraStillFallback(cam.Id, false);
+    markCameraOffline(cam.Id, false);
+  };
+
+  if (shouldUseNativeHls(video)) {
+    video.src = url;
+    video.onerror = switchToStill;
+    video.play().catch(() => {});
+  } else if (typeof Hls !== "undefined" && Hls.isSupported()) {
+    tileHls = new Hls({ capLevelToPlayerSize: true, startLevel: -1 });
+    tileHls.loadSource(url);
+    tileHls.attachMedia(video);
+    video.play().catch(() => {});
+
+    tileHls.on(Hls.Events.MANIFEST_PARSED, () => {
+      if (!tileUnmounted && !hlsStopped) {
+        video.play().catch(() => {});
+      }
+    });
+
+    let retries = 0;
+    tileHls.on(Hls.Events.ERROR, (event, data) => {
+      if (tileUnmounted || hlsStopped || hasPlayed || !data.fatal) return;
+      if (data.response && data.response.code === 404) {
+        switchToStill();
+        return;
+      }
+      if (retries < 2 && data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+        retries++;
+        clearTimeout(retryTimer);
+        retryTimer = setTimeout(() => {
+          if (!tileUnmounted && !hlsStopped && tileHls) tileHls.startLoad();
+        }, 1000 * retries);
+        return;
+      }
+      if (retries < 2 && data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+        retries++;
+        tileHls.recoverMediaError();
+        return;
+      }
+      switchToStill();
+    });
+  } else {
+    switchToStill();
+  }
+
+  return () => {
+    tileUnmounted = true;
+    stopHls();
+    if (stillCleanup) {
+      stillCleanup();
+      stillCleanup = null;
+    }
   };
 }
 
@@ -3329,8 +3455,9 @@ function renderWall() {
     tile.className = "wall-tile";
     const isFav = favorites.has(cam.Id);
     const isOffline = offlineIds.has(cam.Id);
-    const badgeCls = isOffline ? "offline" : cam.Type === "sdot" ? "live" : "still";
-    const badgeTxt = isOffline ? "OFFLINE" : cam.Type === "sdot" ? "LIVE" : "STILL";
+    const useStill = isStillModeCam(cam);
+    const badgeCls = isOffline ? "offline" : useStill ? "still" : "live";
+    const badgeTxt = isOffline ? "OFFLINE" : useStill ? "STILL" : "LIVE";
 
     tile.innerHTML = `
       <div class="wall-tile-header">
@@ -3342,10 +3469,9 @@ function renderWall() {
         </div>
       </div>
       <div class="wall-media-wrap">
-        ${cam.Type === "sdot"
-          ? '<video muted autoplay playsinline></video>'
-          : `<img src="${escHtml(thumbUrl(cam, thumbEpoch))}" alt="${escHtml(cam.Description)}">`}
-        <div class="wall-tile-status">${cam.Type === "sdot" ? "Connecting…" : "Refreshing…"}</div>
+        <video muted autoplay playsinline style="display:${useStill ? "none" : "block"};"></video>
+        <img alt="${escHtml(cam.Description)}" style="display:${useStill ? "block" : "none"};">
+        <div class="wall-tile-status">${useStill ? "Loading snapshot…" : "Connecting…"}</div>
       </div>`;
 
     tile.querySelector(".wall-fav-btn").addEventListener("click", () => toggleFavorite(cam.Id));
@@ -3356,10 +3482,12 @@ function renderWall() {
 
     const statusEl = tile.querySelector(".wall-tile-status");
     const badgeEl = tile.querySelector(".wall-tile-badge");
-    if (cam.Type === "sdot") {
-      wallCleanups.push(attachWallHls(tile.querySelector("video"), statusEl, badgeEl, cam));
+    const videoEl = tile.querySelector("video");
+    const imgEl = tile.querySelector("img");
+    if (useStill) {
+      wallCleanups.push(attachWallStill(imgEl, statusEl, badgeEl, cam));
     } else {
-      wallCleanups.push(attachWallStill(tile.querySelector("img"), statusEl, badgeEl, cam));
+      wallCleanups.push(attachWallHls(videoEl, imgEl, statusEl, badgeEl, cam));
     }
   }
 }
@@ -3418,7 +3546,7 @@ function renderNearbyBar(cam) {
   const candidates = [];
   for (const other of CAMERAS) {
     if (other.Id === cam.Id || !hasCoords(other)) continue;
-    if (videoOnly && other.Type !== "sdot") continue;
+    if (videoOnly && isStillModeCam(other)) continue;
     if (hideOffline && offlineIds.has(other.Id)) continue;
     const dist = distanceMeters(cam.Lat, cam.Lng, other.Lat, other.Lng);
     if (dist <= 3000) {
@@ -3466,15 +3594,15 @@ function renderNearbyBar(cam) {
   bar.classList.add("visible");
 }
 
-function showModalError(msg, cam, sessionId) {
+function showModalError(msg, cam, sessionId, { useImageDirect = false } = {}) {
   if (sessionId !== modalSessionId) return;
   document.getElementById("player-spinner").style.display = "none";
   document.getElementById("modal-error-msg").textContent = msg;
-  const directUrl = cam.Type === "sdot" ? streamUrl(cam) : thumbUrl(cam, Date.now());
+  const directUrl = (cam.Type === "sdot" && !useImageDirect) ? streamUrl(cam) : thumbUrl(cam, thumbEpoch);
   const errDirect = document.getElementById("btn-error-direct");
   errDirect.href = directUrl;
-  errDirect.textContent = cam.Type === "sdot" ? "Open Direct Stream" : "Open Image";
-  document.getElementById("btn-retry-stream").textContent = cam.Type === "sdot" ? "↻ Retry Stream" : "↻ Retry Image";
+  errDirect.textContent = (cam.Type === "sdot" && !useImageDirect) ? "Open Direct Stream" : "Open Image";
+  document.getElementById("btn-retry-stream").textContent = (cam.Type === "sdot" && !useImageDirect) ? "↻ Retry Stream" : "↻ Retry Image";
   updateModalStatus(cam, "offline");
   document.getElementById("modal-error").style.display = "flex";
 }
@@ -3487,20 +3615,113 @@ function clearModalTimers() {
 
 function teardownModalMedia() {
   clearModalTimers();
+  if (hls) {
+    hls.destroy();
+    hls = null;
+  }
   const video = document.getElementById("modal-video");
   video.onplaying = null;
   video.onerror = null;
   video.pause();
   video.removeAttribute("src");
   video.load();
-  if (hls) {
-    hls.destroy();
-    hls = null;
-  }
   const still = document.getElementById("modal-still");
   still.onload = null;
   still.onerror = null;
   still.removeAttribute("src");
+}
+
+function startModalStill(cam, sessionId, { isFallback = false } = {}) {
+  if (sessionId !== modalSessionId) return;
+  clearTimeout(streamTimeoutTimer);
+  if (stillRefreshTimer) { clearInterval(stillRefreshTimer); stillRefreshTimer = null; }
+  if (hls) {
+    hls.destroy();
+    hls = null;
+  }
+
+  const video = document.getElementById("modal-video");
+  const still = document.getElementById("modal-still");
+  const errEl = document.getElementById("modal-error");
+  const spinner = document.getElementById("player-spinner");
+  const spinnerText = document.getElementById("player-spinner-text");
+  const directBtn = document.getElementById("btn-open-direct");
+
+  video.onplaying = null;
+  video.onerror = null;
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+  video.style.display = "none";
+
+  still.style.display = "block";
+  document.getElementById("btn-pip").style.display = "none";
+  spinnerText.textContent = isFallback
+    ? "Live video unavailable · loading snapshot…"
+    : "Loading highway camera snapshot…";
+  spinner.style.display = "flex";
+  errEl.style.display = "none";
+  updateModalStatus(cam, "still");
+
+  const imgHref = thumbUrl(cam, thumbEpoch);
+  directBtn.href = imgHref;
+  document.getElementById("open-direct-text").textContent = "Open Image";
+
+  let retriedInitial = false;
+  const loadStillFrame = isInitial => {
+    if (sessionId !== modalSessionId) return;
+    const freshUrl = thumbUrl(cam, isInitial ? thumbEpoch : freshStillEpoch(cam));
+    const preloader = new Image();
+    const handleStillError = () => {
+      if (sessionId !== modalSessionId) return;
+      if (isInitial) {
+        markCameraOffline(cam.Id, true);
+        showModalError(
+          isFallback
+            ? "Camera is offline (neither live video nor snapshot is available)."
+            : "Camera image could not be loaded right now.",
+          cam,
+          sessionId,
+          { useImageDirect: true }
+        );
+      }
+    };
+    preloader.onload = () => {
+      if (sessionId !== modalSessionId) return;
+      if (cam.Type === "sdot" && preloader.naturalWidth === 352 && preloader.naturalHeight === 240) {
+        handleStillError();
+        return;
+      }
+      still.src = preloader.src;
+      directBtn.href = preloader.src;
+      spinner.style.display = "none";
+      errEl.style.display = "none";
+      if (isFallback) {
+        setCameraStillFallback(cam.Id, true);
+      }
+      markCameraOffline(cam.Id, false);
+      lastConfirmedAt.set(cam.Id, Date.now());
+      updateModalStatus(cam, "still");
+      updateModalSub(cam);
+    };
+    preloader.onerror = () => {
+      if (sessionId !== modalSessionId) return;
+      if (isInitial && !retriedInitial) {
+        retriedInitial = true;
+        setTimeout(() => {
+          if (sessionId === modalSessionId && still.style.display !== "none") {
+            loadStillFrame(true);
+          }
+        }, 2000);
+        return;
+      }
+      handleStillError();
+    };
+    preloader.src = freshUrl;
+  };
+
+  loadStillFrame(true);
+  stillRefreshTimer = setInterval(() => loadStillFrame(false), STILL_REFRESH_MS);
 }
 
 function openModal(cam) {
@@ -3552,11 +3773,12 @@ function openModal(cam) {
     document.getElementById("open-direct-text").textContent = "Direct Stream";
 
     let hasPlayed = false;
-    streamTimeoutTimer = setTimeout(() => {
+    const fallbackFromHls = () => {
       if (sessionId !== modalSessionId || hasPlayed) return;
-      markCameraOffline(cam.Id, true);
-      showModalError("Live feed connection timed out. Camera may be temporarily offline.", cam, sessionId);
-    }, 12000);
+      startModalStill(cam, sessionId, { isFallback: true });
+    };
+
+    streamTimeoutTimer = setTimeout(fallbackFromHls, 12000);
 
     video.onplaying = () => {
       if (sessionId !== modalSessionId) return;
@@ -3564,22 +3786,22 @@ function openModal(cam) {
       clearTimeout(streamTimeoutTimer);
       spinner.style.display = "none";
       errEl.style.display = "none";
+      setCameraStillFallback(cam.Id, false);
       markCameraOffline(cam.Id, false);
       lastConfirmedAt.set(cam.Id, Date.now());
       updateModalStatus(cam, "live");
       updateModalSub(cam);
+      if (document.pictureInPictureEnabled) {
+        pipBtn.style.display = "inline-flex";
+      }
     };
 
     const url = streamUrl(cam);
 
-    // Always check native HLS before hls.js to avoid Safari MSE stalling at 0:00.
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.onerror = () => {
-        if (sessionId !== modalSessionId || hasPlayed) return;
-        clearTimeout(streamTimeoutTimer);
-        markCameraOffline(cam.Id, true);
-        showModalError("Live stream is not responding (camera may be offline).", cam, sessionId);
-      };
+    // Prefer native HLS only on Apple WebKit/Safari where hls.js MSE stalls at 0:00,
+    // or when hls.js is unavailable; Chrome 157+ returns "maybe" for canPlayType.
+    if (shouldUseNativeHls(video)) {
+      video.onerror = fallbackFromHls;
       video.src = url;
       video.play().catch(() => {});
     } else if (typeof Hls !== "undefined" && Hls.isSupported()) {
@@ -3598,10 +3820,18 @@ function openModal(cam) {
 
       let hlsRetries = 0;
       hls.on(Hls.Events.ERROR, (event, data) => {
-        if (sessionId !== modalSessionId || !data.fatal) return;
+        if (sessionId !== modalSessionId || hasPlayed || !data.fatal) return;
+        if (data.response && data.response.code === 404) {
+          fallbackFromHls();
+          return;
+        }
         if (hlsRetries < 2 && data.type === Hls.ErrorTypes.NETWORK_ERROR) {
           hlsRetries++;
-          hls.startLoad();
+          setTimeout(() => {
+            if (sessionId === modalSessionId && !hasPlayed && hls) {
+              hls.startLoad();
+            }
+          }, 1000 * hlsRetries);
           return;
         }
         if (hlsRetries < 2 && data.type === Hls.ErrorTypes.MEDIA_ERROR) {
@@ -3609,52 +3839,13 @@ function openModal(cam) {
           hls.recoverMediaError();
           return;
         }
-        clearTimeout(streamTimeoutTimer);
-        markCameraOffline(cam.Id, true);
-        showModalError("Live stream is not responding (camera may be offline).", cam, sessionId);
+        fallbackFromHls();
       });
     } else {
-      clearTimeout(streamTimeoutTimer);
-      showModalError("This browser cannot play HLS streams directly.", cam, sessionId);
+      fallbackFromHls();
     }
   } else {
-    video.style.display = "none";
-    still.style.display = "block";
-    spinnerText.textContent = "Loading highway camera snapshot…";
-    updateModalStatus(cam, "still");
-
-    const imgHref = thumbUrl(cam, thumbEpoch);
-    const directBtn = document.getElementById("btn-open-direct");
-    directBtn.href = imgHref;
-    document.getElementById("open-direct-text").textContent = "Open Image";
-
-    const loadStillFrame = isInitial => {
-      if (sessionId !== modalSessionId) return;
-      const freshUrl = thumbUrl(cam, Date.now());
-      const preloader = new Image();
-      preloader.onload = () => {
-        if (sessionId !== modalSessionId) return;
-        still.src = preloader.src;
-        directBtn.href = preloader.src;
-        spinner.style.display = "none";
-        errEl.style.display = "none";
-        markCameraOffline(cam.Id, false);
-        lastConfirmedAt.set(cam.Id, Date.now());
-        updateModalStatus(cam, "still");
-        updateModalSub(cam);
-      };
-      preloader.onerror = () => {
-        if (sessionId !== modalSessionId) return;
-        if (isInitial) {
-          markCameraOffline(cam.Id, true);
-          showModalError("Camera image could not be loaded right now.", cam, sessionId);
-        }
-      };
-      preloader.src = freshUrl;
-    };
-
-    loadStillFrame(true);
-    stillRefreshTimer = setInterval(() => loadStillFrame(false), STILL_REFRESH_MS);
+    startModalStill(cam, sessionId, { isFallback: false });
   }
 
   modal.classList.add("open");
@@ -3815,7 +4006,7 @@ function init() {
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
       if (viewport.requestFullscreen) viewport.requestFullscreen();
       else if (viewport.webkitRequestFullscreen) viewport.webkitRequestFullscreen();
-      else if (currentCam && currentCam.Type === "sdot" && video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+      else if (video.style.display !== "none" && video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     } else {
       if (document.exitFullscreen) document.exitFullscreen();
       else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
@@ -3894,8 +4085,8 @@ function init() {
         const activeTag = document.activeElement ? document.activeElement.tagName : "";
         if (["BUTTON", "A", "INPUT", "SELECT"].includes(activeTag)) return;
         e.preventDefault();
-        if (currentCam && currentCam.Type === "sdot") {
-          const video = document.getElementById("modal-video");
+        const video = document.getElementById("modal-video");
+        if (video.style.display !== "none") {
           if (video.paused) video.play().catch(() => {});
           else video.pause();
         }
@@ -3907,7 +4098,8 @@ function init() {
         return;
       }
       if (e.key === "p" || e.key === "P") {
-        if (currentCam && currentCam.Type === "sdot" && document.pictureInPictureEnabled) {
+        const video = document.getElementById("modal-video");
+        if (video.style.display !== "none" && document.pictureInPictureEnabled) {
           e.preventDefault();
           document.getElementById("btn-pip").click();
         }

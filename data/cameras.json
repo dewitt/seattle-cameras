@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T07:10:33Z",
+  "generatedAt": "2026-11-15T07:49:44Z",
   "wowzaTemplate": "https://61e0c5d388c2e.streamlock.net:443/live/{stream}/playlist.m3u8",
   "sdotImageBase": "https://www.seattle.gov/trafficcams/images/",
   "wsdotImageBase": "https://images.wsdot.wa.gov/nw/",
@@ -11,7 +11,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.675945,
-      "Lng": -122.375739
+      "Lng": -122.375739,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0007",
@@ -20,7 +22,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.676357,
-      "Lng": -122.376759
+      "Lng": -122.376759,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0008",
@@ -29,7 +33,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.690609,
-      "Lng": -122.376806
+      "Lng": -122.376806,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0009",
@@ -38,7 +44,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.663651,
-      "Lng": -122.375301
+      "Lng": -122.375301,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0010",
@@ -47,7 +55,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.668514,
-      "Lng": -122.376215
+      "Lng": -122.376215,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0011",
@@ -56,7 +66,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.668514,
-      "Lng": -122.376215
+      "Lng": -122.376215,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0322",
@@ -65,7 +77,9 @@
       "Type": "sdot",
       "Neighborhood": "Ballard",
       "Lat": 47.668679,
-      "Lng": -122.387576
+      "Lng": -122.387576,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0004",
@@ -74,7 +88,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.599237,
-      "Lng": -122.314174
+      "Lng": -122.314174,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0411",
@@ -83,7 +99,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.615045,
-      "Lng": -122.311459
+      "Lng": -122.311459,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0412",
@@ -92,7 +110,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.61675,
-      "Lng": -122.307422
+      "Lng": -122.307422,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0242",
@@ -101,7 +121,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.604327,
-      "Lng": -122.302427
+      "Lng": -122.302427,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0263",
@@ -110,7 +132,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.612941,
-      "Lng": -122.30271
+      "Lng": -122.30271,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0023",
@@ -119,7 +143,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.608266,
-      "Lng": -122.302768
+      "Lng": -122.302768,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0024",
@@ -128,7 +154,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.608266,
-      "Lng": -122.302768
+      "Lng": -122.302768,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0299",
@@ -137,7 +165,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.595571,
-      "Lng": -122.302222
+      "Lng": -122.302222,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0360",
@@ -146,7 +176,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.590657,
-      "Lng": -122.302148
+      "Lng": -122.302148,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0027",
@@ -155,7 +187,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.599559,
-      "Lng": -122.302234
+      "Lng": -122.302234,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0028",
@@ -164,7 +198,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.599559,
-      "Lng": -122.302234
+      "Lng": -122.302234,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0300",
@@ -173,7 +209,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.591893,
-      "Lng": -122.3025
+      "Lng": -122.3025,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "I90EastPortalMBT",
@@ -182,7 +220,9 @@
       "Type": "wsdot",
       "Neighborhood": "Central",
       "Lat": 47.590385,
-      "Lng": -122.288521
+      "Lng": -122.288521,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90Rainier",
@@ -191,7 +231,9 @@
       "Type": "wsdot",
       "Neighborhood": "Central",
       "Lat": 47.59056,
-      "Lng": -122.307469
+      "Lng": -122.307469,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0268",
@@ -200,7 +242,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.607997,
-      "Lng": -122.296254
+      "Lng": -122.296254,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0269",
@@ -209,7 +253,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.601656,
-      "Lng": -122.296768
+      "Lng": -122.296768,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0387",
@@ -218,7 +264,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.623313,
-      "Lng": -122.296426
+      "Lng": -122.296426,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0270",
@@ -227,7 +275,9 @@
       "Type": "sdot",
       "Neighborhood": "Central",
       "Lat": 47.599233,
-      "Lng": -122.297415
+      "Lng": -122.297415,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0328",
@@ -236,7 +286,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.517343,
-      "Lng": -122.354026
+      "Lng": -122.354026,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0327",
@@ -245,7 +297,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.51736,
-      "Lng": -122.355165
+      "Lng": -122.355165,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0323",
@@ -254,7 +308,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.544683,
-      "Lng": -122.376445
+      "Lng": -122.376445,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0351",
@@ -263,7 +319,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.564736,
-      "Lng": -122.363337
+      "Lng": -122.363337,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0354",
@@ -272,7 +330,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.522867,
-      "Lng": -122.360091
+      "Lng": -122.360091,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0356",
@@ -281,7 +341,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.533717,
-      "Lng": -122.360449
+      "Lng": -122.360449,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0352",
@@ -290,7 +352,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.537955,
-      "Lng": -122.361097
+      "Lng": -122.361097,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0353",
@@ -299,7 +363,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.562908,
-      "Lng": -122.363349
+      "Lng": -122.363349,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0357",
@@ -308,7 +374,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.528285,
-      "Lng": -122.360467
+      "Lng": -122.360467,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0355",
@@ -317,7 +385,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.550109,
-      "Lng": -122.363003
+      "Lng": -122.363003,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0384",
@@ -326,7 +396,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.534125,
-      "Lng": -122.347185
+      "Lng": -122.347185,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0383",
@@ -335,7 +407,9 @@
       "Type": "sdot",
       "Neighborhood": "Delridge",
       "Lat": 47.534125,
-      "Lng": -122.347185
+      "Lng": -122.347185,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0193",
@@ -344,7 +418,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599189,
-      "Lng": -122.317223
+      "Lng": -122.317223,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0171",
@@ -353,7 +429,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616918,
-      "Lng": -122.352507
+      "Lng": -122.352507,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0256",
@@ -362,7 +440,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.604695,
-      "Lng": -122.336238
+      "Lng": -122.336238,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0217",
@@ -371,7 +451,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.606125,
-      "Lng": -122.337536
+      "Lng": -122.337536,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0016",
@@ -380,7 +462,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.610275,
-      "Lng": -122.341343
+      "Lng": -122.341343,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0178",
@@ -389,7 +473,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607828,
-      "Lng": -122.339105
+      "Lng": -122.339105,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0167",
@@ -398,7 +484,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.614031,
-      "Lng": -122.349606
+      "Lng": -122.349606,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0168",
@@ -407,7 +495,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.614696,
-      "Lng": -122.348746
+      "Lng": -122.348746,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0310",
@@ -416,7 +506,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.601722,
-      "Lng": -122.334179
+      "Lng": -122.334179,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0189",
@@ -425,7 +517,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599205,
-      "Lng": -122.334188
+      "Lng": -122.334188,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0362",
@@ -434,7 +528,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.596508,
-      "Lng": -122.33419
+      "Lng": -122.33419,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0185",
@@ -443,7 +539,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.614809,
-      "Lng": -122.346954
+      "Lng": -122.346954,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0264",
@@ -452,7 +550,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.613271,
-      "Lng": -122.344353
+      "Lng": -122.344353,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0241",
@@ -461,7 +561,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.617019,
-      "Lng": -122.350691
+      "Lng": -122.350691,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0265",
@@ -470,7 +572,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.602306,
-      "Lng": -122.332519
+      "Lng": -122.332519,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0240",
@@ -479,7 +583,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.612502,
-      "Lng": -122.343053
+      "Lng": -122.343053,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0218",
@@ -488,7 +594,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.604446,
-      "Lng": -122.334477
+      "Lng": -122.334477,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0303",
@@ -497,7 +605,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.609268,
-      "Lng": -122.338888
+      "Lng": -122.338888,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0302",
@@ -506,7 +616,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.609268,
-      "Lng": -122.338888
+      "Lng": -122.338888,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0415",
@@ -515,7 +627,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.605881,
-      "Lng": -122.335771
+      "Lng": -122.335771,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0030",
@@ -524,7 +638,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.610964,
-      "Lng": -122.340452
+      "Lng": -122.340452,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0069",
@@ -533,7 +649,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607347,
-      "Lng": -122.337128
+      "Lng": -122.337128,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0239",
@@ -542,7 +660,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611733,
-      "Lng": -122.341753
+      "Lng": -122.341753,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0426",
@@ -551,7 +671,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.601718,
-      "Lng": -122.331993
+      "Lng": -122.331993,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0320",
@@ -560,7 +682,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599991,
-      "Lng": -122.330342
+      "Lng": -122.330342,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0425",
@@ -569,7 +693,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599225,
-      "Lng": -122.331578
+      "Lng": -122.331578,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0033",
@@ -578,7 +704,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.604197,
-      "Lng": -122.332714
+      "Lng": -122.332714,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0191",
@@ -587,7 +715,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607085,
-      "Lng": -122.335326
+      "Lng": -122.335326,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0305",
@@ -596,7 +726,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.606337,
-      "Lng": -122.334672
+      "Lng": -122.334672,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0034",
@@ -605,7 +737,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611629,
-      "Lng": -122.339592
+      "Lng": -122.339592,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0304",
@@ -614,7 +748,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.608756,
-      "Lng": -122.336885
+      "Lng": -122.336885,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0035",
@@ -623,7 +759,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607763,
-      "Lng": -122.335976
+      "Lng": -122.335976,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0169",
@@ -632,7 +770,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616046,
-      "Lng": -122.347025
+      "Lng": -122.347025,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0036",
@@ -641,7 +781,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.601716,
-      "Lng": -122.330265
+      "Lng": -122.330265,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0040",
@@ -650,7 +792,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616083,
-      "Lng": -122.345143
+      "Lng": -122.345143,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0192",
@@ -659,7 +803,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.603825,
-      "Lng": -122.331241
+      "Lng": -122.331241,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0156",
@@ -668,7 +814,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.603825,
-      "Lng": -122.331241
+      "Lng": -122.331241,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0308",
@@ -677,7 +825,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.603286,
-      "Lng": -122.330364
+      "Lng": -122.330364,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0180",
@@ -686,7 +836,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.606088,
-      "Lng": -122.332909
+      "Lng": -122.332909,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0039",
@@ -695,7 +847,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.612182,
-      "Lng": -122.338543
+      "Lng": -122.338543,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0257",
@@ -704,7 +858,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611207,
-      "Lng": -122.337592
+      "Lng": -122.337592,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0174",
@@ -713,7 +869,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.613063,
-      "Lng": -122.340033
+      "Lng": -122.340033,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0043",
@@ -722,7 +880,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599197,
-      "Lng": -122.328968
+      "Lng": -122.328968,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0311",
@@ -731,7 +891,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.600875,
-      "Lng": -122.328963
+      "Lng": -122.328963,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0427",
@@ -740,7 +902,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.597601,
-      "Lng": -122.328961
+      "Lng": -122.328961,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0047",
@@ -749,7 +913,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616642,
-      "Lng": -122.344487
+      "Lng": -122.344487,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0048",
@@ -758,7 +924,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616642,
-      "Lng": -122.344487
+      "Lng": -122.344487,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0049",
@@ -767,7 +935,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.603698,
-      "Lng": -122.329187
+      "Lng": -122.329187,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0181",
@@ -776,7 +946,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.606553,
-      "Lng": -122.331798
+      "Lng": -122.331798,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0050",
@@ -785,7 +957,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.606553,
-      "Lng": -122.331798
+      "Lng": -122.331798,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0194",
@@ -794,7 +968,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.605839,
-      "Lng": -122.331146
+      "Lng": -122.331146,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0046",
@@ -803,7 +979,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.612665,
-      "Lng": -122.337394
+      "Lng": -122.337394,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0309",
@@ -812,7 +990,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.610678,
-      "Lng": -122.335574
+      "Lng": -122.335574,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0176",
@@ -821,7 +1001,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611207,
-      "Lng": -122.337592
+      "Lng": -122.337592,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0223",
@@ -830,7 +1012,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611672,
-      "Lng": -122.336484
+      "Lng": -122.336484,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0291",
@@ -839,7 +1023,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607266,
-      "Lng": -122.332451
+      "Lng": -122.332451,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0255",
@@ -848,7 +1034,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.609685,
-      "Lng": -122.334666
+      "Lng": -122.334666,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0428",
@@ -857,7 +1045,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599263,
-      "Lng": -122.327665
+      "Lng": -122.327665,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0258",
@@ -866,7 +1056,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.600873,
-      "Lng": -122.32766
+      "Lng": -122.32766,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0053",
@@ -875,7 +1067,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.595794,
-      "Lng": -122.327683
+      "Lng": -122.327683,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0318",
@@ -884,7 +1078,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.604876,
-      "Lng": -122.328734
+      "Lng": -122.328734,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0170",
@@ -893,7 +1089,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.61516,
-      "Lng": -122.339614
+      "Lng": -122.339614,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0055",
@@ -902,7 +1100,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.612136,
-      "Lng": -122.335373
+      "Lng": -122.335373,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0188",
@@ -911,7 +1111,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.608486,
-      "Lng": -122.331987
+      "Lng": -122.331987,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0373",
@@ -920,7 +1122,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607733,
-      "Lng": -122.331339
+      "Lng": -122.331339,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0321",
@@ -929,7 +1133,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.613622,
-      "Lng": -122.337015
+      "Lng": -122.337015,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0056",
@@ -938,7 +1144,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.618559,
-      "Lng": -122.344969
+      "Lng": -122.344969,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0187",
@@ -947,7 +1155,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.617382,
-      "Lng": -122.341394
+      "Lng": -122.341394,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0058",
@@ -956,7 +1166,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611606,
-      "Lng": -122.333354
+      "Lng": -122.333354,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0173",
@@ -965,7 +1177,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.615057,
-      "Lng": -122.337454
+      "Lng": -122.337454,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0059",
@@ -974,7 +1188,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.614065,
-      "Lng": -122.33404
+      "Lng": -122.33404,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0370",
@@ -983,7 +1199,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.61208,
-      "Lng": -122.332265
+      "Lng": -122.332265,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0172",
@@ -992,7 +1210,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.613528,
-      "Lng": -122.332042
+      "Lng": -122.332042,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0175",
@@ -1001,7 +1221,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.615616,
-      "Lng": -122.334436
+      "Lng": -122.334436,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0379",
@@ -1010,7 +1232,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.602417,
-      "Lng": -122.336956
+      "Lng": -122.336956,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0444",
@@ -1019,7 +1243,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.608724,
-      "Lng": -122.342892
+      "Lng": -122.342892,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0153",
@@ -1028,7 +1254,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.603844,
-      "Lng": -122.338244
+      "Lng": -122.338244,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0204",
@@ -1037,7 +1265,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.603134,
-      "Lng": -122.3376
+      "Lng": -122.3376,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0361",
@@ -1046,7 +1276,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.604624,
-      "Lng": -122.338812
+      "Lng": -122.338812,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0389",
@@ -1055,7 +1287,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.607052,
-      "Lng": -122.34102
+      "Lng": -122.34102,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0261",
@@ -1064,7 +1298,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.612814,
-      "Lng": -122.351186
+      "Lng": -122.351186,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0065",
@@ -1073,7 +1309,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.601718,
-      "Lng": -122.336582
+      "Lng": -122.336582,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0294",
@@ -1082,7 +1320,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.596479,
-      "Lng": -122.335535
+      "Lng": -122.335535,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0350",
@@ -1091,7 +1331,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599209,
-      "Lng": -122.335907
+      "Lng": -122.335907,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0333",
@@ -1100,7 +1342,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.598297,
-      "Lng": -122.335906
+      "Lng": -122.335906,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0087",
@@ -1109,7 +1353,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616187,
-      "Lng": -122.331404
+      "Lng": -122.331404,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0097",
@@ -1118,7 +1364,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.618274,
-      "Lng": -122.330999
+      "Lng": -122.330999,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0106",
@@ -1127,7 +1375,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.615588,
-      "Lng": -122.354224
+      "Lng": -122.354224,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0358",
@@ -1136,7 +1386,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611611,
-      "Lng": -122.346522
+      "Lng": -122.346522,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0317",
@@ -1145,7 +1397,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.617852,
-      "Lng": -122.334251
+      "Lng": -122.334251,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0316",
@@ -1154,7 +1408,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.61684,
-      "Lng": -122.330559
+      "Lng": -122.330559,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "I5Pine",
@@ -1163,7 +1419,9 @@
       "Type": "wsdot",
       "Neighborhood": "Downtown",
       "Lat": 47.614527,
-      "Lng": -122.329658
+      "Lng": -122.329658,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Seneca",
@@ -1172,7 +1430,9 @@
       "Type": "wsdot",
       "Neighborhood": "Downtown",
       "Lat": 47.608771,
-      "Lng": -122.331213
+      "Lng": -122.331213,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SenecaNBExit",
@@ -1181,7 +1441,9 @@
       "Type": "wsdot",
       "Neighborhood": "Downtown",
       "Lat": 47.608771,
-      "Lng": -122.331213
+      "Lng": -122.331213,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5UnionRev",
@@ -1190,7 +1452,9 @@
       "Type": "wsdot",
       "Neighborhood": "Downtown",
       "Lat": 47.611327,
-      "Lng": -122.331192
+      "Lng": -122.331192,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5UniversityNB",
@@ -1199,7 +1463,9 @@
       "Type": "wsdot",
       "Neighborhood": "Downtown",
       "Lat": 47.610682,
-      "Lng": -122.331065
+      "Lng": -122.331065,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Yesler",
@@ -1208,7 +1474,9 @@
       "Type": "wsdot",
       "Neighborhood": "Downtown",
       "Lat": 47.601756,
-      "Lng": -122.325412
+      "Lng": -122.325412,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-T01",
@@ -1217,7 +1485,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.598271,
-      "Lng": -122.333257
+      "Lng": -122.333257,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0136",
@@ -1226,7 +1496,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.595874,
-      "Lng": -122.31153
+      "Lng": -122.31153,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0306",
@@ -1235,7 +1507,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.599191,
-      "Lng": -122.325055
+      "Lng": -122.325055,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0382",
@@ -1244,7 +1518,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.615005,
-      "Lng": -122.331809
+      "Lng": -122.331809,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0182",
@@ -1253,7 +1529,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.616253,
-      "Lng": -122.353366
+      "Lng": -122.353366,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0179",
@@ -1262,7 +1540,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.604943,
-      "Lng": -122.338001
+      "Lng": -122.338001,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0186",
@@ -1271,7 +1551,9 @@
       "Type": "sdot",
       "Neighborhood": "Downtown",
       "Lat": 47.614031,
-      "Lng": -122.349606
+      "Lng": -122.349606,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0410",
@@ -1280,7 +1562,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.612986,
-      "Lng": -122.316738
+      "Lng": -122.316738,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0418",
@@ -1289,7 +1573,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.612986,
-      "Lng": -122.316738
+      "Lng": -122.316738,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0002",
@@ -1298,7 +1584,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.600853,
-      "Lng": -122.316965
+      "Lng": -122.316965,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0394",
@@ -1307,7 +1595,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.61842,
-      "Lng": -122.30365
+      "Lng": -122.30365,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0395",
@@ -1316,7 +1606,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.619171,
-      "Lng": -122.302547
+      "Lng": -122.302547,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-T04",
@@ -1325,7 +1617,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.635224,
-      "Lng": -122.301491
+      "Lng": -122.301491,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0319",
@@ -1334,7 +1628,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.604625,
-      "Lng": -122.32697
+      "Lng": -122.32697,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0409",
@@ -1343,7 +1639,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.607944,
-      "Lng": -122.328453
+      "Lng": -122.328453,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0060",
@@ -1352,7 +1650,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.605555,
-      "Lng": -122.324749
+      "Lng": -122.324749,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0088",
@@ -1361,7 +1661,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.609338,
-      "Lng": -122.325139
+      "Lng": -122.325139,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0378",
@@ -1370,7 +1672,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.609338,
-      "Lng": -122.325139
+      "Lng": -122.325139,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0312",
@@ -1379,7 +1683,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.613466,
-      "Lng": -122.328913
+      "Lng": -122.328913,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0089",
@@ -1388,7 +1694,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.610765,
-      "Lng": -122.326444
+      "Lng": -122.326444,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0369",
@@ -1397,7 +1705,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.601702,
-      "Lng": -122.317823
+      "Lng": -122.317823,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0313",
@@ -1406,7 +1716,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.619908,
-      "Lng": -122.320873
+      "Lng": -122.320873,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0090",
@@ -1415,7 +1727,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.613779,
-      "Lng": -122.320776
+      "Lng": -122.320776,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0091",
@@ -1424,7 +1738,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.613779,
-      "Lng": -122.320776
+      "Lng": -122.320776,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0092",
@@ -1433,7 +1749,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.625049,
-      "Lng": -122.320893
+      "Lng": -122.320893,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0307",
@@ -1442,7 +1760,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.607218,
-      "Lng": -122.320752
+      "Lng": -122.320752,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0416",
@@ -1451,7 +1771,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.611154,
-      "Lng": -122.320806
+      "Lng": -122.320806,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0417",
@@ -1460,7 +1782,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.611154,
-      "Lng": -122.320806
+      "Lng": -122.320806,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0386",
@@ -1469,7 +1793,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.651592,
-      "Lng": -122.321281
+      "Lng": -122.321281,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0105",
@@ -1478,7 +1804,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.650519,
-      "Lng": -122.322094
+      "Lng": -122.322094,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "I5CherryRamp",
@@ -1487,7 +1815,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.605297,
-      "Lng": -122.32775
+      "Lng": -122.32775,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5JohnRev",
@@ -1496,7 +1826,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.619723,
-      "Lng": -122.328487
+      "Lng": -122.328487,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Marion",
@@ -1505,7 +1837,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.606969,
-      "Lng": -122.329695
+      "Lng": -122.329695,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MarionRev",
@@ -1514,7 +1848,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.606969,
-      "Lng": -122.329695
+      "Lng": -122.329695,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Olive",
@@ -1523,7 +1859,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.616222,
-      "Lng": -122.328822
+      "Lng": -122.328822,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5PikeRev",
@@ -1532,7 +1870,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.613062,
-      "Lng": -122.330452
+      "Lng": -122.330452,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5PikeNB",
@@ -1541,7 +1881,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.613062,
-      "Lng": -122.330452
+      "Lng": -122.330452,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5PikeSB",
@@ -1550,7 +1892,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.613062,
-      "Lng": -122.330452
+      "Lng": -122.330452,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Jefferson",
@@ -1559,7 +1903,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.603744,
-      "Lng": -122.326823
+      "Lng": -122.326823,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5UniversityRamp",
@@ -1568,7 +1914,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.609994,
-      "Lng": -122.33144
+      "Lng": -122.33144,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5UniversitySB",
@@ -1577,7 +1925,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.609994,
-      "Lng": -122.33144
+      "Lng": -122.33144,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-T03",
@@ -1586,7 +1936,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.606969,
-      "Lng": -122.329695
+      "Lng": -122.329695,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0346",
@@ -1595,7 +1947,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.64564,
-      "Lng": -122.304583
+      "Lng": -122.304583,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0403",
@@ -1604,7 +1958,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.646433,
-      "Lng": -122.304614
+      "Lng": -122.304614,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0408",
@@ -1613,7 +1969,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.644724,
-      "Lng": -122.304616
+      "Lng": -122.304616,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0129",
@@ -1622,7 +1980,9 @@
       "Type": "sdot",
       "Neighborhood": "East",
       "Lat": 47.644014,
-      "Lng": -122.304148
+      "Lng": -122.304148,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "SR52020",
@@ -1631,7 +1991,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.644048,
-      "Lng": -122.305512
+      "Lng": -122.305512,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52025",
@@ -1640,7 +2002,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.644106,
-      "Lng": -122.299993
+      "Lng": -122.299993,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520MontlakeB-N",
@@ -1649,7 +2013,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.644048,
-      "Lng": -122.305512
+      "Lng": -122.305512,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520MontlakeB-S",
@@ -1658,7 +2024,9 @@
       "Type": "wsdot",
       "Neighborhood": "East",
       "Lat": 47.644048,
-      "Lng": -122.305512
+      "Lng": -122.305512,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0001",
@@ -1667,7 +2035,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.57159,
-      "Lng": -122.348507
+      "Lng": -122.348507,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0329",
@@ -1676,7 +2046,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571455,
-      "Lng": -122.347644
+      "Lng": -122.347644,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0003",
@@ -1685,7 +2057,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.526433,
-      "Lng": -122.315019
+      "Lng": -122.315019,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0019",
@@ -1694,7 +2068,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.548005,
-      "Lng": -122.334168
+      "Lng": -122.334168,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0020",
@@ -1703,7 +2079,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590312,
-      "Lng": -122.334195
+      "Lng": -122.334195,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0363",
@@ -1712,7 +2090,9 @@
       "Type": "sdot",
       "Lat": 47.595677,
       "Lng": -122.334187,
-      "Neighborhood": "Greater Duwamish"
+      "Neighborhood": "Greater Duwamish",
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0021",
@@ -1721,7 +2101,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.586109,
-      "Lng": -122.334192
+      "Lng": -122.334192,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0243",
@@ -1730,7 +2112,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.557412,
-      "Lng": -122.334214
+      "Lng": -122.334214,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0334",
@@ -1739,7 +2123,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.579811,
-      "Lng": -122.334201
+      "Lng": -122.334201,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0022",
@@ -1748,7 +2134,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.592396,
-      "Lng": -122.334195
+      "Lng": -122.334195,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0231",
@@ -1757,7 +2145,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571574,
-      "Lng": -122.334195
+      "Lng": -122.334195,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0159",
@@ -1766,7 +2156,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571574,
-      "Lng": -122.334195
+      "Lng": -122.334195,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0336",
@@ -1775,7 +2167,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.539813,
-      "Lng": -122.337111
+      "Lng": -122.337111,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0337",
@@ -1784,7 +2178,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.539813,
-      "Lng": -122.337111
+      "Lng": -122.337111,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0044",
@@ -1793,7 +2189,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.545337,
-      "Lng": -122.329588
+      "Lng": -122.329588,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0042",
@@ -1802,7 +2200,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590311,
-      "Lng": -122.32905
+      "Lng": -122.32905,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0262",
@@ -1811,7 +2211,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.58617,
-      "Lng": -122.329062
+      "Lng": -122.329062,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0314",
@@ -1820,7 +2222,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.592394,
-      "Lng": -122.329122
+      "Lng": -122.329122,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0232",
@@ -1829,7 +2233,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571576,
-      "Lng": -122.329104
+      "Lng": -122.329104,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0160",
@@ -1838,7 +2244,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571576,
-      "Lng": -122.329104
+      "Lng": -122.329104,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0045",
@@ -1847,7 +2255,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.594296,
-      "Lng": -122.329056
+      "Lng": -122.329056,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0429",
@@ -1856,7 +2266,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.5924,
-      "Lng": -122.327403
+      "Lng": -122.327403,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0244",
@@ -1865,7 +2277,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.54625,
-      "Lng": -122.326153
+      "Lng": -122.326153,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0057",
@@ -1874,7 +2288,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571381,
-      "Lng": -122.32596
+      "Lng": -122.32596,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0064",
@@ -1883,7 +2299,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.534481,
-      "Lng": -122.29885
+      "Lng": -122.29885,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0388",
@@ -1892,7 +2310,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.550131,
-      "Lng": -122.317772
+      "Lng": -122.317772,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0471",
@@ -1901,7 +2321,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.586105,
-      "Lng": -122.321367
+      "Lng": -122.321367,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0061",
@@ -1910,7 +2332,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.564886,
-      "Lng": -122.322774
+      "Lng": -122.322774,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0062",
@@ -1919,7 +2343,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.579808,
-      "Lng": -122.321398
+      "Lng": -122.321398,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0349",
@@ -1928,7 +2354,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.553397,
-      "Lng": -122.321075
+      "Lng": -122.321075,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0063",
@@ -1937,7 +2365,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.513608,
-      "Lng": -122.288112
+      "Lng": -122.288112,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0158",
@@ -1946,7 +2376,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590319,
-      "Lng": -122.337417
+      "Lng": -122.337417,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0249",
@@ -1955,7 +2387,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.54734,
-      "Lng": -122.32025
+      "Lng": -122.32025,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0293",
@@ -1964,7 +2398,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.59253,
-      "Lng": -122.335896
+      "Lng": -122.335896,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0407",
@@ -1973,7 +2409,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.571629,
-      "Lng": -122.314528
+      "Lng": -122.314528,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0095",
@@ -1982,7 +2420,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.547503,
-      "Lng": -122.321439
+      "Lng": -122.321439,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0099",
@@ -1991,7 +2431,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.534267,
-      "Lng": -122.313198
+      "Lng": -122.313198,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0100",
@@ -2000,7 +2442,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.57558,
-      "Lng": -122.33999
+      "Lng": -122.33999,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0102",
@@ -2009,7 +2453,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.5645,
-      "Lng": -122.339439
+      "Lng": -122.339439,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0103",
@@ -2018,7 +2464,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.544881,
-      "Lng": -122.331306
+      "Lng": -122.331306,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0233",
@@ -2027,7 +2475,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.5717,
-      "Lng": -122.33968
+      "Lng": -122.33968,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0474",
@@ -2036,7 +2486,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.5717,
-      "Lng": -122.33968
+      "Lng": -122.33968,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0446",
@@ -2045,7 +2497,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.583908,
-      "Lng": -122.34
+      "Lng": -122.34,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0101",
@@ -2054,7 +2508,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.557413,
-      "Lng": -122.339111
+      "Lng": -122.339111,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0447",
@@ -2063,7 +2519,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.560279,
-      "Lng": -122.339415
+      "Lng": -122.339415,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5I90",
@@ -2072,7 +2530,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.59366,
-      "Lng": -122.320353
+      "Lng": -122.320353,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Albro/Swift",
@@ -2081,7 +2541,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.548567,
-      "Lng": -122.311731
+      "Lng": -122.311731,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5BoeingAccRdN",
@@ -2090,7 +2552,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.508415,
-      "Lng": -122.282193
+      "Lng": -122.282193,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MidBoeing",
@@ -2099,7 +2563,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.538573,
-      "Lng": -122.300284
+      "Lng": -122.300284,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Albro",
@@ -2108,7 +2574,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.548567,
-      "Lng": -122.311731
+      "Lng": -122.311731,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Austin",
@@ -2117,7 +2585,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.534411,
-      "Lng": -122.295696
+      "Lng": -122.295696,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Benefit",
@@ -2126,7 +2596,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.519826,
-      "Lng": -122.289611
+      "Lng": -122.289611,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Court",
@@ -2135,7 +2607,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.570767,
-      "Lng": -122.319948
+      "Lng": -122.319948,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Ferdinand",
@@ -2144,7 +2618,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.558536,
-      "Lng": -122.321539
+      "Lng": -122.321539,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Forest",
@@ -2153,7 +2629,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.577809,
-      "Lng": -122.319215
+      "Lng": -122.319215,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Graham",
@@ -2162,7 +2640,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.546263,
-      "Lng": -122.30828
+      "Lng": -122.30828,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Holgate",
@@ -2171,7 +2651,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.586009,
-      "Lng": -122.319652
+      "Lng": -122.319652,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Hudson",
@@ -2180,7 +2662,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.557083,
-      "Lng": -122.320112
+      "Lng": -122.320112,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Oregon",
@@ -2189,7 +2673,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.563457,
-      "Lng": -122.321125
+      "Lng": -122.321125,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Spokane",
@@ -2198,7 +2684,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.572785,
-      "Lng": -122.318564
+      "Lng": -122.318564,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Walker",
@@ -2207,7 +2695,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.583736,
-      "Lng": -122.319976
+      "Lng": -122.319976,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Webster",
@@ -2216,7 +2706,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.535146,
-      "Lng": -122.297008
+      "Lng": -122.297008,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SwiftRamp",
@@ -2225,7 +2717,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.546981,
-      "Lng": -122.307937
+      "Lng": -122.307937,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I9012EB",
@@ -2234,7 +2728,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.594718,
-      "Lng": -122.317107
+      "Lng": -122.317107,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I903",
@@ -2243,7 +2739,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.59029,
-      "Lng": -122.329908
+      "Lng": -122.329908,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I904",
@@ -2252,7 +2750,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590311,
-      "Lng": -122.32905
+      "Lng": -122.32905,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90AirportWayWB",
@@ -2261,7 +2761,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.59293,
-      "Lng": -122.323885
+      "Lng": -122.323885,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90CorwinPl",
@@ -2270,7 +2772,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.595083,
-      "Lng": -122.314532
+      "Lng": -122.314532,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90NBtoEBramp",
@@ -2279,7 +2783,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.592515,
-      "Lng": -122.320138
+      "Lng": -122.320138,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0335",
@@ -2288,7 +2794,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.579812,
-      "Lng": -122.331473
+      "Lng": -122.331473,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0271",
@@ -2297,7 +2805,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.566292,
-      "Lng": -122.296689
+      "Lng": -122.296689,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0276",
@@ -2306,7 +2816,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.513429,
-      "Lng": -122.278671
+      "Lng": -122.278671,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-T08",
@@ -2315,7 +2827,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.595506,
-      "Lng": -122.333252
+      "Lng": -122.333252,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0436",
@@ -2324,7 +2838,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.576394,
-      "Lng": -122.296644
+      "Lng": -122.296644,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0213",
@@ -2333,7 +2849,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.584542,
-      "Lng": -122.30291
+      "Lng": -122.30291,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0279",
@@ -2342,7 +2860,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.588411,
-      "Lng": -122.305827
+      "Lng": -122.305827,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0124",
@@ -2351,7 +2871,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.577526,
-      "Lng": -122.297522
+      "Lng": -122.297522,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0157",
@@ -2360,7 +2882,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590319,
-      "Lng": -122.337417
+      "Lng": -122.337417,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0066",
@@ -2369,7 +2893,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.579941,
-      "Lng": -122.339339
+      "Lng": -122.339339,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "SR99DesMoines",
@@ -2378,7 +2904,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.51982,
-      "Lng": -122.316447
+      "Lng": -122.316447,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99AtlanticE",
@@ -2387,7 +2915,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590807,
-      "Lng": -122.336773
+      "Lng": -122.336773,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99AtlanticW",
@@ -2396,7 +2926,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.590319,
-      "Lng": -122.337417
+      "Lng": -122.337417,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Cloverdale",
@@ -2405,7 +2937,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.526471,
-      "Lng": -122.324293
+      "Lng": -122.324293,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Holden",
@@ -2414,7 +2948,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.534148,
-      "Lng": -122.332133
+      "Lng": -122.332133,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Lander",
@@ -2423,7 +2959,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.579018,
-      "Lng": -122.339125
+      "Lng": -122.339125,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Michigan",
@@ -2432,7 +2970,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.544571,
-      "Lng": -122.334134
+      "Lng": -122.334134,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99RoyalBrWay",
@@ -2441,7 +2981,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.59253,
-      "Lng": -122.335896
+      "Lng": -122.335896,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Walker",
@@ -2450,7 +2992,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.583908,
-      "Lng": -122.34
+      "Lng": -122.34,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99WMarg",
@@ -2459,7 +3003,9 @@
       "Type": "wsdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.536871,
-      "Lng": -122.333839
+      "Lng": -122.333839,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0338",
@@ -2468,7 +3014,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.540353,
-      "Lng": -122.342181
+      "Lng": -122.342181,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0339",
@@ -2477,7 +3025,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.540353,
-      "Lng": -122.342181
+      "Lng": -122.342181,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0142",
@@ -2486,7 +3036,9 @@
       "Type": "sdot",
       "Neighborhood": "Greater Duwamish",
       "Lat": 47.57159,
-      "Lng": -122.348507
+      "Lng": -122.348507,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0096",
@@ -2495,7 +3047,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618576,
-      "Lng": -122.348925
+      "Lng": -122.348925,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0443",
@@ -2504,7 +3058,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618572,
-      "Lng": -122.34762
+      "Lng": -122.34762,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0380",
@@ -2513,7 +3069,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618559,
-      "Lng": -122.344969
+      "Lng": -122.344969,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0161",
@@ -2522,7 +3080,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.622065,
-      "Lng": -122.345031
+      "Lng": -122.345031,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0365",
@@ -2531,7 +3091,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618561,
-      "Lng": -122.343645
+      "Lng": -122.343645,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0366",
@@ -2540,7 +3102,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618561,
-      "Lng": -122.343645
+      "Lng": -122.343645,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0476",
@@ -2549,7 +3113,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.620917,
-      "Lng": -122.343687
+      "Lng": -122.343687,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0154",
@@ -2558,7 +3124,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624687,
-      "Lng": -122.339741
+      "Lng": -122.339741,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0266",
@@ -2567,7 +3135,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.620879,
-      "Lng": -122.339769
+      "Lng": -122.339769,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0236",
@@ -2576,7 +3146,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.622061,
-      "Lng": -122.343675
+      "Lng": -122.343675,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0391",
@@ -2585,7 +3157,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.651237,
-      "Lng": -122.347312
+      "Lng": -122.347312,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0077",
@@ -2594,7 +3168,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.662145,
-      "Lng": -122.347149
+      "Lng": -122.347149,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0432",
@@ -2603,7 +3179,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.652597,
-      "Lng": -122.346662
+      "Lng": -122.346662,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0404",
@@ -2612,7 +3190,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618538,
-      "Lng": -122.337187
+      "Lng": -122.337187,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0098",
@@ -2621,7 +3201,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.61855,
-      "Lng": -122.342402
+      "Lng": -122.342402,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0434",
@@ -2630,7 +3212,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.61855,
-      "Lng": -122.342402
+      "Lng": -122.342402,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0104",
@@ -2639,7 +3223,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.619715,
-      "Lng": -122.329135
+      "Lng": -122.329135,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0448",
@@ -2648,7 +3234,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.62427,
-      "Lng": -122.329159
+      "Lng": -122.329159,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0449",
@@ -2657,7 +3245,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.623129,
-      "Lng": -122.32916
+      "Lng": -122.32916,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0109",
@@ -2666,7 +3256,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.651485,
-      "Lng": -122.351356
+      "Lng": -122.351356,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0399",
@@ -2675,7 +3267,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618517,
-      "Lng": -122.334255
+      "Lng": -122.334255,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0398",
@@ -2684,7 +3278,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618517,
-      "Lng": -122.334255
+      "Lng": -122.334255,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0396",
@@ -2693,7 +3289,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624673,
-      "Lng": -122.334589
+      "Lng": -122.334589,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0110",
@@ -2702,7 +3300,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624673,
-      "Lng": -122.334589
+      "Lng": -122.334589,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0397",
@@ -2711,7 +3311,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624673,
-      "Lng": -122.334589
+      "Lng": -122.334589,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0259",
@@ -2720,7 +3322,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.623162,
-      "Lng": -122.334279
+      "Lng": -122.334279,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0111",
@@ -2729,7 +3333,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.625966,
-      "Lng": -122.334172
+      "Lng": -122.334172,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0254",
@@ -2738,7 +3344,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.64959,
-      "Lng": -122.349747
+      "Lng": -122.349747,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0392",
@@ -2747,7 +3355,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.64959,
-      "Lng": -122.349747
+      "Lng": -122.349747,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0114",
@@ -2756,7 +3366,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.651349,
-      "Lng": -122.349934
+      "Lng": -122.349934,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0371",
@@ -2765,7 +3377,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.662012,
-      "Lng": -122.346363
+      "Lng": -122.346363,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5DennyWay",
@@ -2774,7 +3388,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.620554,
-      "Lng": -122.328646
+      "Lng": -122.328646,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Galer",
@@ -2783,7 +3399,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.632262,
-      "Lng": -122.32472
+      "Lng": -122.32472,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5EastlakeRev",
@@ -2792,7 +3410,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.649819,
-      "Lng": -122.322561
+      "Lng": -122.322561,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Mercer",
@@ -2801,7 +3421,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.625561,
-      "Lng": -122.328509
+      "Lng": -122.328509,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MercerNBRamps",
@@ -2810,7 +3432,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.625899,
-      "Lng": -122.329358
+      "Lng": -122.329358,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MercerRev",
@@ -2819,7 +3443,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624278,
-      "Lng": -122.328506
+      "Lng": -122.328506,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MercerRamp",
@@ -2828,7 +3454,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624947,
-      "Lng": -122.332118
+      "Lng": -122.332118,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MercerSBExit",
@@ -2837,7 +3465,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.625899,
-      "Lng": -122.329358
+      "Lng": -122.329358,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MercerFairview",
@@ -2846,7 +3476,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.625036,
-      "Lng": -122.332756
+      "Lng": -122.332756,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Roanoke",
@@ -2855,7 +3487,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.642603,
-      "Lng": -122.322798
+      "Lng": -122.322798,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SCB",
@@ -2864,7 +3498,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.654514,
-      "Lng": -122.322601
+      "Lng": -122.322601,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0253",
@@ -2873,7 +3509,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.658944,
-      "Lng": -122.364716
+      "Lng": -122.364716,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0381",
@@ -2882,7 +3520,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.662129,
-      "Lng": -122.348579
+      "Lng": -122.348579,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0372",
@@ -2891,7 +3531,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.66212,
-      "Lng": -122.353998
+      "Lng": -122.353998,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Harrison",
@@ -2900,7 +3542,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.622065,
-      "Lng": -122.345031
+      "Lng": -122.345031,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Republican",
@@ -2909,7 +3553,9 @@
       "Type": "wsdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.62323,
-      "Lng": -122.343666
+      "Lng": -122.343666,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0202",
@@ -2918,7 +3564,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.624685,
-      "Lng": -122.33713
+      "Lng": -122.33713,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0359",
@@ -2927,7 +3575,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.661388,
-      "Lng": -122.336353
+      "Lng": -122.336353,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0267",
@@ -2936,7 +3586,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618534,
-      "Lng": -122.338485
+      "Lng": -122.338485,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0184",
@@ -2945,7 +3597,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.618534,
-      "Lng": -122.338485
+      "Lng": -122.338485,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0260",
@@ -2954,7 +3608,9 @@
       "Type": "sdot",
       "Neighborhood": "Lake Union",
       "Lat": 47.622041,
-      "Lng": -122.338456
+      "Lng": -122.338456,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0292",
@@ -2963,7 +3619,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.637661,
-      "Lng": -122.376143
+      "Lng": -122.376143,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0012",
@@ -2972,7 +3630,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.648586,
-      "Lng": -122.376378
+      "Lng": -122.376378,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0013",
@@ -2981,7 +3641,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.653888,
-      "Lng": -122.376257
+      "Lng": -122.376257,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0298",
@@ -2990,7 +3652,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.633499,
-      "Lng": -122.376195
+      "Lng": -122.376195,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0390",
@@ -2999,7 +3663,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.653888,
-      "Lng": -122.376257
+      "Lng": -122.376257,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0017",
@@ -3008,7 +3674,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.618602,
-      "Lng": -122.355453
+      "Lng": -122.355453,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0374",
@@ -3017,7 +3685,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.620999,
-      "Lng": -122.355435
+      "Lng": -122.355435,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0375",
@@ -3026,7 +3696,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.620999,
-      "Lng": -122.355435
+      "Lng": -122.355435,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0332",
@@ -3035,7 +3707,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.618586,
-      "Lng": -122.35136
+      "Lng": -122.35136,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0041",
@@ -3044,7 +3718,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.646194,
-      "Lng": -122.349856
+      "Lng": -122.349856,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0445",
@@ -3053,7 +3729,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.646194,
-      "Lng": -122.349856
+      "Lng": -122.349856,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0162",
@@ -3062,7 +3740,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.624561,
-      "Lng": -122.347571
+      "Lng": -122.347571,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0051",
@@ -3071,7 +3751,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.620716,
-      "Lng": -122.347603
+      "Lng": -122.347603,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0163",
@@ -3080,7 +3762,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.624561,
-      "Lng": -122.347571
+      "Lng": -122.347571,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0235",
@@ -3089,7 +3773,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.623219,
-      "Lng": -122.344773
+      "Lng": -122.344773,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0203",
@@ -3098,7 +3784,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.625393,
-      "Lng": -122.339735
+      "Lng": -122.339735,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0297",
@@ -3107,7 +3795,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.631673,
-      "Lng": -122.376778
+      "Lng": -122.376778,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0068",
@@ -3116,7 +3806,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.635753,
-      "Lng": -122.343483
+      "Lng": -122.343483,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0081",
@@ -3125,7 +3817,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.62802,
-      "Lng": -122.343544
+      "Lng": -122.343544,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0385",
@@ -3134,7 +3828,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.619763,
-      "Lng": -122.348842
+      "Lng": -122.348842,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0211",
@@ -3143,7 +3839,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.62455,
-      "Lng": -122.34235
+      "Lng": -122.34235,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0296",
@@ -3152,7 +3850,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.632252,
-      "Lng": -122.375652
+      "Lng": -122.375652,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0108",
@@ -3161,7 +3861,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.626585,
-      "Lng": -122.368357
+      "Lng": -122.368357,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0135",
@@ -3170,7 +3872,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.624583,
-      "Lng": -122.356709
+      "Lng": -122.356709,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0234",
@@ -3179,7 +3883,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.625454,
-      "Lng": -122.356703
+      "Lng": -122.356703,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0376",
@@ -3188,7 +3894,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.620896,
-      "Lng": -122.356828
+      "Lng": -122.356828,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0377",
@@ -3197,7 +3905,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.620896,
-      "Lng": -122.356828
+      "Lng": -122.356828,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Comstock",
@@ -3206,7 +3916,9 @@
       "Type": "wsdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.630586,
-      "Lng": -122.343521
+      "Lng": -122.343521,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Raye",
@@ -3215,7 +3927,9 @@
       "Type": "wsdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.642997,
-      "Lng": -122.347158
+      "Lng": -122.347158,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99Valley",
@@ -3224,7 +3938,9 @@
       "Type": "wsdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.626268,
-      "Lng": -122.3436
+      "Lng": -122.3436,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0220",
@@ -3233,7 +3949,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.624558,
-      "Lng": -122.346266
+      "Lng": -122.346266,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0145",
@@ -3242,7 +3960,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.620664,
-      "Lng": -122.360928
+      "Lng": -122.360928,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0146",
@@ -3251,7 +3971,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.625796,
-      "Lng": -122.338635
+      "Lng": -122.338635,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0475",
@@ -3260,7 +3982,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.632567,
-      "Lng": -122.340871
+      "Lng": -122.340871,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0413",
@@ -3269,7 +3993,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.629703,
-      "Lng": -122.341045
+      "Lng": -122.341045,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0477",
@@ -3278,7 +4004,9 @@
       "Type": "sdot",
       "Neighborhood": "Magnolia/Queen Anne",
       "Lat": 47.628659,
-      "Lng": -122.340735
+      "Lng": -122.340735,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0227",
@@ -3287,7 +4015,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.708528,
-      "Lng": -122.31243
+      "Lng": -122.31243,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0018",
@@ -3296,7 +4026,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.708629,
-      "Lng": -122.328634
+      "Lng": -122.328634,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-T07",
@@ -3305,7 +4037,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.723136,
-      "Lng": -122.323577
+      "Lng": -122.323577,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0134",
@@ -3314,7 +4048,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.708602,
-      "Lng": -122.324517
+      "Lng": -122.324517,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0052",
@@ -3323,7 +4059,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.707706,
-      "Lng": -122.32325
+      "Lng": -122.32325,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0226",
@@ -3332,7 +4070,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.708594,
-      "Lng": -122.323275
+      "Lng": -122.323275,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "I5130",
@@ -3341,7 +4081,9 @@
       "Type": "wsdot",
       "Neighborhood": "North",
       "Lat": 47.722825,
-      "Lng": -122.324535
+      "Lng": -122.324535,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5145",
@@ -3350,7 +4092,9 @@
       "Type": "wsdot",
       "Neighborhood": "North",
       "Lat": 47.733879,
-      "Lng": -122.322859
+      "Lng": -122.322859,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I580Rev",
@@ -3359,7 +4103,9 @@
       "Type": "wsdot",
       "Neighborhood": "North",
       "Lat": 47.686782,
-      "Lng": -122.326284
+      "Lng": -122.326284,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I585",
@@ -3368,7 +4114,9 @@
       "Type": "wsdot",
       "Neighborhood": "North",
       "Lat": 47.690453,
-      "Lng": -122.32889
+      "Lng": -122.32889,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0119",
@@ -3377,7 +4125,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.719133,
-      "Lng": -122.29532
+      "Lng": -122.29532,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0121",
@@ -3386,7 +4136,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.728288,
-      "Lng": -122.29225
+      "Lng": -122.29225,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0120",
@@ -3395,7 +4147,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.719272,
-      "Lng": -122.293968
+      "Lng": -122.293968,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0422",
@@ -3404,7 +4158,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.726477,
-      "Lng": -122.292288
+      "Lng": -122.292288,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0423",
@@ -3413,7 +4169,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.733724,
-      "Lng": -122.29243
+      "Lng": -122.29243,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0437",
@@ -3422,7 +4180,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.688504,
-      "Lng": -122.310757
+      "Lng": -122.310757,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0421",
@@ -3431,7 +4191,9 @@
       "Type": "sdot",
       "Lat": 47.697577,
       "Lng": -122.30548,
-      "Neighborhood": "North"
+      "Neighborhood": "North",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0424",
@@ -3440,7 +4202,9 @@
       "Type": "sdot",
       "Neighborhood": "North",
       "Lat": 47.71044,
-      "Lng": -122.300466
+      "Lng": -122.300466,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0225",
@@ -3449,7 +4213,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.664917,
-      "Lng": -122.315239
+      "Lng": -122.315239,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0005",
@@ -3458,7 +4224,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.683059,
-      "Lng": -122.313171
+      "Lng": -122.313171,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0216",
@@ -3467,7 +4235,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661262,
-      "Lng": -122.311993
+      "Lng": -122.311993,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0118",
@@ -3476,7 +4246,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.686625,
-      "Lng": -122.31207
+      "Lng": -122.31207,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0215",
@@ -3485,7 +4257,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.656206,
-      "Lng": -122.312126
+      "Lng": -122.312126,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0214",
@@ -3494,7 +4268,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.652976,
-      "Lng": -122.312464
+      "Lng": -122.312464,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0348",
@@ -3503,7 +4279,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.652077,
-      "Lng": -122.310657
+      "Lng": -122.310657,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0015",
@@ -3512,7 +4290,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.675781,
-      "Lng": -122.308714
+      "Lng": -122.308714,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0344",
@@ -3521,7 +4301,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661263,
-      "Lng": -122.306519
+      "Lng": -122.306519,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0029",
@@ -3530,7 +4312,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.675774,
-      "Lng": -122.300652
+      "Lng": -122.300652,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0031",
@@ -3539,7 +4323,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.675863,
-      "Lng": -122.292985
+      "Lng": -122.292985,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0393",
@@ -3548,7 +4334,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661307,
-      "Lng": -122.320743
+      "Lng": -122.320743,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0345",
@@ -3557,7 +4345,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661293,
-      "Lng": -122.314242
+      "Lng": -122.314242,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "I5742",
@@ -3566,7 +4356,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northeast",
       "Lat": 47.656821,
-      "Lng": -122.32085
+      "Lng": -122.32085,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5LCW",
@@ -3575,7 +4367,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northeast",
       "Lat": 47.681363,
-      "Lng": -122.320761
+      "Lng": -122.320761,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5LakeCityWayRev",
@@ -3584,7 +4378,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northeast",
       "Lat": 47.681943,
-      "Lng": -122.32116
+      "Lng": -122.32116,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I545",
@@ -3593,7 +4389,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661328,
-      "Lng": -122.32216
+      "Lng": -122.32216,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0420",
@@ -3602,7 +4400,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.686702,
-      "Lng": -122.313302
+      "Lng": -122.313302,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0130",
@@ -3611,7 +4411,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.659059,
-      "Lng": -122.301149
+      "Lng": -122.301149,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0131",
@@ -3620,7 +4422,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.649029,
-      "Lng": -122.304602
+      "Lng": -122.304602,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0132",
@@ -3629,7 +4433,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.649029,
-      "Lng": -122.304602
+      "Lng": -122.304602,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0133",
@@ -3638,7 +4444,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661243,
-      "Lng": -122.292864
+      "Lng": -122.292864,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0139",
@@ -3647,7 +4455,9 @@
       "Type": "sdot",
       "Lat": 47.683111,
       "Lng": -122.31749,
-      "Neighborhood": "Northeast"
+      "Neighborhood": "Northeast",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0342",
@@ -3656,7 +4466,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661387,
-      "Lng": -122.317691
+      "Lng": -122.317691,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0341",
@@ -3665,7 +4477,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.661387,
-      "Lng": -122.317691
+      "Lng": -122.317691,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "SR522Roosevelt",
@@ -3674,7 +4488,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northeast",
       "Lat": 47.682137,
-      "Lng": -122.318804
+      "Lng": -122.318804,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR522I5Ramps",
@@ -3683,7 +4499,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northeast",
       "Lat": 47.682137,
-      "Lng": -122.318804
+      "Lng": -122.318804,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0343",
@@ -3692,7 +4510,9 @@
       "Type": "sdot",
       "Neighborhood": "Northeast",
       "Lat": 47.659808,
-      "Lng": -122.313153
+      "Lng": -122.313153,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-T05",
@@ -3701,7 +4521,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.723171,
-      "Lng": -122.328929
+      "Lng": -122.328929,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0400",
@@ -3710,7 +4532,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.664959,
-      "Lng": -122.321727
+      "Lng": -122.321727,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0070",
@@ -3719,7 +4543,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.703241,
-      "Lng": -122.344673
+      "Lng": -122.344673,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0071",
@@ -3728,7 +4554,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.705051,
-      "Lng": -122.344694
+      "Lng": -122.344694,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0072",
@@ -3737,7 +4565,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.714777,
-      "Lng": -122.344853
+      "Lng": -122.344853,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0073",
@@ -3746,7 +4576,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.723215,
-      "Lng": -122.346797
+      "Lng": -122.346797,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0074",
@@ -3755,7 +4587,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.722483,
-      "Lng": -122.344969
+      "Lng": -122.344969,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0075",
@@ -3764,7 +4598,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.734128,
-      "Lng": -122.345024
+      "Lng": -122.345024,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0076",
@@ -3773,7 +4609,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.733498,
-      "Lng": -122.34509
+      "Lng": -122.34509,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0431",
@@ -3782,7 +4620,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.686939,
-      "Lng": -122.344518
+      "Lng": -122.344518,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0402",
@@ -3791,7 +4631,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.690555,
-      "Lng": -122.344686
+      "Lng": -122.344686,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0401",
@@ -3800,7 +4642,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.690555,
-      "Lng": -122.344686
+      "Lng": -122.344686,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0079",
@@ -3809,7 +4653,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.692012,
-      "Lng": -122.344539
+      "Lng": -122.344539,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0080",
@@ -3818,7 +4664,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.694186,
-      "Lng": -122.344565
+      "Lng": -122.344565,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0082",
@@ -3827,7 +4675,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.682772,
-      "Lng": -122.344484
+      "Lng": -122.344484,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0115",
@@ -3836,7 +4686,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.665034,
-      "Lng": -122.340207
+      "Lng": -122.340207,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0206",
@@ -3845,7 +4697,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.705084,
-      "Lng": -122.355453
+      "Lng": -122.355453,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0245",
@@ -3854,7 +4708,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.714159,
-      "Lng": -122.355516
+      "Lng": -122.355516,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0246",
@@ -3863,7 +4719,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.719601,
-      "Lng": -122.355539
+      "Lng": -122.355539,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0247",
@@ -3872,7 +4730,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.723234,
-      "Lng": -122.355547
+      "Lng": -122.355547,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0440",
@@ -3881,7 +4741,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.723234,
-      "Lng": -122.355547
+      "Lng": -122.355547,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "I5N110",
@@ -3890,7 +4752,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northwest",
       "Lat": 47.708631,
-      "Lng": -122.330109
+      "Lng": -122.330109,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5107",
@@ -3899,7 +4763,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northwest",
       "Lat": 47.706846,
-      "Lng": -122.329604
+      "Lng": -122.329604,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5120",
@@ -3908,7 +4774,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northwest",
       "Lat": 47.715882,
-      "Lng": -122.325692
+      "Lng": -122.325692,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5130W",
@@ -3917,7 +4785,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northwest",
       "Lat": 47.722825,
-      "Lng": -122.324535
+      "Lng": -122.324535,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I550",
@@ -3926,7 +4796,9 @@
       "Type": "wsdot",
       "Neighborhood": "Northwest",
       "Lat": 47.664959,
-      "Lng": -122.321727
+      "Lng": -122.321727,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0116",
@@ -3935,7 +4807,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.664953,
-      "Lng": -122.32562
+      "Lng": -122.32562,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0078",
@@ -3944,7 +4818,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.690568,
-      "Lng": -122.346387
+      "Lng": -122.346387,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0229",
@@ -3953,7 +4829,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.708663,
-      "Lng": -122.333993
+      "Lng": -122.333993,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0228",
@@ -3962,7 +4840,9 @@
       "Type": "sdot",
       "Neighborhood": "Northwest",
       "Lat": 47.705095,
-      "Lng": -122.338648
+      "Lng": -122.338648,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0301",
@@ -3971,7 +4851,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.588375,
-      "Lng": -122.302594
+      "Lng": -122.302594,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0274",
@@ -3980,7 +4862,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.526117,
-      "Lng": -122.279013
+      "Lng": -122.279013,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0273",
@@ -3989,7 +4873,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.546058,
-      "Lng": -122.285452
+      "Lng": -122.285452,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0275",
@@ -3998,7 +4884,9 @@
       "Type": "sdot",
       "Lat": 47.523271,
       "Lng": -122.278982,
-      "Neighborhood": "Southeast"
+      "Neighborhood": "Southeast",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0277",
@@ -4007,7 +4895,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.496098,
-      "Lng": -122.269075
+      "Lng": -122.269075,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0406",
@@ -4016,7 +4906,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.588313,
-      "Lng": -122.298031
+      "Lng": -122.298031,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0405",
@@ -4025,7 +4917,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.578347,
-      "Lng": -122.296185
+      "Lng": -122.296185,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0272",
@@ -4034,7 +4928,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.55123,
-      "Lng": -122.288096
+      "Lng": -122.288096,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0127",
@@ -4043,7 +4939,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.537185,
-      "Lng": -122.281168
+      "Lng": -122.281168,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0125",
@@ -4052,7 +4950,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.560794,
-      "Lng": -122.29258
+      "Lng": -122.29258,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0126",
@@ -4061,7 +4961,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.560808,
-      "Lng": -122.29324
+      "Lng": -122.29324,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0128",
@@ -4070,7 +4972,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.537185,
-      "Lng": -122.281168
+      "Lng": -122.281168,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0123",
@@ -4079,7 +4983,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.577537,
-      "Lng": -122.296191
+      "Lng": -122.296191,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0289",
@@ -4088,7 +4994,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.520147,
-      "Lng": -122.269719
+      "Lng": -122.269719,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0290",
@@ -4097,7 +5005,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.520264,
-      "Lng": -122.261582
+      "Lng": -122.261582,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0284",
@@ -4106,7 +5016,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.560748,
-      "Lng": -122.287027
+      "Lng": -122.287027,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0282",
@@ -4115,7 +5027,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.569771,
-      "Lng": -122.290699
+      "Lng": -122.290699,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0283",
@@ -4124,7 +5038,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.564095,
-      "Lng": -122.288186
+      "Lng": -122.288186,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0286",
@@ -4133,7 +5049,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.546027,
-      "Lng": -122.275989
+      "Lng": -122.275989,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0137",
@@ -4142,7 +5060,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.523307,
-      "Lng": -122.269986
+      "Lng": -122.269986,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0138",
@@ -4151,7 +5071,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.557041,
-      "Lng": -122.28463
+      "Lng": -122.28463,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0280",
@@ -4160,7 +5082,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.57835,
-      "Lng": -122.298151
+      "Lng": -122.298151,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0285",
@@ -4169,7 +5093,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.551176,
-      "Lng": -122.277664
+      "Lng": -122.277664,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0287",
@@ -4178,7 +5104,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.536958,
-      "Lng": -122.270274
+      "Lng": -122.270274,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0288",
@@ -4187,7 +5115,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.52913,
-      "Lng": -122.269987
+      "Lng": -122.269987,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0281",
@@ -4196,7 +5126,9 @@
       "Type": "sdot",
       "Neighborhood": "Southeast",
       "Lat": 47.572919,
-      "Lng": -122.294006
+      "Lng": -122.294006,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "SR900BoeingAccRd",
@@ -4205,7 +5137,9 @@
       "Type": "wsdot",
       "Neighborhood": "Southeast",
       "Lat": 47.507991,
-      "Lng": -122.278367
+      "Lng": -122.278367,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0325",
@@ -4214,7 +5148,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.52107,
-      "Lng": -122.376761
+      "Lng": -122.376761,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0326",
@@ -4223,7 +5159,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.533742,
-      "Lng": -122.376619
+      "Lng": -122.376619,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0324",
@@ -4232,7 +5170,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.517488,
-      "Lng": -122.376885
+      "Lng": -122.376885,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0032",
@@ -4241,7 +5181,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.565124,
-      "Lng": -122.376185
+      "Lng": -122.376185,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0250",
@@ -4250,7 +5192,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.581176,
-      "Lng": -122.383889
+      "Lng": -122.383889,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0038",
@@ -4259,7 +5203,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.561101,
-      "Lng": -122.385457
+      "Lng": -122.385457,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0251",
@@ -4268,7 +5214,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.581195,
-      "Lng": -122.386546
+      "Lng": -122.386546,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0093",
@@ -4277,7 +5225,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.561106,
-      "Lng": -122.386778
+      "Lng": -122.386778,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0252",
@@ -4286,7 +5236,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.575626,
-      "Lng": -122.386761
+      "Lng": -122.386761,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0330",
@@ -4295,7 +5247,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.571694,
-      "Lng": -122.3614
+      "Lng": -122.3614,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0094",
@@ -4304,7 +5258,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.57216,
-      "Lng": -122.360093
+      "Lng": -122.360093,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0331",
@@ -4313,7 +5269,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.57216,
-      "Lng": -122.360093
+      "Lng": -122.360093,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0113",
@@ -4322,7 +5280,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.561125,
-      "Lng": -122.381481
+      "Lng": -122.381481,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0112",
@@ -4331,7 +5291,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.526783,
-      "Lng": -122.392756
+      "Lng": -122.392756,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0230",
@@ -4340,7 +5302,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.571789,
-      "Lng": -122.370655
+      "Lng": -122.370655,
+      "StreamActive": true,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0143",
@@ -4349,7 +5313,9 @@
       "Type": "sdot",
       "Lat": 47.57109,
       "Lng": -122.356157,
-      "Neighborhood": "Southwest"
+      "Neighborhood": "Southwest",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "CMR-0144",
@@ -4358,7 +5324,9 @@
       "Type": "sdot",
       "Neighborhood": "Southwest",
       "Lat": 47.570099,
-      "Lng": -122.372999
+      "Lng": -122.372999,
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405232",
@@ -4367,7 +5335,9 @@
       "Type": "wsdot",
       "Lat": 47.789003,
       "Lng": -122.203638,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405243",
@@ -4376,7 +5346,9 @@
       "Type": "wsdot",
       "Lat": 47.77838,
       "Lng": -122.192787,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405CoalCreek",
@@ -4385,7 +5357,9 @@
       "Type": "wsdot",
       "Lat": 47.570123,
       "Lng": -122.178235,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405DamsonRd",
@@ -4394,7 +5368,9 @@
       "Type": "wsdot",
       "Lat": 47.820319,
       "Lng": -122.242741,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405Factoria",
@@ -4403,7 +5379,9 @@
       "Type": "wsdot",
       "Lat": 47.580522,
       "Lng": -122.174436,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405FilbertRd",
@@ -4412,7 +5390,9 @@
       "Type": "wsdot",
       "Lat": 47.825195,
       "Lng": -122.253661,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405LongacresDr",
@@ -4421,7 +5401,9 @@
       "Type": "wsdot",
       "Lat": 47.465223,
       "Lng": -122.241429,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405Main",
@@ -4430,7 +5412,9 @@
       "Type": "wsdot",
       "Lat": 47.608521,
       "Lng": -122.188032,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I405100",
@@ -4439,7 +5423,9 @@
       "Type": "wsdot",
       "Lat": 47.687659,
       "Lng": -122.182058,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405128",
@@ -4448,7 +5434,9 @@
       "Type": "wsdot",
       "Lat": 47.71469,
       "Lng": -122.185176,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405132",
@@ -4457,7 +5445,9 @@
       "Type": "wsdot",
       "Lat": 47.720974,
       "Lng": -122.189075,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40514",
@@ -4466,7 +5456,9 @@
       "Type": "wsdot",
       "Lat": 47.619748,
       "Lng": -122.188536,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405160",
@@ -4475,7 +5467,9 @@
       "Type": "wsdot",
       "Lat": 47.744187,
       "Lng": -122.186778,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405175",
@@ -4484,7 +5478,9 @@
       "Type": "wsdot",
       "Lat": 47.75032,
       "Lng": -122.187035,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405195",
@@ -4493,7 +5489,9 @@
       "Type": "wsdot",
       "Lat": 47.769119,
       "Lng": -122.189035,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40520",
@@ -4502,7 +5500,9 @@
       "Type": "wsdot",
       "Lat": 47.626622,
       "Lng": -122.188734,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40522",
@@ -4511,7 +5511,9 @@
       "Type": "wsdot",
       "Lat": 47.630822,
       "Lng": -122.189535,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40524th",
@@ -4520,7 +5522,9 @@
       "Type": "wsdot",
       "Lat": 47.512048,
       "Lng": -122.198628,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40539",
@@ -4529,7 +5533,9 @@
       "Type": "wsdot",
       "Lat": 47.644108,
       "Lng": -122.186902,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40544",
@@ -4538,7 +5544,9 @@
       "Type": "wsdot",
       "Lat": 47.531522,
       "Lng": -122.197636,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I4054",
@@ -4547,7 +5555,9 @@
       "Type": "wsdot",
       "Lat": 47.612631,
       "Lng": -122.188536,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40559",
@@ -4556,7 +5566,9 @@
       "Type": "wsdot",
       "Lat": 47.653018,
       "Lng": -122.187045,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40570",
@@ -4565,7 +5577,9 @@
       "Type": "wsdot",
       "Lat": 47.665402,
       "Lng": -122.186963,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40585",
@@ -4574,7 +5588,9 @@
       "Type": "wsdot",
       "Lat": 47.677121,
       "Lng": -122.184035,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I405ParkDr",
@@ -4583,7 +5599,9 @@
       "Type": "wsdot",
       "Lat": 47.500822,
       "Lng": -122.19653,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405Oaksdale",
@@ -4592,7 +5610,9 @@
       "Type": "wsdot",
       "Lat": 47.466722,
       "Lng": -122.235631,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40520NB",
@@ -4601,7 +5621,9 @@
       "Type": "wsdot",
       "Lat": 47.593491,
       "Lng": -122.179838,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40520SB",
@@ -4610,7 +5632,9 @@
       "Type": "wsdot",
       "Lat": 47.59271,
       "Lng": -122.180638,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40540",
@@ -4619,7 +5643,9 @@
       "Type": "wsdot",
       "Lat": 47.575344,
       "Lng": -122.175696,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40545",
@@ -4628,7 +5654,9 @@
       "Type": "wsdot",
       "Lat": 47.562196,
       "Lng": -122.186437,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I40564",
@@ -4637,7 +5665,9 @@
       "Type": "wsdot",
       "Lat": 47.544139,
       "Lng": -122.195558,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I4058",
@@ -4646,7 +5676,9 @@
       "Type": "wsdot",
       "Lat": 47.602521,
       "Lng": -122.183035,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405SR167",
@@ -4655,7 +5687,9 @@
       "Type": "wsdot",
       "Lat": 47.467622,
       "Lng": -122.219334,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405SR169",
@@ -4664,7 +5698,9 @@
       "Type": "wsdot",
       "Lat": 47.485092,
       "Lng": -122.195775,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405SR520",
@@ -4673,7 +5709,9 @@
       "Type": "wsdot",
       "Lat": 47.63396,
       "Lng": -122.189599,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405SR522",
@@ -4682,7 +5720,9 @@
       "Type": "wsdot",
       "Lat": 47.758415,
       "Lng": -122.184708,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405SR527",
@@ -4691,7 +5731,9 @@
       "Type": "wsdot",
       "Lat": 47.794521,
       "Lng": -122.214236,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405Southcenter",
@@ -4700,7 +5742,9 @@
       "Type": "wsdot",
       "Lat": 47.462323,
       "Lng": -122.259931,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405SunsetBlvd",
@@ -4709,7 +5753,9 @@
       "Type": "wsdot",
       "Lat": 47.492521,
       "Lng": -122.192135,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405TalbotRd",
@@ -4718,7 +5764,9 @@
       "Type": "wsdot",
       "Lat": 47.469324,
       "Lng": -122.207829,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I405WValleyHwy",
@@ -4727,7 +5775,9 @@
       "Type": "wsdot",
       "Lat": 47.463121,
       "Lng": -122.24783,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR18",
@@ -4736,7 +5786,9 @@
       "Type": "wsdot",
       "Lat": 47.289823,
       "Lng": -122.306035,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR516",
@@ -4745,7 +5797,9 @@
       "Type": "wsdot",
       "Lat": 47.391424,
       "Lng": -122.290937,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5128",
@@ -4754,7 +5808,9 @@
       "Type": "wsdot",
       "Lat": 47.881903,
       "Lng": -122.232726,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I512",
@@ -4763,7 +5819,9 @@
       "Type": "wsdot",
       "Lat": 48.007612,
       "Lng": -122.172663,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I515",
@@ -4772,7 +5830,9 @@
       "Type": "wsdot",
       "Lat": 47.993505,
       "Lng": -122.179491,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I5164",
@@ -4781,7 +5841,9 @@
       "Type": "wsdot",
       "Lat": 47.850312,
       "Lng": -122.256571,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5186",
@@ -4790,7 +5852,9 @@
       "Type": "wsdot",
       "Lat": 47.831171,
       "Lng": -122.263255,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5196",
@@ -4799,7 +5863,9 @@
       "Type": "wsdot",
       "Lat": 47.821665,
       "Lng": -122.277354,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5220",
@@ -4808,7 +5874,9 @@
       "Type": "wsdot",
       "Lat": 47.798155,
       "Lng": -122.314596,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5236",
@@ -4817,7 +5885,9 @@
       "Type": "wsdot",
       "Lat": 47.78472,
       "Lng": -122.31654,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I526",
@@ -4826,7 +5896,9 @@
       "Type": "wsdot",
       "Lat": 48.018934,
       "Lng": -122.174594,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I37",
@@ -4835,7 +5907,9 @@
       "Type": "wsdot",
       "Lat": 48.027755,
       "Lng": -122.176581,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I544",
@@ -4844,7 +5918,9 @@
       "Type": "wsdot",
       "Lat": 47.810421,
       "Lng": -122.299041,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I547",
@@ -4853,7 +5929,9 @@
       "Type": "wsdot",
       "Lat": 47.954922,
       "Lng": -122.200251,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I573NB",
@@ -4862,7 +5940,9 @@
       "Type": "wsdot",
       "Lat": 47.933563,
       "Lng": -122.196241,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I573SB",
@@ -4871,7 +5951,9 @@
       "Type": "wsdot",
       "Lat": 47.933563,
       "Lng": -122.196241,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5BoeingAccRdS",
@@ -4880,7 +5962,9 @@
       "Type": "wsdot",
       "Lat": 47.505555,
       "Lng": -122.279552,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5DuwamishRiver",
@@ -4889,7 +5973,9 @@
       "Type": "wsdot",
       "Lat": 47.491527,
       "Lng": -122.264705,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Everett",
@@ -4898,7 +5984,9 @@
       "Type": "wsdot",
       "Lat": 47.983497,
       "Lng": -122.184791,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Klickitat",
@@ -4907,7 +5995,9 @@
       "Type": "wsdot",
       "Lat": 47.4571,
       "Lng": -122.264,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MetroBusBarn",
@@ -4916,7 +6006,9 @@
       "Type": "wsdot",
       "Lat": 47.747119,
       "Lng": -122.329143,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MLKJrWayNorth",
@@ -4925,7 +6017,9 @@
       "Type": "wsdot",
       "Lat": 47.499231,
       "Lng": -122.273437,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MLKJrWaySouth",
@@ -4934,7 +6028,9 @@
       "Type": "wsdot",
       "Lat": 47.498183,
       "Lng": -122.272641,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5MarineViewDr",
@@ -4943,7 +6039,9 @@
       "Type": "wsdot",
       "Lat": 47.989029,
       "Lng": -122.183245,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5155",
@@ -4952,7 +6050,9 @@
       "Type": "wsdot",
       "Lat": 47.740863,
       "Lng": -122.328676,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5175N",
@@ -4961,7 +6061,9 @@
       "Type": "wsdot",
       "Lat": 47.757084,
       "Lng": -122.328304,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5175S",
@@ -4970,7 +6072,9 @@
       "Type": "wsdot",
       "Lat": 47.75442,
       "Lng": -122.33044,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5195",
@@ -4979,7 +6083,9 @@
       "Type": "wsdot",
       "Lat": 47.763122,
       "Lng": -122.323643,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I5Pacific",
@@ -4988,7 +6094,9 @@
       "Type": "wsdot",
       "Lat": 47.976652,
       "Lng": -122.190668,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5144",
@@ -4997,7 +6105,9 @@
       "Type": "wsdot",
       "Lat": 47.4745,
       "Lng": -122.27,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5178",
@@ -5006,7 +6116,9 @@
       "Type": "wsdot",
       "Lat": 47.443624,
       "Lng": -122.268133,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5188",
@@ -5015,7 +6127,9 @@
       "Type": "wsdot",
       "Lat": 47.432222,
       "Lng": -122.271131,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5200",
@@ -5024,7 +6138,9 @@
       "Type": "wsdot",
       "Lat": 47.420621,
       "Lng": -122.287435,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5216",
@@ -5033,7 +6149,9 @@
       "Type": "wsdot",
       "Lat": 47.408323,
       "Lng": -122.292631,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I5248",
@@ -5042,7 +6160,9 @@
       "Type": "wsdot",
       "Lat": 47.380691,
       "Lng": -122.291569,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5260",
@@ -5051,7 +6171,9 @@
       "Type": "wsdot",
       "Lat": 47.36942,
       "Lng": -122.293836,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5272",
@@ -5060,7 +6182,9 @@
       "Type": "wsdot",
       "Lat": 47.357721,
       "Lng": -122.296834,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5272NBramp",
@@ -5069,7 +6193,9 @@
       "Type": "wsdot",
       "Lat": 47.358714,
       "Lng": -122.295021,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5288",
@@ -5078,7 +6204,9 @@
       "Type": "wsdot",
       "Lat": 47.34332,
       "Lng": -122.292935,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5308",
@@ -5087,7 +6215,9 @@
       "Type": "wsdot",
       "Lat": 47.325934,
       "Lng": -122.294163,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5317",
@@ -5096,7 +6226,9 @@
       "Type": "wsdot",
       "Lat": 47.317922,
       "Lng": -122.295636,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5320",
@@ -5105,7 +6237,9 @@
       "Type": "wsdot",
       "Lat": 47.313809,
       "Lng": -122.29709,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5333",
@@ -5114,7 +6248,9 @@
       "Type": "wsdot",
       "Lat": 47.302154,
       "Lng": -122.301715,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR18South",
@@ -5123,7 +6259,9 @@
       "Type": "wsdot",
       "Lat": 47.286123,
       "Lng": -122.307232,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR529",
@@ -5132,7 +6270,9 @@
       "Type": "wsdot",
       "Lat": 48.040846,
       "Lng": -122.180234,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "I5SR18West",
@@ -5141,7 +6281,9 @@
       "Type": "wsdot",
       "Lat": 47.289823,
       "Lng": -122.310132,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR518",
@@ -5150,7 +6292,9 @@
       "Type": "wsdot",
       "Lat": 47.461721,
       "Lng": -122.264631,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR526",
@@ -5159,7 +6303,9 @@
       "Type": "wsdot",
       "Lat": 47.91575,
       "Lng": -122.207508,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR528",
@@ -5168,7 +6314,9 @@
       "Type": "wsdot",
       "Lat": 48.050032,
       "Lng": -122.184649,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5SR599",
@@ -5177,7 +6325,9 @@
       "Type": "wsdot",
       "Lat": 47.4831,
       "Lng": -122.271,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5Southcenter",
@@ -5186,7 +6336,9 @@
       "Type": "wsdot",
       "Lat": 47.4649,
       "Lng": -122.266,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I5US2",
@@ -5195,7 +6347,9 @@
       "Type": "wsdot",
       "Lat": 47.980417,
       "Lng": -122.188143,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90133",
@@ -5204,7 +6358,9 @@
       "Type": "wsdot",
       "Lat": 47.580323,
       "Lng": -122.166532,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90150",
@@ -5213,7 +6369,9 @@
       "Type": "wsdot",
       "Lat": 47.579721,
       "Lng": -122.14153,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90161",
@@ -5222,7 +6380,9 @@
       "Type": "wsdot",
       "Lat": 47.579165,
       "Lng": -122.134918,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I9018",
@@ -5231,7 +6391,9 @@
       "Type": "wsdot",
       "Lat": 47.590218,
       "Lng": -122.300324,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90192",
@@ -5240,7 +6402,9 @@
       "Type": "wsdot",
       "Lat": 47.559324,
       "Lng": -122.088535,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I9076",
@@ -5249,7 +6413,9 @@
       "Type": "wsdot",
       "Lat": 47.589976,
       "Lng": -122.237874,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90-80WB",
@@ -5258,7 +6424,9 @@
       "Type": "wsdot",
       "Lat": 47.588,
       "Lng": -122.231689,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90BellevueWay",
@@ -5267,7 +6435,9 @@
       "Type": "wsdot",
       "Lat": 47.579361,
       "Lng": -122.1906,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90EHighrise",
@@ -5276,7 +6446,9 @@
       "Type": "wsdot",
       "Lat": 47.589637,
       "Lng": -122.252256,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90FrontSt",
@@ -5285,7 +6457,9 @@
       "Type": "wsdot",
       "Lat": 47.540707,
       "Lng": -122.037733,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90SR900",
@@ -5294,7 +6468,9 @@
       "Type": "wsdot",
       "Lat": 47.549021,
       "Lng": -122.062434,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90ShorewoodW",
@@ -5303,7 +6479,9 @@
       "Type": "wsdot",
       "Lat": 47.58212,
       "Lng": -122.219732,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90WHighrise",
@@ -5312,7 +6490,9 @@
       "Type": "wsdot",
       "Lat": 47.590167,
       "Lng": -122.2836,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90WMercerWay",
@@ -5321,7 +6501,9 @@
       "Type": "wsdot",
       "Lat": 47.590259,
       "Lng": -122.249742,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "I90Midspan",
@@ -5330,7 +6512,9 @@
       "Type": "wsdot",
       "Lat": 47.589883,
       "Lng": -122.270241,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR16715",
@@ -5339,7 +6523,9 @@
       "Type": "wsdot",
       "Lat": 47.321524,
       "Lng": -122.241428,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR167353",
@@ -5348,7 +6534,9 @@
       "Type": "wsdot",
       "Lat": 47.281732,
       "Lng": -122.258497,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR16737",
@@ -5357,7 +6545,9 @@
       "Type": "wsdot",
       "Lat": 47.341223,
       "Lng": -122.243831,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR167194",
@@ -5366,7 +6556,9 @@
       "Type": "wsdot",
       "Lat": 47.427583,
       "Lng": -122.221514,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR167212",
@@ -5375,7 +6567,9 @@
       "Type": "wsdot",
       "Lat": 47.414217,
       "Lng": -122.221394,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR167222",
@@ -5384,7 +6578,9 @@
       "Type": "wsdot",
       "Lat": 47.401486,
       "Lng": -122.224346,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR167SR516",
@@ -5393,7 +6589,9 @@
       "Type": "wsdot",
       "Lat": 47.377924,
       "Lng": -122.244434,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR181GradyWay",
@@ -5402,7 +6600,9 @@
       "Type": "wsdot",
       "Lat": 47.463823,
       "Lng": -122.245732,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR202-204",
@@ -5411,7 +6611,9 @@
       "Type": "wsdot",
       "Lat": 47.656052,
       "Lng": -122.070537,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR509216",
@@ -5420,7 +6622,9 @@
       "Type": "wsdot",
       "Lat": 47.407545,
       "Lng": -122.32506,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR50996",
@@ -5429,7 +6633,9 @@
       "Type": "wsdot",
       "Lat": 47.516746,
       "Lng": -122.330107,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR509Cloverdale",
@@ -5438,7 +6644,9 @@
       "Type": "wsdot",
       "Lat": 47.526673,
       "Lng": -122.333752,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR516204SE",
@@ -5447,7 +6655,9 @@
       "Type": "wsdot",
       "Lat": 47.358124,
       "Lng": -122.06981,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR51846",
@@ -5456,7 +6666,9 @@
       "Type": "wsdot",
       "Lat": 47.465623,
       "Lng": -122.276632,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR51851",
@@ -5465,7 +6677,9 @@
       "Type": "wsdot",
       "Lat": 47.463323,
       "Lng": -122.270132,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR518Airport",
@@ -5474,7 +6688,9 @@
       "Type": "wsdot",
       "Lat": 47.463723,
       "Lng": -122.295134,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR518154",
@@ -5483,7 +6699,9 @@
       "Type": "wsdot",
       "Lat": 47.465402,
       "Lng": -122.300173,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR518SR99",
@@ -5492,7 +6710,9 @@
       "Type": "wsdot",
       "Lat": 47.463021,
       "Lng": -122.285132,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520108N",
@@ -5501,7 +6721,9 @@
       "Type": "wsdot",
       "Lat": 47.640335,
       "Lng": -122.196667,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520108S",
@@ -5510,7 +6732,9 @@
       "Type": "wsdot",
       "Lat": 47.640335,
       "Lng": -122.196667,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520130",
@@ -5519,7 +6743,9 @@
       "Type": "wsdot",
       "Lat": 47.63012,
       "Lng": -122.167135,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520148",
@@ -5528,7 +6754,9 @@
       "Type": "wsdot",
       "Lat": 47.633737,
       "Lng": -122.144422,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520148EBrab",
@@ -5537,7 +6765,9 @@
       "Type": "wsdot",
       "Lat": 47.636857,
       "Lng": -122.142934,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520148EBramp",
@@ -5546,7 +6776,9 @@
       "Type": "wsdot",
       "Lat": 47.63312,
       "Lng": -122.143085,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52035",
@@ -5555,7 +6787,9 @@
       "Type": "wsdot",
       "Lat": 47.644608,
       "Lng": -122.286359,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52041",
@@ -5564,7 +6798,9 @@
       "Type": "wsdot",
       "Lat": 47.644102,
       "Lng": -122.279481,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52084",
@@ -5573,7 +6809,9 @@
       "Type": "wsdot",
       "Lat": 47.63616,
       "Lng": -122.229013,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52088",
@@ -5582,7 +6820,9 @@
       "Type": "wsdot",
       "Lat": 47.63766,
       "Lng": -122.223096,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52092",
@@ -5591,7 +6831,9 @@
       "Type": "wsdot",
       "Lat": 47.640622,
       "Lng": -122.217734,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520BellevueWay",
@@ -5600,7 +6842,9 @@
       "Type": "wsdot",
       "Lat": 47.642543,
       "Lng": -122.20243,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520EastBr",
@@ -5609,7 +6853,9 @@
       "Type": "wsdot",
       "Lat": 47.63888,
       "Lng": -122.248402,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520Foster",
@@ -5618,7 +6864,9 @@
       "Type": "wsdot",
       "Lat": 47.644887,
       "Lng": -122.290239,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520I405",
@@ -5627,7 +6875,9 @@
       "Type": "wsdot",
       "Lat": 47.632123,
       "Lng": -122.186934,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520MidBr",
@@ -5636,7 +6886,9 @@
       "Type": "wsdot",
       "Lat": 47.640073,
       "Lng": -122.25479,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520RedmondWay",
@@ -5645,7 +6897,9 @@
       "Type": "wsdot",
       "Lat": 47.669621,
       "Lng": -122.107832,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520EHighrise",
@@ -5654,7 +6908,9 @@
       "Type": "wsdot",
       "Lat": 47.637594,
       "Lng": -122.241775,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR520WHighrise",
@@ -5663,7 +6919,9 @@
       "Type": "wsdot",
       "Lat": 47.64211,
       "Lng": -122.269162,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52261",
@@ -5672,7 +6930,9 @@
       "Type": "wsdot",
       "Lat": 47.758121,
       "Lng": -122.262034,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52273",
@@ -5681,7 +6941,9 @@
       "Type": "wsdot",
       "Lat": 47.75732,
       "Lng": -122.243737,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR522153",
@@ -5690,7 +6952,9 @@
       "Type": "wsdot",
       "Lat": 47.739617,
       "Lng": -122.289549,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR522165",
@@ -5699,7 +6963,9 @@
       "Type": "wsdot",
       "Lat": 47.748242,
       "Lng": -122.284798,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR522SR202",
@@ -5708,7 +6974,9 @@
       "Type": "wsdot",
       "Lat": 47.75872,
       "Lng": -122.161835,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52584",
@@ -5717,7 +6985,9 @@
       "Type": "wsdot",
       "Lat": 47.922006,
       "Lng": -122.300167,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52592",
@@ -5726,7 +6996,9 @@
       "Type": "wsdot",
       "Lat": 47.915141,
       "Lng": -122.297395,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR527186",
@@ -5735,7 +7007,9 @@
       "Type": "wsdot",
       "Lat": 47.828514,
       "Lng": -122.209118,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR527196",
@@ -5744,7 +7018,9 @@
       "Type": "wsdot",
       "Lat": 47.820274,
       "Lng": -122.207457,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR52719Dr",
@@ -5753,7 +7029,9 @@
       "Type": "wsdot",
       "Lat": 47.814321,
       "Lng": -122.207537,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR53140",
@@ -5762,7 +7040,9 @@
       "Type": "wsdot",
       "Lat": 48.152402,
       "Lng": -122.174439,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR53143",
@@ -5771,7 +7051,9 @@
       "Type": "wsdot",
       "Lat": 48.152315,
       "Lng": -122.172149,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR599EMarg",
@@ -5780,7 +7062,9 @@
       "Type": "wsdot",
       "Lat": 47.497599,
       "Lng": -122.287018,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR599MetroBusBrn",
@@ -5789,7 +7073,9 @@
       "Type": "wsdot",
       "Lat": 47.491851,
       "Lng": -122.28219,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": false
     },
     {
       "Id": "SR599133",
@@ -5798,7 +7084,9 @@
       "Type": "wsdot",
       "Lat": 47.48602,
       "Lng": -122.275831,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR9180",
@@ -5807,7 +7095,9 @@
       "Type": "wsdot",
       "Lat": 47.835489,
       "Lng": -122.124427,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR9Market",
@@ -5816,7 +7106,9 @@
       "Type": "wsdot",
       "Lat": 47.997865,
       "Lng": -122.105511,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR9SLkStevensRd",
@@ -5825,7 +7117,9 @@
       "Type": "wsdot",
       "Lat": 47.974864,
       "Lng": -122.10255,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR9-SR204",
@@ -5834,7 +7128,9 @@
       "Type": "wsdot",
       "Lat": 48.002906,
       "Lng": -122.106316,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR9VernonRd",
@@ -5843,7 +7139,9 @@
       "Type": "wsdot",
       "Lat": 48.004951,
       "Lng": -122.106605,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99154",
@@ -5852,7 +7150,9 @@
       "Type": "wsdot",
       "Lat": 47.465825,
       "Lng": -122.288861,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99216",
@@ -5861,7 +7161,9 @@
       "Type": "wsdot",
       "Lat": 47.408241,
       "Lng": -122.298235,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99102",
@@ -5870,7 +7172,9 @@
       "Type": "wsdot",
       "Lat": 47.508682,
       "Lng": -122.301994,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99SR516",
@@ -5879,7 +7183,9 @@
       "Type": "wsdot",
       "Lat": 47.393823,
       "Lng": -122.295034,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "SR99SR599",
@@ -5888,7 +7194,9 @@
       "Type": "wsdot",
       "Lat": 47.50002,
       "Lng": -122.297332,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "US2EbeySlough",
@@ -5897,7 +7205,9 @@
       "Type": "wsdot",
       "Lat": 47.978109,
       "Lng": -122.140244,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     },
     {
       "Id": "US2HomeacresRd",
@@ -5906,7 +7216,9 @@
       "Type": "wsdot",
       "Lat": 47.97809,
       "Lng": -122.1775,
-      "Neighborhood": "Regional Highways"
+      "Neighborhood": "Regional Highways",
+      "StreamActive": false,
+      "ImageActive": true
     }
   ]
 }

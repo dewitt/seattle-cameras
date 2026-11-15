@@ -41,9 +41,12 @@ clone works without running anything.
 
 `scripts/fetch_cameras.py` queries 16 SDOT endpoints (`WowsaUrl`,
 `GetAllNeighborhoods`, `Data?zoomId=16&type=2`, and 13 neighborhood queries)
-using a bounded thread pool (`max_workers=4`). Run it when you want SDOT's
-current camera list, and avoid running it in a loop or during routine UI
-tests.
+using `max_workers=4`, then probes Wowza `playlist.m3u8` endpoints for
+`StreamActive` and `images.wsdot.wa.gov/nw/` snapshots for `ImageActive`
+using `max_workers=8` to pre-populate initial offline and snapshot-fallback
+state. It intentionally avoids bulk-probing `www.seattle.gov` thumbnails so
+SDOT's origin server is never flooded. Avoid running it in a loop or during
+routine UI tests.
 
 ## Conventions
 
@@ -105,12 +108,15 @@ inferring it, and give the command or check that showed it.
 
 Each of these came from a bug or empirical constraint discovered here.
 
-Check `video.canPlayType("application/vnd.apple.mpegurl")` before
-`Hls.isSupported()` in both `openModal()` and `attachWallHls()`. Safari
-supports Media Source Extensions, so `Hls.isSupported()` is true there as
-well, and routing Safari through `hls.js` leaves the video stuck at 0:00
-with no frame. When `canPlayType` is truthy the page sets `video.src`
-directly, and `hls.js` is used only in browsers without native HLS.
+Use `shouldUseNativeHls(video)` instead of checking
+`video.canPlayType("application/vnd.apple.mpegurl")` directly in
+`openModal()` and `attachWallHls()`. Safari supports Media Source Extensions
+so `Hls.isSupported()` is true there as well, and routing Safari through
+`hls.js` leaves video stuck at `0:00` with no frame. However, Chrome 157+
+also returns `maybe` for `application/vnd.apple.mpegurl` while throwing
+`PipelineStatus::DEMUXER_ERROR_COULD_NOT_PARSE` on SDOT streams under native
+`<video>` playback, so non-WebKit browsers must stay on `hls.js` unless `Hls`
+is unavailable.
 
 Keep `muted` on both modal and Wall `<video>` elements and keep the
 `video.play()` call immediately after `hls.attachMedia()`. Calling `play()`
@@ -140,19 +146,36 @@ Scope SDOT's `352x240` maintenance-graphic thumbnail check strictly to
 `cam.Type === "sdot"`. Genuine WSDOT highway images often measure around
 `335x209` to `352x240` and would falsely hide if checked unconditionally.
 
-Keep thumbnail failures independent of stream offline status. Thumbnails
-come from `www.seattle.gov` and video from the Wowza host, and one can
-work while the other fails (for example, when SDOT redirects a missing JPEG
-to `x9045.xml`). An `sdot` camera is marked offline only when its stream
-fails to start within 12 seconds or hits fatal HLS errors.
+Keep thumbnail URLs cacheable on initial load and respect the separation
+between `www.seattle.gov` images and Wowza streams. Never append
+`?t=Date.now()` to initial grid image URLs: `www.seattle.gov` sits behind
+CloudFront (`cache-control: public, max-age=300`), and unique query strings
+bypass the CDN and overload SDOT's F5 BigIP origin with hundreds of
+simultaneous origin requests. Initial load uses bare URLs (`thumbEpoch = 0`),
+manual refresh uses a 60-second bucket for `sdot` (`freshStillEpoch`), and
+failed grid images retry at most once after `3500ms`.
+
+Keep HLS stream fallback layered ahead of offline state. Many SDOT cameras
+return `404` on Wowza while still serving fresh JPEGs, and some working
+streams redirect their JPEG to `x9045.xml` or serve a `352x240` maintenance
+card. When an `sdot` stream returns `404`, exhausts `NETWORK_ERROR` retries
+(staggered at `1000 * hlsRetries` ms), or hits the 12-second startup timeout,
+fall back automatically to `STILL · 15S` snapshot playback (`startModalStill`
+or `attachWallStill`) before marking the camera offline. Mark an active-stream
+camera offline only after both video and snapshot fail, and mark snapshot-only
+(`StreamActive === false`) or `wsdot` cameras offline immediately if their
+image fails to load.
 
 Keep Wall view capped at 4 or 6 live tiles and tear down Wall streams while
 `#modal` is open (also delay Wall resumption until Picture-in-Picture exits).
-The shared Wowza host (`streamlock.net`) speaks HTTP/1.1, where browsers
-enforce a 6-connection-per-origin limit; opening extra streams saturates the
-socket pool and stalls modal playback. Note that Wowza's Sectigo TLS
-certificate rotates periodically (current cert expires January 2027), and
-`WowsaUrl` returns the active streaming hostname at fetch time.
+Always call `hls.destroy()` or `tileHls.destroy()` before resetting `<video>`
+(`pause()`, `removeAttribute`, `load()`) so `hls.js` media source cleanup
+cannot fire spurious error events. The shared Wowza host (`streamlock.net`)
+speaks HTTP/1.1, where browsers enforce a 6-connection-per-origin limit;
+opening extra streams saturates the socket pool and stalls modal playback.
+Note that Wowza's Sectigo TLS certificate rotates periodically (current cert
+expires January 2027), and `WowsaUrl` returns the active streaming hostname at
+fetch time.
 
 Map view uses Esri `World_Street_Map` raster tiles in `{z}/{y}/{x}`
 order (row `y` before column `x`) with a CSS inversion filter for dark mode.

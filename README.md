@@ -40,10 +40,11 @@ All views share the header controls:
   is active.
 - The star button on a thumbnail pins or unpins a favorite.
 - The density switch toggles between compact and standard card sizes.
-- A thumbnail that fails to load, or an SDOT thumbnail matching SDOT's
-  `352x240` maintenance graphic, renders as a placeholder until the image
-  recovers. A camera is marked offline when its stream or still fails in the
-  viewer.
+- An SDOT camera with an active HLS stream whose thumbnail fails or matches
+  SDOT's `352x240` maintenance graphic shows a preview placeholder while
+  remaining playable for live video. A camera is marked `OFFLINE` when both
+  its stream and snapshot fail, or when a `wsdot` or snapshot-only camera
+  fails to load an image.
 
 ### Map
 
@@ -64,17 +65,24 @@ All views share the header controls:
 - Switch to Wall view (`W`) to monitor 4 (`2x2`) or 6 (`3x2`) cameras
   simultaneously, paged through the active filter or one of the bridge and
   highway presets.
-- SDOT cameras play live HLS video in each tile while WSDOT highway cameras
-  refresh their snapshots every 15 seconds.
-- Opening the full player modal pauses the Wall streams until the modal closes
-  so the modal player has full connection headroom to the Wowza host.
+- SDOT cameras with active streams play live HLS video in each tile while
+  `wsdot` cameras and snapshot-only SDOT cameras refresh snapshots every 15
+  seconds. Failed HLS tiles fall back to 15-second snapshots in place before
+  marking a camera offline.
+- The default Seattle preset skips cameras flagged as snapshot-only at build
+  time. Opening the full player modal pauses the Wall streams until the
+  modal closes so the modal player has full connection headroom to the Wowza
+  host.
 
 ### Player
 
-Clicking any camera opens the player modal. SDOT (`sdot`) cameras play live
-H.264 video over HLS at the highest bitrate stream, starting muted so browsers
-allow autoplay. WSDOT (`wsdot`) cameras display a still snapshot that
-refreshes automatically every 15 seconds.
+Clicking any camera opens the player modal. Active SDOT (`sdot`) cameras play
+live H.264 video over HLS at the highest bitrate stream, starting muted so
+browsers allow autoplay. If an SDOT stream returns `404` or fails to load,
+the player switches automatically to a 15-second `STILL · 15S` snapshot
+stream and marks the camera offline only if the snapshot fails too. WSDOT
+(`wsdot`) cameras display a still snapshot that refreshes automatically every
+15 seconds.
 
 Below the video frame, cameras within 3 km appear as clickable pills labeled
 `Same spot` (within 35 m) or with distance and compass direction. Footer
@@ -162,7 +170,10 @@ python3 scripts/fetch_cameras.py    # refresh data/cameras.json from SDOT
 python3 scripts/generate_html.py    # rebuild index.html from the JSON
 ```
 
-The current dataset embeds 656 unique cameras (395 `sdot` and 261 `wsdot`).
+The current dataset embeds 656 unique cameras (395 `sdot` and 261 `wsdot`),
+recording `StreamActive` from Wowza HLS manifest checks and `ImageActive`
+from WSDOT snapshot checks (`www.seattle.gov` thumbnails are left unprobed at
+build time and cached via CloudFront on initial load).
 `data/cameras.json` and `index.html` are committed so a fresh clone works
 immediately without running either script.
 
