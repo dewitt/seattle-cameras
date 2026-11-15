@@ -256,6 +256,12 @@ def main() -> None:
         ),
     )
 
+    if len(cams) < 100:
+        sys.exit(
+            f"error: expected >= 100 cameras from SDOT APIs, got {len(cams)}; "
+            "leaving data/cameras.json unchanged"
+        )
+
     by_type: dict[str, int] = {}
     for c in cams:
         by_type[c["Type"]] = by_type.get(c["Type"], 0) + 1

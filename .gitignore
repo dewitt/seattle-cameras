@@ -5,3 +5,6 @@ __pycache__/
 # Nix / direnv
 .direnv/
 result
+
+# GitHub Pages staging
+_site/

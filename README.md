@@ -14,9 +14,10 @@ highway snapshots.
 
 ## Using the page
 
-Open `index.html` in a browser, for example with `open index.html`. The page
-needs network access for camera snapshots, live HLS video, Esri map tiles,
-and two libraries loaded from jsDelivr (`hls.js` and Leaflet).
+Open <https://dewitt.github.io/seattle-cameras/> or open `index.html`
+locally in a browser, for example with `open index.html`. The page needs
+network access for camera snapshots, live HLS video, Esri map tiles, and two
+libraries loaded from jsDelivr (`hls.js` and Leaflet).
 
 All views share the header controls:
 
@@ -176,6 +177,12 @@ from WSDOT snapshot checks (`www.seattle.gov` thumbnails are left unprobed at
 build time and cached via CloudFront on initial load).
 `data/cameras.json` and `index.html` are committed so a fresh clone works
 immediately without running either script.
+
+[The GitHub Pages workflow](.github/workflows/deploy-pages.yml) rebuilds and
+deploys `index.html` to <https://dewitt.github.io/seattle-cameras/> on pushes
+to `main`, manual dispatch, and once daily at `13:17` UTC (`17 13 * * *`). It
+runs `scripts/fetch_cameras.py` first and falls back to the checked-in
+`data/cameras.json` if SDOT's API is unreachable.
 
 `flake.nix` provides a dev shell with `python3` and `curl`, entered with
 `nix develop`. Running `direnv allow` loads it automatically on `cd`. Any

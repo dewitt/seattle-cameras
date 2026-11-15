@@ -58,8 +58,12 @@ Integrity hashes and `defer` initialization wired on `DOMContentLoaded`:
   lack native HLS playback.
 - `leaflet@1.9.4` (`leaflet.css` and `leaflet.js`) for the interactive map.
 
-Anything added beyond those needs a reason written down in the commit. There
-is no CI, and GitHub Actions or linting should only be added if asked for.
+Anything added beyond those needs a reason written down in the commit.
+[The Pages workflow](.github/workflows/deploy-pages.yml) builds
+`_site/index.html` on `ubuntu-latest` (free for public repositories) and
+deploys it to GitHub Pages on pushes to `main`, `workflow_dispatch`, and a
+daily `17 13 * * *` cron without committing back to `main`. Keep any local
+changes reflected in committed `data/cameras.json` and `index.html` as well.
 
 ## Testing a change
 
